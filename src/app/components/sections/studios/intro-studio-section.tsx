@@ -34,11 +34,11 @@ const IntroStudiosSection = React.forwardRef<HTMLElement, IntroStudiosSectionPro
   }, [])
 
   const images = [
-    { src: "/CUSTIN03.png", className: "h-80 w-80" },
-    { src: "/CUSTIN07.png", className: "h-60 w-80" },
-    { src: "/CUSTIN08.png", className: "h-60 w-80" },
-    { src: "/CUSTIN16.png", className: "h-80 w-80" },
-    { src: "/CUSTIN14.png", className: "h-60 w-80" },
+    { src: "/custin03.png", className: "h-80 w-80" },
+    { src: "/custin07.png", className: "h-60 w-80" },
+    { src: "/custin08.png", className: "h-60 w-80" },
+    { src: "/custin16.png", className: "h-80 w-80" },
+    { src: "/custin14.png", className: "h-60 w-80" },
   ]
 
   // Repeat images 3x for seamless infinite scroll
