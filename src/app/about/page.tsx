@@ -1,9 +1,13 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import MainLayout from "../components/layouts/main-layout";
-import UnderConstruction from "../components/sections/under-construction";
 import Footer from "../components/ui/footer";
 import { useNavigation } from "../components/hooks/use-navigation";
+import IntroAboutSection from "../components/sections/about/intro-about-section";
+import OurOValuesSection from "../components/sections/about/our-o-value-section";
+import OurOriginsSection from "../components/sections/about/our-origins-section";
+import OurInformationTeamSection from "../components/sections/about/our-information-team-section";
+import TeamSection from "../components/sections/about/our-team-section";
 
 
 
@@ -14,8 +18,12 @@ export default function ContactPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-       <UnderConstruction />
-        <Footer />
+      <IntroAboutSection/>
+      <OurOValuesSection/>
+      <OurOriginsSection/>
+      <OurInformationTeamSection/>
+      <TeamSection/>
+      <Footer />
     </MainLayout>
   );
 }

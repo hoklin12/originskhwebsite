@@ -6,7 +6,7 @@ export default function IntroPortfolioSection() {
     <section id="intro" className="bg-white m-0 p-0 px-8">
       <div className="w-full flex justify-center items-center mb-20">
         <Image
-          src="/originslogo.png"
+          src="/originlogo.png"
           alt="Origins Logo"
           width={1250}
           height={1250}
