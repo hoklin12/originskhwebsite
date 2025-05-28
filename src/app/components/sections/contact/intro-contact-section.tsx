@@ -34,7 +34,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
         {/* Social Links */}
         <div className="flex justify-center space-x-4 mt-8 max-w-7xl mx-auto">
           <a
-            href="https://t.me/yourusername"
+            href="https://t.me/originskh"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
@@ -44,7 +44,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
           </a>
 
           <a
-            href="https://facebook.com/yourusername"
+            href="https://facebook.com/originsstudioskh"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
@@ -54,7 +54,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
           </a>
 
           <a
-            href="https://instagram.com/yourusername"
+            href="https://instagram.com/originskh"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
