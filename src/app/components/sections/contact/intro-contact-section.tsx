@@ -81,8 +81,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             <span className="ml-4 text-lg font-normal">12:32 AM</span>
           </h3>
           <div className="flex justify-between text-base text-gray-800 mb-4">
-            <p>3529 N Williams Ave., Portland, OR 97227</p>
-            <p className="ml-4">(503) 928-3188</p>
+            <p>3529 N Williams Ave., Portland, OR 97227 (503) 928-3188</p>
           </div>
           <a
             href="#"

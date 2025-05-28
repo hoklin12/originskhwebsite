@@ -8,6 +8,7 @@ import OurOValuesSection from "../components/sections/about/our-o-value-section"
 import OurOriginsSection from "../components/sections/about/our-origins-section";
 import OurInformationTeamSection from "../components/sections/about/our-information-team-section";
 import TeamSection from "../components/sections/about/our-team-section";
+import ServiceSection from "../components/sections/service-seaction";
 
 
 
@@ -20,6 +21,7 @@ export default function ContactPage() {
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
       <IntroAboutSection/>
       <OurOValuesSection/>
+      <ServiceSection/>
       <OurOriginsSection/>
       <OurInformationTeamSection/>
       <TeamSection/>

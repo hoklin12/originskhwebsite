@@ -41,21 +41,7 @@ export default function OurServicesSection() {
   const currentSpace = spaces[activeSpace];
   return (
     <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-8">
-      {/* Split screen background */}
-      <div className="absolute inset-0 flex">
-        <motion.div
-          className="w-1/2 bg-orange-50"
-          initial={{ x: "-100%" }}
-          animate={{ x: activeSpace === "event" ? 0 : "-100%" }}
-          transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-        />
-        <motion.div
-          className="w-1/2 bg-gray-50"
-          initial={{ x: "100%" }}
-          animate={{ x: activeSpace === "studio" ? 0 : "100%" }}
-          transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-        />
-      </div>
+
       {/* Content container */}
       <div className="relative z-10 container mx-auto px-4 ">
         {/* OUR STUDIOS header and Space selector */}

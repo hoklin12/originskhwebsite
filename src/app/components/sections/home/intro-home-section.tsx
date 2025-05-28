@@ -19,10 +19,15 @@ export default function IntroHomeSection() {
       />
     </Link>
       </div>
-      <VideoSection
+        <VideoSection
           videoSrc="/videoplayback.mp4"
           id="intro"
-        />    
+          showControls={true}
+          autoPlay={false}
+          muted={false}
+          loop={false}
+        />
+
       <div className="text-center mb-4">
         <h2 className="text-5xl font-normal mb-6 text-black" style={{ fontFamily: 'DM Serif Text' }}>
           We are a creative agency
@@ -33,7 +38,7 @@ export default function IntroHomeSection() {
 
       <div className="text-center">
         <Link
-          href="#portfolio"
+          href="/portfolio"
           className="bg-orange-500 text-white rounded-full px-8 py-4 font-light inline-flex items-center gap-3 hover:bg-orange-600 transition-colors duration-300"
         >
           View All Work

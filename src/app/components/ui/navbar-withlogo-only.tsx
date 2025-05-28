@@ -55,7 +55,7 @@ export default function NavBarWithLogoOnly({
       style={{ background: navBackground }}
       className="fixed top-0 left-0 right-0 z-50 py-6"
     >
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-col items-center">
           <div className="w-full flex justify-between items-center">
@@ -80,7 +80,7 @@ export default function NavBarWithLogoOnly({
             {/* Center Logo */}
             <div className="flex items-center justify-center">
               <Link href="/">
-                <Image src="/originslogo.png" alt="Origins Logo" width={200} height={200} />
+                <Image src="/originlogo.png" alt="Origins Logo" width={200} height={200} />
               </Link>
             </div>
 
@@ -107,7 +107,7 @@ export default function NavBarWithLogoOnly({
         {/* Mobile Navigation */}
         <div className="md:hidden flex justify-between items-center">
           <Link href="/">
-            <Image src="/originslogo.png" alt="Origins Logo" width={150} height={150} />
+            <Image src="/originlogo.png" alt="Origins Logo" width={150} height={150} />
           </Link>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-black">
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

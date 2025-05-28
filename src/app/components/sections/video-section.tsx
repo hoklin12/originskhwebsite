@@ -1,5 +1,3 @@
-
-
 'use client';
 import { useRef, useState, useEffect } from 'react';
 import { Play, Pause } from 'lucide-react';
@@ -7,6 +5,7 @@ import React from 'react';
 
 interface VideoSectionProps {
   videoSrc: string;
+  thumbnailSrc?: string; // New prop for thumbnail image
   videoType?: string;
   id?: string;
   className?: string;
@@ -30,6 +29,7 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
   (
     {
       videoSrc,
+      thumbnailSrc,
       videoType = 'video/mp4',
       id = 'video-section',
       className = '',
@@ -165,20 +165,34 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
           onMouseEnter={() => setShowControlsOverlay(true)}
           onMouseLeave={() => setShowControlsOverlay(false)}
         >
-          <video
-            ref={videoRef}
-            className={`w-full h-auto object-cover cursor-pointer ${videoClassName}`}
-            autoPlay={autoPlay}
-            loop={loop}
-            muted={muted}
-            playsInline={playsInline}
-            onClick={togglePlay}
-            preload="auto"
-            controlsList="nodownload noplaybackrate nofullscreen"
+          {/* Video Container */}
+          <div
+            className="relative w-full h-auto"
+            style={{
+              backgroundImage: thumbnailSrc ? `url(${thumbnailSrc})` : undefined,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              opacity: isPlaying ? '0' : '1',
+              transition: 'opacity 0.5s ease-in-out',
+            }}
           >
-            <source src={videoSrc} type={videoType} />
-            Your browser does not support the video tag.
-          </video>
+            {/* Video Element */}
+            <video
+              ref={videoRef}
+              className={`w-full h-auto object-cover cursor-pointer ${videoClassName}`}
+              autoPlay={autoPlay}
+              loop={loop}
+              muted={muted}
+              playsInline={playsInline}
+              onClick={togglePlay}
+              preload="auto"
+              controlsList="nodownload noplaybackrate nofullscreen"
+            >
+              <source src={videoSrc} type={videoType} />
+              Your browser does not support the video tag.
+            </video>
+          </div>
 
           {showControls && (
             <div
@@ -254,3 +268,4 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
 VideoSection.displayName = 'VideoSection';
 
 export default VideoSection;
+

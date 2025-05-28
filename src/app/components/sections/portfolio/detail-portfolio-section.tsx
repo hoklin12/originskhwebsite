@@ -115,6 +115,12 @@ export default function DetailPortfolioSection() {
           </div>
         </div>
 
+          <div className="w-full md:w-full text-left py-16 px-4">
+            <h1 className="text-4xl md:text-5xl text-black mb-8 font-normal">
+              We create beautiful, functional, technology-forward work that elevates and unifies experiences across all brand surfaces.            
+              </h1>
+          </div>
+
         <div
           className={`${displayMode === 'STACK' ? 'space-y-8' : 'grid md:grid-cols-3 gap-2'} w-full mx-auto px-4 mt-8 ${
             isMobile && currentImages.length > 3 && !showAll ? 'mb-4' : ''

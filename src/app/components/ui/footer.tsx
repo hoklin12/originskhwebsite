@@ -38,9 +38,9 @@ export default function Footer() {
   ];
 
   const followAlongLinks = [
-    { name: "Instagram", href: "https://instagram.com/instrument" },
-    { name: "LinkedIn", href: "https://linkedin.com/company/instrument" },
-    { name: "Twitter", href: "https://twitter.com/instrument" },
+    { name: "Instagram", href: "https://instagram.com/" },
+    { name: "LinkedIn", href: "https://linkedin.com/" },
+    { name: "Twitter", href: "https://twitter.com/" },
   ];
 
   // Responsive font and spacing classes based on viewport size
@@ -52,7 +52,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white sm:py-12 lg:py-16 text-gray-500 overflow-x-hidden ">
-      <div className="container mx-auto px-8 lg:px-10">
+      <div className="container mx-auto">
         {/* Main content - Responsive grid for all screen sizes */}
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8">
         </div>
@@ -155,7 +155,7 @@ export default function Footer() {
               Privacy Policy
             </Link>
           </div>
-          <span className="text-xs sm:text-sm">© 2025, Instrument. All Rights Reserved.</span>
+          <span className="text-xs sm:text-sm">© 2025, Origins Studios. All Rights Reserved.</span>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Plus, Minus, ArrowRight } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import Image from 'next/image'; // Make sure this is imported at the top
 
 
@@ -136,21 +136,6 @@ const OurOValuesSection = React.forwardRef<HTMLElement>((props, ref) => {
             </div>
         </div>
         </div>
-
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-          {/* Text Section */}
-          <div className="w-full md:w-1/2 text-left">
-            <h3 className="text-2xl md:text-3xl text-black mb-8">
-              Work of the highest caliber doesn’t happen by accident. We leverage unique perspectives and our collective knowledge to build experiences that make an impact and move the heart.
-            </h3>
-            <button className="flex items-center py-3 px-6 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
-              Our Services <ArrowRight size={18} className="ml-2" />
-            </button>
-          </div>
-        </div>
-      </div>
-      
     </section>
   );
 });

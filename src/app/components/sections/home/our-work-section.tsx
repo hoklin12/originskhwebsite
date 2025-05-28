@@ -1,3 +1,5 @@
+
+
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -8,6 +10,7 @@ export default function OurWorkSection() {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Handle mobile resize
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
@@ -24,27 +27,27 @@ export default function OurWorkSection() {
 
   const imageMap: { [key: string]: { src: string; caption: string; hashtags: string; description: string }[] } = {
     ALL: [
-      { src: '/car-tshirt.JPEG', caption: 'Placeholder 1', hashtags: '#ALL', description: 'Description for Placeholder 1' },
-      { src: '/car-tshirt2.JPEG', caption: 'Placeholder 2', hashtags: '#ALL', description: 'Description for Placeholder 2' },
-      { src: '/hyundai-custin.JPEG', caption: 'Placeholder 3', hashtags: '#ALL', description: 'Description for Placeholder 3' },
-      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Description for Procore' },
+      { src: '/car-tshirt.jpeg', caption: 'T-Shirt Campaign', hashtags: '#ALL', description: 'Description for T-Shirt Campaign' },
+      { src: '/car-tshirt2.jpeg', caption: 'Creative Concept', hashtags: '#ALL', description: 'This was shot in Phnom Penh.' },
+      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Brand identity design' },
+      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Brand identity design' },
       { src: '/stargazerXPic7V2.png', caption: 'Placeholder 2', hashtags: '#BRAND', description: 'Description for Placeholder 2' },
       { src: '/stargazerXPic3v4.png', caption: 'Placeholder 3', hashtags: '#BRAND', description: 'Description for Placeholder 3' },
     ],
     BRAND: [
-      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Description for Procore' },
+      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Brand identity design' },
       { src: '/stargazerXPic7V2.png', caption: 'Placeholder 2', hashtags: '#BRAND', description: 'Description for Placeholder 2' },
       { src: '/stargazerXPic3v4.png', caption: 'Placeholder 3', hashtags: '#BRAND', description: 'Description for Placeholder 3' },
     ],
     MARKETING: [
-      { src: '/staria.jpeg', caption: 'Mercury', hashtags: '#MARKETING', description: 'Description for Mercury' },
-      { src: '/staria.jpeg', caption: 'Microsoft', hashtags: '#MARKETING', description: 'Description for Microsoft' },
-      { src: '/staria.jpeg', caption: 'Google Shopping', hashtags: '#MARKETING', description: 'Description for Google Shopping' },
+      { src: '/staria.jpeg', caption: 'Mercury', hashtags: '#MARKETING', description: 'Marketing strategy case study' },
+      { src: '/staria.jpeg', caption: 'Microsoft', hashtags: '#MARKETING', description: 'Campaign rollout plan' },
+      { src: '/staria.jpeg', caption: 'Google Shopping', hashtags: '#MARKETING', description: 'Digital ad concept' },
     ],
     PRODUCT: [
-      { src: '/staria.jpeg', caption: 'Placeholder 1', hashtags: '#PRODUCT', description: 'Description for Placeholder 1' },
-      { src: '/staria.jpeg', caption: 'Placeholder 2', hashtags: '#PRODUCT', description: 'Description for Placeholder 2' },
-      { src: '/staria.jpeg', caption: 'Placeholder 3', hashtags: '#PRODUCT', description: 'Description for Placeholder 3' },
+      { src: '/staria.jpeg', caption: 'Product Shot 1', hashtags: '#PRODUCT', description: 'Packaging and product photography' },
+      { src: '/staria.jpeg', caption: 'Product Shot 2', hashtags: '#PRODUCT', description: 'Lifestyle product shoot' },
+      { src: '/staria.jpeg', caption: 'Product Shot 3', hashtags: '#PRODUCT', description: 'Studio lighting setup' },
     ],
   };
 
@@ -74,9 +77,7 @@ export default function OurWorkSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const currentImages = imageMap[activeCategory] || [
-    { src: '/placeholder3.jpg', caption: 'No caption', hashtags: '', description: 'No description' },
-  ];
+  const currentImages = imageMap[activeCategory] || [];
 
   const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
 
@@ -98,7 +99,8 @@ export default function OurWorkSection() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
                     ${active
                       ? 'bg-black text-white'
-                      : 'bg-gray-300 text-black hover:bg-black hover:text-white'}
+                      : 'bg-gray-300 text-black hover:bg-black hover:text-white'
+                    }
                   `}
                 >
                   {item.label}
@@ -115,31 +117,31 @@ export default function OurWorkSection() {
         >
           {imagesToShow.map((image, index) => {
             const uniqueKey = `${activeCategory}-${index}-${image.src}`;
+            const isFlipped = flippedImages.has(uniqueKey);
+
             return (
               <div key={uniqueKey} className="relative aspect-square perspective-1000">
-
                 <div
                   className={`relative h-full w-full transition-transform duration-700 transform-style-preserve-3d ${
-                    flippedImages.has(uniqueKey) ? 'rotate-y-180' : ''
-                  }`}
+                    isFlipped ? 'rotate-y-180' : ''
+                  } cursor-pointer`}
                   onClick={() => handleFlip(uniqueKey)}
                 >
                   {/* Front Side */}
                   <div className="absolute w-full h-full backface-hidden">
                     <Image
                       src={image.src}
-                      alt={`${image.caption}`}
+                      alt={image.caption}
                       fill
-                      className="object-cover rounded-lg shadow-md cursor-pointer"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      className="object-cover rounded-lg shadow-md"
                     />
                   </div>
 
                   {/* Back Side */}
-                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-gray-200 rounded-lg flex flex-col items-center justify-center text-center p-4 text-black">
-                    <p className="font-bold">{image.caption}</p>
-                    <p className="text-sm text-gray-600">{image.hashtags}</p>
-                    <p className="mt-2">{image.description}</p>
+                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-gray-100 rounded-lg flex flex-col items-center justify-center p-4 text-center text-black">
+                    <h3 className="font-bold">{image.caption}</h3>
+                    <p className="text-sm text-gray-600 mt-1">{image.hashtags}</p>
+                    <p className="mt-2 text-sm">{image.description}</p>
                   </div>
                 </div>
               </div>
@@ -147,6 +149,7 @@ export default function OurWorkSection() {
           })}
         </div>
 
+        {/* Show More Button (Mobile Only) */}
         {isMobile && currentImages.length > 3 && (
           <div className="text-center mt-6">
             <button
@@ -162,13 +165,14 @@ export default function OurWorkSection() {
                 stroke="currentColor"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
           </div>
         )}
+        
       </div>
     </section>
   );
