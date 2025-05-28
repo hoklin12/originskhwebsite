@@ -16,7 +16,6 @@ export default function OurClientsSection() {
     { name: 'klat', src: '/klat.png' },
     { name: 'Tree', src: '/tree.png' },
     { name: 'Tuns', src: '/tuns.png' },
-    { name: 'Tunsai5', src: '/tunsai5.jpeg' },
   ];
 
   // Duplicate the list to create seamless loop

@@ -1,9 +1,9 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
-import { useNavigation } from "../hooks/use-navigation";
-import MainLayout from "../layouts/main-layout";
-import Footer from "../ui/footer";
-import IntroContactSection from "../sections/contact/intro-contact-section";
+import { useNavigation } from "../components/hooks/use-navigation";
+import MainLayout from "../components/layouts/main-layout";
+import Footer from "../components/ui/footer";
+import IntroContactSection from "../components/sections/contact/intro-contact-section";
 
 
 export default function ContactPage() {

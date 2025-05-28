@@ -1,6 +1,6 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import React from 'react';
 
 const IntroStudiosSection = React.forwardRef<HTMLElement>((props, ref) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -9,11 +9,12 @@ const IntroStudiosSection = React.forwardRef<HTMLElement>((props, ref) => {
     const container = scrollRef.current;
     if (!container) return;
 
+    // Start scroll in the middle section for seamless effect
     container.scrollLeft = container.scrollWidth / 3;
+    const third = container.scrollWidth / 3;
 
-    const onScroll = () => {
-      const third = container.scrollWidth / 3;
-
+    // Handle boundary wrapping
+    const checkScrollBoundaries = () => {
       if (container.scrollLeft <= 1) {
         container.scrollLeft = third + 1;
       } else if (container.scrollLeft >= third * 2 - 1) {
@@ -21,20 +22,22 @@ const IntroStudiosSection = React.forwardRef<HTMLElement>((props, ref) => {
       }
     };
 
-    container.addEventListener('scroll', onScroll, { passive: true });
-    return () => container.removeEventListener('scroll', onScroll);
+    container.addEventListener('scroll', checkScrollBoundaries, { passive: true });
+
+    return () => {
+      container.removeEventListener('scroll', checkScrollBoundaries);
+    };
   }, []);
 
   const images = [
-    { src: '/custin03.png', width: 320, height: 320 },
-    { src: '/custin07.png', width: 320, height: 240 },
-    { src: '/custin08.png', width: 320, height: 240 },
-    { src: '/custin16.png', width: 320, height: 320 },
-    { src: '/custin14.png', width: 320, height: 240 },
-    { src: '/custin13.png', width: 320, height: 320 },
-    { src: '/custin15.png', width: 320, height: 240 },
+    { src: '/CUSTIN03.png', className: 'h-80 w-80' },
+    { src: '/CUSTIN07.png', className: 'h-60 w-80' },
+    { src: '/CUSTIN08.png', className: 'h-60 w-80' },
+    { src: '/CUSTIN16.png', className: 'h-80 w-80' },
+    { src: '/CUSTIN14.png', className: 'h-60 w-80' },
   ];
 
+  // Repeat images 3x for seamless infinite scroll
   const tripled = [...images, ...images, ...images];
 
   return (
@@ -55,21 +58,19 @@ const IntroStudiosSection = React.forwardRef<HTMLElement>((props, ref) => {
       </div>
 
       <div className="pt-16">
+        {/* Manual-infinite scrollable images */}
         <div
           ref={scrollRef}
           className="overflow-x-auto whitespace-nowrap space-x-6 flex items-center scrollbar-hide"
           style={{ scrollBehavior: 'auto' }}
         >
           {tripled.map((img, idx) => (
-            <div key={idx} className="inline-block rounded-2xl shadow-lg overflow-hidden">
-              <Image
-                src={img.src}
-                alt={`Project ${idx}`}
-                width={img.width}
-                height={img.height}
-                className="rounded-2xl object-cover"
-              />
-            </div>
+            <img
+              key={idx}
+              src={img.src}
+              alt={`Project ${idx}`}
+              className={`inline-block rounded-2xl shadow-lg ${img.className}`}
+            />
           ))}
         </div>
       </div>
@@ -89,8 +90,5 @@ const IntroStudiosSection = React.forwardRef<HTMLElement>((props, ref) => {
     </section>
   );
 });
-
-// ✅ Add display name for ESLint compliance
-IntroStudiosSection.displayName = 'IntroStudiosSection';
 
 export default IntroStudiosSection;
