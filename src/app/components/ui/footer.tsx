@@ -60,7 +60,7 @@ export default function Footer() {
           {/* Newsletter subscription - Full width on small screens, 1/3 on larger */}
           <div className="sm:col-span-2 lg:col-span-4 max-w-lg">
             <h2 className={`${getFontSize('2xl')} font-semibold text-black mb-4 sm:mb-6`}>
-              Keep up to date with our quarterly newsletter, "You've got mail."
+              Keep up to date with our quarterly newsletter, &ldquo;You&rsquo;ve got mail.&rdquo;
             </h2>
             <div className="mt-4 sm:mt-6">
               <input
@@ -161,8 +161,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-
-
-
-
