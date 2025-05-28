@@ -4,6 +4,9 @@ import MainLayout from "./components/layouts/main-layout";
 import Footer from "./components/ui/footer";
 import IntroHomeSection from "./components/sections/home/intro-home-section";
 import { useNavigation } from "./components/hooks/use-navigation";
+import OurWorkSection from "./components/sections/home/our-work-section";
+import OurStudiosSection from "./components/sections/home/our-studios-section";
+import OurClientsSection from "./components/sections/home/our-clients-section";
 
 export default function HomePage() {
   const { activeSection, scrollToSection } = useNavigation();
@@ -13,10 +16,10 @@ export default function HomePage() {
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
       <IntroHomeSection/>
-      {/* <OurWorkSection/>
+      <OurWorkSection/>
       <OurStudiosSection/>
       <OurClientsSection/>
-      <RelatedReading/> */}
+      {/* <RelatedReading/> */}
       <Footer />
     </MainLayout>
   );
