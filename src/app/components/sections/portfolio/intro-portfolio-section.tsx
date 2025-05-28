@@ -8,8 +8,8 @@ export default function IntroPortfolioSection() {
         <Image
           src="/originlogo.png"
           alt="Origins Logo"
-          width={1250}
-          height={1250}
+          width={1350}
+          height={1350}
           className="object-contain hidden md:block"
           priority
         />

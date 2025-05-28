@@ -53,9 +53,10 @@ export default function NavBarWithLogoOnly({
       animate={{ y: isVisible ? 0 : -80, opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.3 }}
       style={{ background: navBackground }}
-      className="fixed top-0 left-0 right-0 z-50 py-6"
+      className="fixed top-0 left-0 right-0 z-50 py-6 px-12" // <-- px-12 applied here
     >
-      <div className="container mx-auto px-4">
+      {/* Removed container & padding */}
+      <div className="mx-auto w-full max-w-screen-xl"> 
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-col items-center">
           <div className="w-full flex justify-between items-center">
@@ -68,7 +69,9 @@ export default function NavBarWithLogoOnly({
                     key={link.href}
                     href={link.href}
                     className={`px-4 py-2 transition-colors duration-200 rounded-full text-xs font-medium ${
-                      isActive ? "bg-orange-400 text-white" : `${linkColor} hover:bg-orange-400 hover:text-white`
+                      isActive
+                        ? "bg-orange-400 text-white"
+                        : `${linkColor} hover:bg-orange-400 hover:text-white`
                     }`}
                   >
                     {link.label}
@@ -80,7 +83,12 @@ export default function NavBarWithLogoOnly({
             {/* Center Logo */}
             <div className="flex items-center justify-center">
               <Link href="/">
-                <Image src="/originlogo.png" alt="Origins Logo" width={200} height={200} />
+                <Image
+                  src="/originlogo.png"
+                  alt="Origins Logo"
+                  width={200}
+                  height={200}
+                />
               </Link>
             </div>
 
@@ -93,7 +101,9 @@ export default function NavBarWithLogoOnly({
                     key={link.href}
                     href={link.href}
                     className={`px-4 py-2 transition-colors duration-200 rounded-full text-xs font-medium ${
-                      isActive ? "bg-orange-400 text-white" : `${linkColor} hover:bg-orange-400 hover:text-white`
+                      isActive
+                        ? "bg-orange-400 text-white"
+                        : `${linkColor} hover:bg-orange-400 hover:text-white`
                     }`}
                   >
                     {link.label}
@@ -107,7 +117,12 @@ export default function NavBarWithLogoOnly({
         {/* Mobile Navigation */}
         <div className="md:hidden flex justify-between items-center">
           <Link href="/">
-            <Image src="/originlogo.png" alt="Origins Logo" width={150} height={150} />
+            <Image
+              src="/originlogo.png"
+              alt="Origins Logo"
+              width={150}
+              height={150}
+            />
           </Link>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-black">
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

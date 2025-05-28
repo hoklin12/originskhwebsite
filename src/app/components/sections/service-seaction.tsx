@@ -1,12 +1,16 @@
-"use client"
+"use client";
 
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ServiceSection() {
   return (
-    <section id="journey" className="py-15 md:py-24 bg-white relative overflow-hidden px-8">
-      <div className="container relative z-10 px-4 mx-auto">
+    <section
+      id="journey"
+      className="py-15 md:py-24 bg-white relative overflow-hidden px-12"
+    >
+      {/* Full-width layout with inner content max-width */}
+      <div className="mx-auto w-full max-w-screen-xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 translate-x-5">
           {/* Text Section */}
           <div className="w-full md:w-[75%] text-left">
@@ -24,5 +28,5 @@ export default function ServiceSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

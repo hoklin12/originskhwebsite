@@ -10,13 +10,14 @@ export default function OurServicesSection() {
   const [expandedImage, setExpandedImage] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: false, margin: "-100px" });
+
   const spaces = {
     event: {
       title: "Event Space.",
       subtitle: "Suitable for small seminar/meeting up to 30 pax.",
       description: [
         "½ Day or Full-day Events",
-        "A minimalist space keeps the attention of your attendees on the things that matter",
+        "A minimalist space keeps the attention of your attendees on the things that matter"
       ],
       specs:
         "50m² (Main Event Space) + 20m² (For Catering/Networking), Fully-equipped with Air-conditioning, Projector, LED Lighting, PA Sound System, Parking Space for up to 10 Scooters + 1 Car",
@@ -29,7 +30,7 @@ export default function OurServicesSection() {
       subtitle: "Re-surfacable Studio Backdrop with Diffuser Scrim Lighting.",
       description: [
         "Hourly, 1⁄2 Day or Full-day Rental",
-        "Unlike traditional studio backdrop with a fixed curve, our studio features a flat, re-surfacable backdrop wall that opens up a world of creative flexibility",
+        "Unlike traditional studio backdrop with a fixed curve, our studio features a flat, re-surfacable backdrop wall that opens up a world of creative flexibility"
       ],
       specs:
         "Flooring/ Scrim: 4.0m X 2.6m (10.4m2) Backdrop Wall: 4.0m X 2.9m (11.6m2) Hoist-able Diffuser Scrim Lighting Truss (Max Load 25kg)",
@@ -38,16 +39,16 @@ export default function OurServicesSection() {
       color: "black",
     },
   };
-  const currentSpace = spaces[activeSpace];
-  return (
-    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-8">
 
+  const currentSpace = spaces[activeSpace];
+
+  return (
+    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-12">
       {/* Content container */}
-      <div className="relative z-10 container mx-auto px-4 ">
+      <div className="relative z-10 w-full max-w-screen-xl mx-auto">
         {/* OUR STUDIOS header and Space selector */}
         <div>
-          <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8">
-          </div>
+          <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
           {/* Space selector */}
           <div className="flex justify-start items-center mb-8">
             <span className="text-gray-500 font-semibold uppercase mr-4">SPACE:</span>
@@ -79,6 +80,7 @@ export default function OurServicesSection() {
             </div>
           </div>
         </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSpace}
@@ -188,6 +190,7 @@ export default function OurServicesSection() {
                 </motion.button>
               </motion.div>
             </motion.div>
+
             {/* Right column - Images */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -247,6 +250,7 @@ export default function OurServicesSection() {
             </motion.div>
           </motion.div>
         </AnimatePresence>
+
         {/* Space comparison */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -323,6 +327,7 @@ export default function OurServicesSection() {
           </div>
         </motion.div>
       </div>
+
       {/* Video modal */}
       <AnimatePresence>
         {isVideoPlaying && (
@@ -355,6 +360,7 @@ export default function OurServicesSection() {
           </motion.div>
         )}
       </AnimatePresence>
+
       {/* Image modal */}
       <AnimatePresence>
         {expandedImage !== null && (

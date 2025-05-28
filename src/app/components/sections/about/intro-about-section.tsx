@@ -33,11 +33,7 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
             Meet our talented team of creators and technologists.
           </h3>
           <p className="text-lg text-black leading-relaxed">
-            We’re a diverse group of designers, strategists, engineers, and
-            wordsmiths who make things people love to use. Over the last 18
-            years, we’ve helped the world’s most progressive brands solve
-            problems, seize opportunities, and create lasting growth for their
-            business. Together, we shape a better future.
+                At our company, we bring together a talented team of designers, strategists, and innovators dedicated to crafting exceptional creative concepts. For over 18 years, we’ve partnered with forward-thinking brands to tackle challenges, harness opportunities, and drive sustainable growth. Together, we’re building a more inspiring future.
           </p>
         </div>
       </div>
