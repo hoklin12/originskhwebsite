@@ -14,7 +14,6 @@ interface NavigationBarProps {
 }
 
 export default function NavBarWithLogoOnly({
-  activeSection,
   navBackground,
   linkColor = "bg-gray-200",
 }: NavigationBarProps) {

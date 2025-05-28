@@ -16,7 +16,7 @@ export default function StudiosPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <IntroStudiosSection/>
+      <IntroStudiosSection />
       <DetailStudiosSection/>
       <OurServicesSection/>
       <GetInTouchSection/>
