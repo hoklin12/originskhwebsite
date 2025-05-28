@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-// import VideoSection from '@/src/components/video-section';
+import VideoSection from '../video-section';
 
 export default function IntroHomeSection() {
   return (
@@ -19,10 +19,10 @@ export default function IntroHomeSection() {
       />
     </Link>
       </div>
-      {/* <VideoSection
+      <VideoSection
           videoSrc="/videoplayback.mp4"
           id="intro"
-        />     */}
+        />    
       <div className="text-center mb-4">
         <h2 className="text-5xl font-normal mb-6 text-black" style={{ fontFamily: 'DM Serif Text' }}>
           We are a creative agency
