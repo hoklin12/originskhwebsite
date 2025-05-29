@@ -231,6 +231,7 @@ export default function OurServicesSection() {
                       transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                       className="relative overflow-hidden group cursor-pointer rounded-2xl"
                       onClick={() => setExpandedImage(index + 1)}
+                      
                     >
                       <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
                         <ExternalLink className="text-white h-5 w-5" />
@@ -242,6 +243,7 @@ export default function OurServicesSection() {
                         height={200}
                         unoptimized
                         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110 rounded-2xl"
+                        priority
                       />
                     </motion.div>
                   ))}
