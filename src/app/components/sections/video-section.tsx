@@ -5,7 +5,7 @@ import React from 'react';
 
 interface VideoSectionProps {
   videoSrc: string;
-  thumbnailSrc?: string; // New prop for thumbnail image
+  thumbnailSrc?: string;
   videoType?: string;
   id?: string;
   className?: string;
@@ -93,7 +93,6 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
       if (!video) return;
 
       const handleLoadedMetadata = () => {
-        console.log('Metadata loaded:', video.duration);
         if (!isNaN(video.duration)) {
           setDuration(video.duration);
         }
@@ -111,7 +110,6 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
       video.addEventListener('play', handlePlay);
       video.addEventListener('pause', handlePause);
 
-      // Fallback retry mechanism
       let retryCount = 0;
       const retryLoad = setInterval(() => {
         if (!isNaN(video.duration) && video.duration > 0) {
@@ -165,34 +163,37 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
           onMouseEnter={() => setShowControlsOverlay(true)}
           onMouseLeave={() => setShowControlsOverlay(false)}
         >
-          {/* Video Container */}
-          <div
-            className="relative w-full h-auto"
-            style={{
-              backgroundImage: thumbnailSrc ? `url(${thumbnailSrc})` : undefined,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              opacity: isPlaying ? '0' : '1',
-              transition: 'opacity 0.5s ease-in-out',
-            }}
+          {/* Thumbnail Overlay */}
+          {thumbnailSrc && (
+            <div
+              className="absolute inset-0 z-10"
+              style={{
+                backgroundImage: `url(${thumbnailSrc})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                opacity: isPlaying ? 0 : 1,
+                transition: 'opacity 0.5s ease-in-out',
+                pointerEvents: 'none',
+              }}
+            />
+          )}
+
+          {/* Video Element */}
+          <video
+            ref={videoRef}
+            className={`relative w-full h-auto object-cover cursor-pointer ${videoClassName}`}
+            autoPlay={autoPlay}
+            loop={loop}
+            muted={muted}
+            playsInline={playsInline}
+            onClick={togglePlay}
+            preload="auto"
+            controlsList="nodownload noplaybackrate nofullscreen"
           >
-            {/* Video Element */}
-            <video
-              ref={videoRef}
-              className={`w-full h-auto object-cover cursor-pointer ${videoClassName}`}
-              autoPlay={autoPlay}
-              loop={loop}
-              muted={muted}
-              playsInline={playsInline}
-              onClick={togglePlay}
-              preload="auto"
-              controlsList="nodownload noplaybackrate nofullscreen"
-            >
-              <source src={videoSrc} type={videoType} />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+            <source src={videoSrc} type={videoType} />
+            Your browser does not support the video tag.
+          </video>
 
           {showControls && (
             <div
@@ -268,4 +269,3 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
 VideoSection.displayName = 'VideoSection';
 
 export default VideoSection;
-
