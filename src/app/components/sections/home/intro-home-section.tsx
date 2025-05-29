@@ -21,10 +21,10 @@ export default function IntroHomeSection() {
         </Link>
       </div>
       <VideoSection
-        videoSrc="/videoplayback.mp4"
+        videoSrc="/origins-showreel-2025.mp4"
         id="intro"
         showControls={true}
-        autoPlay={false}
+        autoPlay={true}
         muted={false}
         loop={false}
       />

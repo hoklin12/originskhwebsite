@@ -3,7 +3,8 @@ import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
 import MainLayout from "../components/layouts/main-layout";
 import Footer from "../components/ui/footer";
-import UnderConstruction from "../components/sections/under-construction";
+import IntroHiringSection from "../components/sections/hiring/intro-hiring-section";
+import FindUrJobSection from "../components/sections/hiring/find-ur-job-section";
 
 
 export default function HiringPage() {
@@ -13,7 +14,8 @@ export default function HiringPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <UnderConstruction />
+      <IntroHiringSection/>
+      <FindUrJobSection/>
       <Footer />
     </MainLayout>
   );
