@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,12 +11,14 @@ interface NavigationBarProps {
   activeSection: string;
   navBackground?: string;
   linkColor?: string;
+  centerType?: "logo" | "cta"; // New prop
 }
 
 export default function NavigationBar({
   activeSection,
   navBackground = "transparent",
   linkColor = "bg-gray-200",
+  centerType = "logo", // Default to showing logo
 }: NavigationBarProps) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
@@ -87,7 +88,7 @@ export default function NavigationBar({
 
             {/* Center Logo or CTA */}
             <div className="flex items-center justify-center">
-              {showLogo ? (
+              {centerType === "logo" || showLogo ? (
                 <Link href="/">
                   <Image
                     src="/originlogo.png"
@@ -104,7 +105,9 @@ export default function NavigationBar({
                     href="/join"
                     className="inline-flex items-center ml-2 text-black hover:text-white transition-colors"
                   >
-                    CALL US <ArrowRight className="ml-1 h-3 w-3" />
+                    CALL US
+                    {/* Optional: Hide arrow when no logo */}
+                    <ArrowRight className="ml-1 h-3 w-3" />
                   </Link>
                 </div>
               )}

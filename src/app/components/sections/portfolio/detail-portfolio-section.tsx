@@ -38,16 +38,16 @@ export default function DetailPortfolioSection() {
         description: "Description for Placeholder 1",
       },
       {
-        src: "/back.png",
-        caption: "Placeholder 2",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 2",
-      },
-      {
         src: "/custin08.png",
         caption: "Placeholder 3",
         hashtags: "#ALL",
         description: "Description for Placeholder 3",
+      },
+      {
+        src: "/back.png",
+        caption: "Placeholder 2",
+        hashtags: "#ALL",
+        description: "Description for Placeholder 2",
       },
       {
         src: "/dog.png",

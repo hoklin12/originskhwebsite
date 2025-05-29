@@ -16,7 +16,7 @@ export default function IntroHomeSection() {
         showControls={true}
         autoPlay={true}
         muted={false}
-        loop={false}
+        loop={true}
       />
 
       <div className="text-center mb-4 px-8">

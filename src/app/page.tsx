@@ -14,7 +14,7 @@ export default function HomePage() {
   const navBackground = useTransform(scrollY, [0, 100], ["rgb(255, 255, 255)", "rgba(255, 251, 251, 0.9)"]);
 
   return (
-    <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
+    <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection} >
       <IntroHomeSection/>
       <OurWorkSection/>
       <OurStudiosSection/>

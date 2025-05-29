@@ -26,7 +26,7 @@ export default function OurWorkSection() {
   const imageMap: { [key: string]: { src: string; caption: string; hashtags: string; description: string }[] } = {
     ALL: [
       {
-        src: "/smart.png",
+        src: "/SMART.png",
         caption: "T-Shirt Campaign",
         hashtags: "#ALL",
         description: "none",
@@ -56,7 +56,7 @@ export default function OurWorkSection() {
         description: "none",
       },
       {
-        src: "/smart.png",
+        src: "/SMART.png",
         caption: "NONE",
         hashtags: "#CREATIVE",
         description: "none",

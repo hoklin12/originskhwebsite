@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OriginsKh",
+  title: "Origins Studios",
   description: "Created by origins stuidos team",
 };
 

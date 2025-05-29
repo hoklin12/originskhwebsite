@@ -1,30 +1,31 @@
 
-
+"use client";
 
 import type React from "react";
 import { MotionValue } from "framer-motion";
-import NavBarWithLogoOnly from "../ui/navbar-withlogo-only";
+import NavigationBar from "../ui/navigation-bar";
 
-interface SectionLayoutProps {
+interface SecondaryLayoutProps {
   children: React.ReactNode;
   activeSection: string;
-  scrollToSection: (sectionId: string) => void;
+  scrollToSection?: (sectionId: string) => void; // optional if not used here
   navBackground: MotionValue<string>;
+  centerType?: "logo" | "cta"; // 👈 New prop
 }
 
 export default function SecondaryLayout({
   children,
   activeSection,
-  scrollToSection,
   navBackground,
-}: SectionLayoutProps) {
+  centerType = "logo", // Default to showing logo
+}: SecondaryLayoutProps) {
   return (
     <div className="relative bg-white text-black">
-      <NavBarWithLogoOnly
+      <NavigationBar
         activeSection={activeSection}
-        scrollToSection={scrollToSection}
-        navBackground={navBackground.get()} // <-- get the raw string value
-        />
+        navBackground={navBackground.get()}
+        centerType={centerType} // Pass centerType to NavigationBar
+      />
       <main className="pt-24">{children}</main>
     </div>
   );
