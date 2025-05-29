@@ -53,7 +53,7 @@ export default function NavBarWithLogoOnly({
       animate={{ y: isVisible ? 0 : -80, opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.3 }}
       style={{ background: navBackground }}
-      className="fixed top-0 left-0 right-0 z-50 py-6 px-12" // <-- px-12 applied here
+      className="fixed top-0 left-0 right-0 z-50 py-6 px-8" // <-- px-12 applied here
     >
       {/* Removed container & padding */}
       <div className="mx-auto w-full max-w-screen-xl"> 

@@ -2,17 +2,11 @@
 import { ArrowRight } from "lucide-react";
 import VideoSection from "../video-section";
 import React from "react";
-import SlideshowSection from "../slideshow-section";
+import Link from "next/link";
 
 // Base component — no props or ref used
 const IntroHiringSection: React.FC = () => {
-  const images = [
-    { src: "/placeholder3.jpg", className: "h-80 w-80" },
-    { src: "/placeholder3.jpg", className: "h-60 w-80" },
-    { src: "/placeholder3.jpg", className: "h-60 w-80" },
-    { src: "/placeholder3.jpg", className: "h-80 w-80" },
-    { src: "/placeholder3.jpg", className: "h-60 w-80" },
-  ];
+
 
   return (
     <section id="intro" className="min-h-screen bg-white m-0 p-0 pt-32">
@@ -20,10 +14,10 @@ const IntroHiringSection: React.FC = () => {
 
       <div className="text-center mb-4 px-12">
         <h2
-          className="text-8xl font-serif mb-6 text-black"
+          className="text-7xl font-serif mb-6 text-black"
           style={{ fontFamily: 'DM Serif Text' }}
         >
-          Be yourself. Work wherever.
+          Be genuine. Work on your terms.
         </h2>
       </div>
 
@@ -33,11 +27,13 @@ const IntroHiringSection: React.FC = () => {
             className="text-3xl font-light text-black mr-4"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            Rather cut right to the chase?
+            Ready to get straight to it?
           </p>
-          <button className="flex items-center py-3 px-8 bg-black text-white rounded-full font-light hover:bg-orange-600 transition-colors text-base">
-            View open roles <ArrowRight size={18} className="ml-2" />
-          </button>
+          <Link href="#findUrJob">
+            <button className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
+              View open roles <ArrowRight size={18} className="ml-2" />
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -53,35 +49,31 @@ const IntroHiringSection: React.FC = () => {
       <div className="bg-white py-16 px-12 pb-48">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <h3 className="text-3xl font-normal text-black leading-tight">
-            Show up, make the best work of your career, and live the life you want.
+            Own your moment, create your masterpiece, and live on your own terms.
           </h3>
           <div className="text-lg text-black leading-relaxed">
             <p>
-              From day one, we’ve been committed to making Instrument a place where we can individually and
-              collectively thrive. To us, this means putting flexibility and sustainability first. We live
-              and work where we want, work reasonable hours, take vacations when we need them, and cultivate
-              a welcoming, inclusive environment.
+              At ORIGINS, we’re not just building brands—we’re shaping culture, telling stories, and crafting experiences that leave a lasting impact. As a creative agency driven by purpose and passion, we bring together strategy, design, technology, and storytelling to help brands revive their dreams.
               <br />
               <br />
-              All of these practices are rooted in our values, and are central to what makes Instrument so unique among the rest.
-              At Instrument, we take your career development seriously. We promote a culture of mentorship in every discipline,
-              and strive to see each employee reach their full potential, and do the best work of their career.
+              We’re always looking for bold thinkers, passionate creators, and hands-on collaborators to join our journey.
             </p>
             <div className="flex justify-start space-x-4 mt-8 max-w-7xl mx-auto">
-              <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
-                About Us<ArrowRight size={18} className="ml-2" />
-              </button>
-              <button className="flex items-center px-6 py-3 bg-gray-200 text-black rounded-full font-bold hover:bg-gray-300 transition-colors text-sm md:text-base">
-                Our Work<ArrowRight size={18} className="ml-2" />
-              </button>
+              <Link href="/about">
+                <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+                  About Us <ArrowRight size={18} className="ml-2" />
+                </button>
+              </Link>
+              <Link href="/portfolio">
+                <button className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
+                  Our Work <ArrowRight size={18} className="ml-2" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <div>
-        <SlideshowSection images={images} />
-      </div>
     </section>
   );
 };

@@ -24,9 +24,9 @@ const IntroStudiosSection = React.forwardRef<HTMLElement, IntroStudiosSectionPro
           className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-normal mb-6 text-black"
           style={{ fontFamily: "DM Serif Text" }}
         >
-          We are a creative agency
+          We revive visions and bring 
           <br />
-          helping brands revive their dreams
+          brands’ aspirations to life.
         </h2>
       </div>
 
@@ -43,8 +43,7 @@ const IntroStudiosSection = React.forwardRef<HTMLElement, IntroStudiosSectionPro
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-full text-left">
             <h3 className="text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-600 mb-8 font-normal">
-              To create brand experiences of the highest caliber, we take a multi-disciplinary approach to our work by
-              seamlessly integrating strategy, creative, and technology, and staying in close partnership with our clients.
+              We empower brands to revive their dreams by uniting creative vision, production excellence, and innovative concepts—all under one roof. Through close collaboration, we guide our clients in making bold decisions, seizing opportunities, and crafting memorable experiences that resonate. Together, we transform ideas into powerful realities that elevate brands and captivate audiences.
             </h3>
           </div>
         </div>

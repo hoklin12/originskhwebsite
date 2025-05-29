@@ -2,10 +2,10 @@
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
 import MainLayout from "../components/layouts/main-layout";
-import IntroPortfolioSection from "../components/sections/portfolio/intro-portfolio-section";
 import DetailPortfolioSection from "../components/sections/portfolio/detail-portfolio-section";
 import Footer from "../components/ui/footer";
 import ServiceSection from "../components/sections/service-seaction";
+import LogoOriginsSection from "../components/sections/logo-origins-section";
 
 
 export default function PortfolioPage() {
@@ -15,7 +15,7 @@ export default function PortfolioPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <IntroPortfolioSection/>
+      <LogoOriginsSection/>
       <DetailPortfolioSection/>
       <ServiceSection/>
       <Footer />

@@ -22,7 +22,7 @@ const TEAM_MEMBERS = [
 
 const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section id="studios" ref={ref} className="py-24 bg-white px-12">
+    <section id="studios" ref={ref} className="py-24 bg-white px-8">
       {/* Full width wrapper with inner max-width */}
       <div className="mx-auto w-full max-w-screen-xl">
         {/* Team Grid */}

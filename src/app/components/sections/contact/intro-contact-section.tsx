@@ -74,17 +74,20 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
           loop={false}
         />
 
-        {/* Location Info */}
         <div className="flex flex-col justify-center px-12">
           <h3 className="text-2xl font-bold mb-4">
-            Portland, OR{' '}
-            <span className="ml-4 text-lg font-normal">12:32 AM</span>
+            Cambodia, Phnom Penh
+            {/* <span className="ml-4 text-lg font-normal">12:32 AM</span> */}
           </h3>
-          <div className="flex justify-between text-base text-gray-800 mb-4">
-            <p>3529 N Williams Ave., Portland, OR 97227 (503) 928-3188</p>
+
+          <div className="flex flex-col space-y-2 text-base text-gray-800 mb-4">
+            <p>109E0 Street 494, Phnom Penh 12300</p>
+            <p>(+65) 8098 0312</p>
           </div>
+
           <a
-            href="#"
+            href="https://maps.app.goo.gl/y4c7bSJRXQinG9Cd8 "
+            target="_blank"
             className="text-sm font-bold text-black hover:text-orange-600 transition-colors"
           >
             Get Directions →

@@ -43,7 +43,7 @@ export default function OurServicesSection() {
   const currentSpace = spaces[activeSpace];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-12">
+    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-8">
       {/* Content container */}
       <div className="relative z-10 w-full max-w-screen-xl mx-auto">
         {/* OUR STUDIOS header and Space selector */}

@@ -1,89 +1,117 @@
-
-
-'use client';
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+"use client"
+import { useState, useEffect } from "react"
+import Image from "next/image"
 
 export default function OurWorkSection() {
-  const [activeCategory, setActiveCategory] = useState('ALL');
-  const [flippedImages, setFlippedImages] = useState<Set<string>>(new Set());
-  const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("ALL")
+  const [flippedImages, setFlippedImages] = useState<Set<string>>(new Set())
+  const [showAll, setShowAll] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   // Handle mobile resize
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    const checkMobile = () => setIsMobile(window.innerWidth < 640)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   const navItems = [
-    { label: 'ALL', href: '' },
-    { label: 'CREATIVE', href: '' },
-    { label: 'PRODUCTION', href: '' },
-    { label: 'CONCEPT', href: '' },
-  ];
+    { label: "ALL", href: "" },
+    { label: "CREATIVE", href: "" },
+    { label: "PRODUCTION", href: "" },
+    { label: "CONCEPT", href: "" },
+  ]
 
   const imageMap: { [key: string]: { src: string; caption: string; hashtags: string; description: string }[] } = {
     ALL: [
-      { src: '/car-tshirt.jpeg', caption: 'T-Shirt Campaign', hashtags: '#ALL', description: 'Description for T-Shirt Campaign' },
-      { src: '/car-tshirt2.jpeg', caption: 'Creative Concept', hashtags: '#ALL', description: 'This was shot in Phnom Penh.' },
-      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Brand identity design' },
-      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Brand identity design' },
-      { src: '/stargazerXPic7V2.png', caption: 'Placeholder 2', hashtags: '#BRAND', description: 'Description for Placeholder 2' },
-      { src: '/stargazerXPic3v4.png', caption: 'Placeholder 3', hashtags: '#BRAND', description: 'Description for Placeholder 3' },
+      {
+        src: "/smart.png",
+        caption: "T-Shirt Campaign",
+        hashtags: "#ALL",
+        description: "none",
+      },
+      {
+        src: "/stargazerXPic6.png",
+        caption: "Creative Concept",
+        hashtags: "#ALL",
+        description: "none.",
+      },
+      {
+        src: "/DSC04264.jpg",
+        caption: "Creative Concept",
+        hashtags: "#ALL",
+        description: "none.",
+      },
     ],
-    BRAND: [
-      { src: '/stargazerXPic6.png', caption: 'Procore', hashtags: '#BRAND', description: 'Brand identity design' },
-      { src: '/stargazerXPic7V2.png', caption: 'Placeholder 2', hashtags: '#BRAND', description: 'Description for Placeholder 2' },
-      { src: '/stargazerXPic3v4.png', caption: 'Placeholder 3', hashtags: '#BRAND', description: 'Description for Placeholder 3' },
+    CREATIVE: [
+      { src: "/mtstick-001.png", 
+        caption: "NONE", 
+        hashtags: "#CREATIVE", 
+        description: "none" },
+      {
+        src: "/tunsai5.jpg",
+        caption: "NONE",
+        hashtags: "#CREATIVE",
+        description: "none",
+      },
+      {
+        src: "/smart.png",
+        caption: "NONE",
+        hashtags: "#CREATIVE",
+        description: "none",
+      },
     ],
-    MARKETING: [
-      { src: '/staria.jpeg', caption: 'Mercury', hashtags: '#MARKETING', description: 'Marketing strategy case study' },
-      { src: '/staria.jpeg', caption: 'Microsoft', hashtags: '#MARKETING', description: 'Campaign rollout plan' },
-      { src: '/staria.jpeg', caption: 'Google Shopping', hashtags: '#MARKETING', description: 'Digital ad concept' },
+    PRODUCTION: [
+      { src: "/DSC04264.jpg", caption: "none", hashtags: "#PRODUCTION", description: "none" },
+      { src: "/stargazerXPic6.png", caption: "none", hashtags: "#PRODUCTION", description: "none" },
+      { src: "/DSC06741.png", caption: "none", hashtags: "#PRODUCTION", description: "none" },
     ],
-    PRODUCT: [
-      { src: '/staria.jpeg', caption: 'Product Shot 1', hashtags: '#PRODUCT', description: 'Packaging and product photography' },
-      { src: '/staria.jpeg', caption: 'Product Shot 2', hashtags: '#PRODUCT', description: 'Lifestyle product shoot' },
-      { src: '/staria.jpeg', caption: 'Product Shot 3', hashtags: '#PRODUCT', description: 'Studio lighting setup' },
+    CONCEPT: [
+      {
+        src: "/dog.png",
+        caption: "CONCEPT Shot",
+        hashtags: "#CONCEPT",
+        description: "none",
+      },
+      { src: "/maxxx-009.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
+      { src: "/back.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
     ],
-  };
+  }
 
   const handleCategoryChange = (category: string) => {
-    setActiveCategory(category);
-    setFlippedImages(new Set());
-    setShowAll(false);
-  };
+    setActiveCategory(category)
+    setFlippedImages(new Set())
+    setShowAll(false)
+  }
 
   const handleFlip = (uniqueKey: string) => {
     setFlippedImages((prev) => {
-      const newSet = new Set(prev);
+      const newSet = new Set(prev)
       if (newSet.has(uniqueKey)) {
-        newSet.delete(uniqueKey);
+        newSet.delete(uniqueKey)
       } else {
-        newSet.add(uniqueKey);
+        newSet.add(uniqueKey)
       }
-      return newSet;
-    });
-  };
+      return newSet
+    })
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      setFlippedImages(new Set());
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setFlippedImages(new Set())
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-  const currentImages = imageMap[activeCategory] || [];
+  const currentImages = imageMap[activeCategory] || []
 
-  const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
+  const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages
 
   return (
     <section id="manifesto" className="pt-16 pb-8 bg-white relative overflow-hidden px-8">
-      <div className="container relative z-10 px-4 mx-auto">
+      <div className="container relative z-10 mx-auto">
         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0" />
 
         <div className="flex items-center gap-4 mb-8">
@@ -91,49 +119,46 @@ export default function OurWorkSection() {
 
           {!isMobile &&
             navItems.map((item) => {
-              const active = activeCategory === item.label;
+              const active = activeCategory === item.label
               return (
                 <button
                   key={item.label}
                   onClick={() => handleCategoryChange(item.label)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                    ${active
-                      ? 'bg-black text-white'
-                      : 'bg-gray-300 text-black hover:bg-black hover:text-white'
-                    }
+                    ${active ? "bg-black text-white" : "bg-gray-300 text-black hover:bg-black hover:text-white"}
                   `}
                 >
                   {item.label}
                 </button>
-              );
+              )
             })}
         </div>
 
         {/* Grid of Square Cards */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full mx-auto px-4 ${
-            isMobile && currentImages.length > 3 && !showAll ? 'mb-4' : ''
+          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full mx-auto ${
+            isMobile && currentImages.length > 3 && !showAll ? "mb-4" : ""
           }`}
         >
           {imagesToShow.map((image, index) => {
-            const uniqueKey = `${activeCategory}-${index}-${image.src}`;
-            const isFlipped = flippedImages.has(uniqueKey);
+            const uniqueKey = `${activeCategory}-${index}-${image.src}`
+            const isFlipped = flippedImages.has(uniqueKey)
 
             return (
               <div key={uniqueKey} className="relative aspect-square perspective-1000">
                 <div
                   className={`relative h-full w-full transition-transform duration-700 transform-style-preserve-3d ${
-                    isFlipped ? 'rotate-y-180' : ''
+                    isFlipped ? "rotate-y-180" : ""
                   } cursor-pointer`}
                   onClick={() => handleFlip(uniqueKey)}
                 >
                   {/* Front Side */}
                   <div className="absolute w-full h-full backface-hidden">
                     <Image
-                      src={image.src}
+                      src={image.src || "/placeholder.svg"}
                       alt={image.caption}
                       fill
-                      className="object-cover rounded-lg shadow-md"
+                      className="object-cover rounded-2xl shadow-md"
                     />
                   </div>
 
@@ -145,7 +170,7 @@ export default function OurWorkSection() {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
 
@@ -158,9 +183,9 @@ export default function OurWorkSection() {
               aria-expanded={showAll}
               aria-controls="image-list"
             >
-              {showAll ? 'Show Less' : 'Show More'}
+              {showAll ? "Show Less" : "Show More"}
               <svg
-                className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
+                className={`w-4 h-4 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -172,8 +197,8 @@ export default function OurWorkSection() {
             </button>
           </div>
         )}
-        
       </div>
     </section>
-  );
+  )
 }
+

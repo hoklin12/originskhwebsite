@@ -13,15 +13,12 @@ interface MainLayoutProps {
 export default function MainLayout({
   children,
   activeSection,
-  scrollToSection,
   navBackground,
 }: MainLayoutProps) {
   return (
     <div className="relative bg-white text-black">
       <NavigationBar
         activeSection={activeSection}
-        scrollToSection={scrollToSection}
-        // navBackground={navBackground}
       navBackground={navBackground.get()} // <-- get the raw string value
 
       />

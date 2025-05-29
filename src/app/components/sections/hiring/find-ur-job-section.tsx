@@ -32,11 +32,11 @@ const FindUrJobSection: React.FC = () => {
   };
 
   return (
-    <section id="manifesto" className="pt-16 pb-8 bg-white relative overflow-hidden px-8 pt-48">
+    <section id="findUrJob" className="pt-16 pb-8 bg-white relative overflow-hidden px-8 pt-48">
       <div className="container relative z-10 px-4 mx-auto">
         <div className="text-center mb-4 px-12">
           <h2
-            className="text-8xl font-serif mb-6 text-black"
+            className="text-7xl font-serif mb-6 text-black"
             style={{ fontFamily: 'DM Serif Text' }}
           >
             Find Your Next Job
@@ -69,7 +69,7 @@ const FindUrJobSection: React.FC = () => {
         {/* Message Display */}
         <div className="bg-gray-200 border border-gray-300 rounded-lg p-6 text-center shadow-sm">
           <p className="text-lg text-black">
-            We’re not hiring at the moment. Check back later for new opportunities!
+            {"We’re not hiring at the moment. Check back later for new opportunities!"}
           </p>
         </div>
 
@@ -78,18 +78,15 @@ const FindUrJobSection: React.FC = () => {
             {/* Text Section */}
             <div className="w-full max-w-4xl text-left pt-32">
               <h2 className="text-4xl lg:text-4xl font-semi-bold text-black mb-4">
-                Instrument is committed to equity.
+                Equity, Inclusion & Opportunity at ORIGINS
               </h2>
               <div className="p-8 bg-light-green rounded-lg">
                 <h3 className="text-2xl text-black mb-8 font-light leading-relaxed">
-                  We are committed to providing an inclusive and welcoming environment for all members of our community. Instrument does not and shall 
-                  not discriminate on the basis of race, color, religion, gender, gender expression, age, national origin, disability, marital status, 
-                  sexual orientation, or military status. Our pay bands ensure compensational equity and serve as an essential benchmark for measuring 
-                  the velocity of performance against monetary growth.
+                  At ORIGINS, we believe creativity thrives in a culture of inclusion, respect, and equity. We&apos;re committed to creating a welcoming environment where every team member feels seen, heard, and empowered to bring their whole self to the work.
+                  {" "}We do not discriminate on the basis of race, color, religion, gender identity or expression, age, national origin, disability, marital status, sexual orientation, military status, or any other aspect of identity. Diversity doesn&apos;t just something we support—it&apos;s something we actively seek out and celebrate.
+                  To ensure pay transparency and fairness, we follow clearly defined pay bands that align compensation with performance, growth, and impact across our teams. We&apos;re dedicated to fair opportunities at every level—from your first day to your next big promotion.
                   <br /><br />
-                  As an equal opportunity employer, Instrument LLC values the diversity of our workforce and the knowledge of our personnel. Labor Condition 
-                  Applications (LCAs) for specialty occupation petitions are displayed electronically in accordance with notice requirements pursuant to U.S. 
-                  Department of Labor regulations, and public access files are available pursuant to regulation. See 20 CFR § 655.734, 655.760.
+                  As an equal opportunity employer, ORIGINS values the unique experiences and perspectives that each individual brings to our studio.
                 </h3>
               </div>
             </div>
@@ -101,7 +98,7 @@ const FindUrJobSection: React.FC = () => {
           <div className="lg:sticky lg:top-8">
             <div className="relative rounded-2xl overflow-hidden aspect-square">
               <Image
-                src="/placeholder3.jpg"
+                src="/hiring.jpeg"
                 alt="A person working at a desk"
                 fill
                 className="object-cover"
@@ -113,21 +110,21 @@ const FindUrJobSection: React.FC = () => {
           {/* Right side - Application Process Text */}
           <div className="space-y-8">
             <h2 className="text-4xl lg:text-5xl font-normal leading-tight">
-              A peek into the application process
+              Inside the Hiring Journey
             </h2>
 
             <div className="space-y-6">
               <p className="text-lg">
-                <span className="font-bold">01</span> After reviewing a candidate’s application, a recruiter reaches out to discuss next steps.
+                <span className="font-bold">01</span> Once we&apos;ve reviewed your application, a recruiter will reach out to guide you through the next steps.
               </p>
               <p className="text-lg">
-                <span className="font-bold">02</span> The candidate meets with a recruiter for a prescreening interview.
+                <span className="font-bold">02</span> You&apos;ll have an initial conversation with a recruiter to learn more about the role and share your story.
               </p>
               <p className="text-lg">
-                <span className="font-bold">03</span> The candidate has two remote interviews with key decision makers for the role they’re applying for.
+                <span className="font-bold">03</span> Participate in two virtual interviews with key team members to explore your fit for the position.
               </p>
               <p className="text-lg">
-                <span className="font-bold">04</span> An offer letter with a proposed start date is sent out via email.
+                <span className="font-bold">04</span> If selected, you&apos;ll receive a formal offer letter outlining your start date and next steps.
               </p>
             </div>
           </div>
@@ -139,9 +136,7 @@ const FindUrJobSection: React.FC = () => {
             {/* Text Section */}
             <div className="w-full md:w-[75%] text-left">
               <h3 className="text-2xl md:text-3xl text-black mb-8">
-                To create brand experiences of the highest caliber, we take a multi-disciplinary approach to our work by
-                seamlessly integrating strategy, creative, and technology, and staying in close partnership with our
-                clients.
+                To craft exceptional brand experiences, we embrace a multidisciplinary approach—blending strategy, creativity, and technology—while working hand-in-hand with our clients every step of the way.
               </h3>
               <Link href="/studios">
                 <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">

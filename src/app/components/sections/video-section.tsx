@@ -37,7 +37,7 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
       videoClassName = '',
       minHeight = 'min-h-screen',
       backgroundColor = 'bg-white',
-      marginBottom = 'mb-20',
+      marginBottom = 'mb-6 sm:mb-12 md:mb-8',
       autoPlay = false,
       loop = false,
       muted = false,
@@ -269,3 +269,4 @@ const VideoSection = React.forwardRef<HTMLElement, VideoSectionProps>(
 VideoSection.displayName = 'VideoSection';
 
 export default VideoSection;
+

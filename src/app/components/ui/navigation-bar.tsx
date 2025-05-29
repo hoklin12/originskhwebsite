@@ -1,4 +1,6 @@
+
 "use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,14 +10,13 @@ import { motion } from "framer-motion";
 
 interface NavigationBarProps {
   activeSection: string;
-  scrollToSection: (sectionId: string) => void;
-  navBackground: string;
+  navBackground?: string;
   linkColor?: string;
 }
 
 export default function NavigationBar({
   activeSection,
-  navBackground,
+  navBackground = "transparent",
   linkColor = "bg-gray-200",
 }: NavigationBarProps) {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -25,6 +26,7 @@ export default function NavigationBar({
 
   const pathname = usePathname();
 
+  // Scroll tracking logic
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -32,6 +34,7 @@ export default function NavigationBar({
       setScrollPosition(currentScrollY);
       setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -53,13 +56,12 @@ export default function NavigationBar({
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: isVisible ? 0 : -80, opacity: isVisible ? 1 : 0 }}
-      transition={{ duration: 0.3 }}
-      style={{ background: navBackground }}
-      className="fixed top-0 left-0 right-0 z-50 py-6 px-12" // <-- px-12 added here
+      transition={{ type: "spring", stiffness: 300, damping: 40 }}
+      style={{ backgroundColor: navBackground }}
+      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-6 pointer-events-none"
     >
-      {/* Removed container & padding */}
-      <div className="mx-auto w-full max-w-screen-xl"> 
-        {/* Desktop Navigation */}
+      <div className="pointer-events-auto w-full">
+        {/* Desktop Nav */}
         <div className="hidden md:flex flex-col items-center">
           <div className="w-full flex justify-between items-center">
             {/* Left Nav */}
@@ -71,7 +73,7 @@ export default function NavigationBar({
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-2 transition-colors duration-200 rounded-full text-xs font-medium ${
+                    className={`px-4 py-2 transition-colors duration-200 rounded-full text-xs font-medium uppercase tracking-wider ${
                       isActive
                         ? "bg-orange-400 text-white"
                         : `${linkColor} hover:bg-orange-400 hover:text-white`
@@ -90,16 +92,17 @@ export default function NavigationBar({
                   <Image
                     src="/originlogo.png"
                     alt="Origins Logo"
-                    width={200}
-                    height={200}
+                    width={180}
+                    height={180}
+                    className="h-auto max-w-[120px] sm:max-w-[150px]"
                   />
                 </Link>
               ) : (
-                <div className="flex items-center text-xs font-medium">
+                <div className="text-xs font-medium uppercase tracking-wider">
                   LOOKING TO REVIVE YOUR DREAMS?{" "}
                   <Link
                     href="/join"
-                    className="flex items-center ml-2 text-gray-600 hover:text-white transition-colors"
+                    className="inline-flex items-center ml-2 text-black hover:text-white transition-colors"
                   >
                     CALL US <ArrowRight className="ml-1 h-3 w-3" />
                   </Link>
@@ -116,7 +119,7 @@ export default function NavigationBar({
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-2 transition-colors duration-200 rounded-full text-xs font-medium ${
+                    className={`px-4 py-2 transition-colors duration-200 rounded-full text-xs font-medium uppercase tracking-wider ${
                       isActive
                         ? "bg-orange-400 text-white"
                         : `${linkColor} hover:bg-orange-400 hover:text-white`
@@ -130,35 +133,49 @@ export default function NavigationBar({
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Nav */}
         <div className="md:hidden flex justify-between items-center">
           <Link href="/">
             <Image
               src="/originlogo.png"
               alt="Origins Logo"
-              width={150}
-              height={150}
+              width={120}
+              height={120}
+              className="h-auto max-w-[90px]"
             />
           </Link>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-black">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-black"
+            aria-label="Toggle menu"
+          >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 flex flex-col space-y-4 bg-white py-4 border-t">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="flex justify-between items-center px-4 py-3 text-lg font-medium border-b hover:bg-gray-100"
-              >
-                {link.label}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden mt-4 pb-6 border-b border-gray-200"
+          >
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex justify-between items-center px-4 py-3 text-lg font-medium uppercase tracking-wider border-b border-gray-100 hover:bg-gray-50"
+                >
+                  {link.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         )}
       </div>
     </motion.header>

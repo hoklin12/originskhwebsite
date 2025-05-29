@@ -37,9 +37,9 @@ export default function Footer() {
   ];
 
   const followAlongLinks = [
-    { name: "Instagram", href: "https://instagram.com/ " },
-    { name: "LinkedIn", href: "https://linkedin.com/ " },
-    { name: "Twitter", href: "https://twitter.com/ " },
+    { name: "Instagram", href: "https://instagram.com/originskh" },
+    { name: "Facebook", href: "https://facebook.com/originsstudioskh" },
+    { name: "Telegram", href: "https://t.me/originskh" },
   ];
 
   // Responsive font and spacing classes based on viewport size
@@ -50,9 +50,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white sm:py-12 lg:py-16 text-gray-500 overflow-x-hidden px-12">
+    <footer className="bg-white sm:py-12 lg:py-16 text-gray-500 overflow-x-hidden px-8">
       {/* Removed container/mx-auto and replaced with full-width layout */}
-      <div className="w-full px-0">
+      <div className="w-full">
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
 
         {/* Main content - Responsive grid for all screen sizes */}
@@ -160,7 +160,7 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs sm:text-sm space-y-4 sm:space-y-0 w-full">
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-              <Link href="/sitemap" className="hover:text-gray-800 transition-colors">
+              <Link href="/" className="hover:text-gray-800 transition-colors">
                 Sitemap
               </Link>
               <Link href="/privacy" className="hover:text-gray-800 transition-colors">

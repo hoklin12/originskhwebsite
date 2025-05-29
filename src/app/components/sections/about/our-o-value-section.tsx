@@ -24,7 +24,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
       title: "O’riginality.",
       description:
         "We lead with boldness and bring fresh, inventive energy into everything we create.",
-      image: "/placeholder3.jpg",
+      image: "/exhib01.png",
       imageAlt: "O’riginality.",
     },
     {
@@ -66,7 +66,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="min-h-screen bg-gray-50 py-16 px-12">
+    <section ref={ref} className="min-h-screen bg-gray-50 py-16 px-8">
       <div className="relative z-10 mx-auto px-0 w-full">
         {/* Header */}
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-12">
@@ -78,7 +78,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
           {/* Left side - Values list */}
           <div className="space-y-8">
             <h2 className="text-4xl lg:text-5xl font-normal text-black leading-tight">
-              Our values are part of everything we create at Origins.
+              Everything we create at Origins is rooted in our values.
             </h2>
 
             <div className="space-y-0">

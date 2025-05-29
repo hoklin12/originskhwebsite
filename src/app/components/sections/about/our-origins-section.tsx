@@ -168,7 +168,7 @@ const OurOriginsSection = () => {
   }
 
   return (
-    <section className="bg-white py-12 px-12 md:py-24">
+    <section className="bg-white py-12 px-8 md:py-24">
       <motion.div
         className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-12"
         initial={{ opacity: 0, y: -20 }}

@@ -7,7 +7,7 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
     <section ref={ref} id="intro" className="min-h-screen bg-white m-0 p-0 pt-16">
       <div className="w-full flex justify-center items-center mb-8"></div>
 
-      <div className="text-left mb-4 px-12 py-12">
+      <div className="text-left mb-4 px-8 py-12">
         <h2
           className="text-5xl font-normal mb-6 text-black"
           style={{ fontFamily: 'DM Serif Text' }}
@@ -27,7 +27,7 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
       />    
 
       {/* New section for text under the video */}
-      <div className="bg-white py-16 px-12">
+      <div className="bg-white py-16 px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <h3 className="text-5xl font-bold text-black leading-tight">
             Meet our talented team of creators and technologists.

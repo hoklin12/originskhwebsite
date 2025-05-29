@@ -32,166 +32,123 @@ export default function DetailPortfolioSection() {
   } = {
     ALL: [
       {
-        src: "/car-tshirt.JPEG",
+        src: "/tunsai5.jpg",
         caption: "Placeholder 1",
         hashtags: "#ALL",
         description: "Description for Placeholder 1",
       },
       {
-        src: "/car-tshirt2.JPEG",
+        src: "/back.png",
         caption: "Placeholder 2",
         hashtags: "#ALL",
         description: "Description for Placeholder 2",
       },
       {
-        src: "/hyundai-custin.JPEG",
+        src: "/custin08.png",
         caption: "Placeholder 3",
         hashtags: "#ALL",
         description: "Description for Placeholder 3",
       },
       {
-        src: "/matterone.JPEG",
+        src: "/dog.png",
         caption: "Procore",
-        hashtags: "#BRAND",
+        hashtags: "#CREATIVE",
         description: "Description for Procore",
       },
       {
-        src: "/matterone2.JPEG",
+        src: "/DSC04264.jpg",
         caption: "Placeholder 2",
-        hashtags: "#BRAND",
+        hashtags: "#CREATIVE",
         description: "Description for Placeholder 2",
       },
       {
-        src: "/car-tshirt.JPEG",
+        src: "/DSC06741.png",
         caption: "Placeholder 3",
-        hashtags: "#BRAND",
+        hashtags: "#CREATIVE",
         description: "Description for Placeholder 3",
       },
       {
-        src: "/car-tshirt.JPEG",
+        src: "/maxxx-009.png",
         caption: "Placeholder 1",
         hashtags: "#ALL",
         description: "Description for Placeholder 1",
       },
       {
-        src: "/car-tshirt2.JPEG",
+        src: "/SMART.png",
         caption: "Placeholder 2",
         hashtags: "#ALL",
         description: "Description for Placeholder 2",
       },
       {
-        src: "/hyundai-custin.JPEG",
+        src: "/stargazerXPic6.png",
         caption: "Placeholder 3",
         hashtags: "#ALL",
         description: "Description for Placeholder 3",
       },
+    ],
+    CREATIVE: [
+      { src: "/mtstick-001.png", 
+        caption: "NONE", 
+        hashtags: "#CREATIVE", 
+        description: "none" },
       {
-        src: "/matterone.JPEG",
-        caption: "Procore",
-        hashtags: "#BRAND",
-        description: "Description for Procore",
+        src: "/tunsai5.jpg",
+        caption: "NONE",
+        hashtags: "#CREATIVE",
+        description: "none",
       },
       {
-        src: "/matterone2.JPEG",
-        caption: "Placeholder 2",
-        hashtags: "#BRAND",
-        description: "Description for Placeholder 2",
+        src: "/smart.png",
+        caption: "NONE",
+        hashtags: "#CREATIVE",
+        description: "none",
       },
       {
-        src: "/car-tshirt.JPEG",
-        caption: "Placeholder 3",
-        hashtags: "#BRAND",
-        description: "Description for Placeholder 3",
+        src: "/maxxx.009.png",
+        caption: "Placeholder 1",
+        hashtags: "#ALL",
+        description: "Description for Placeholder 1",
       },
     ],
-    BRAND: [
-      {
-        src: "/Stargazer X Pic 6.png",
-        caption: "Procore",
-        hashtags: "#BRAND",
-        description: "Description for Procore",
+    PRODUCTION: [
+      { src: "/DSC04264.jpg", 
+        caption: "none", 
+        hashtags: "#PRODUCTION", 
+        description: "none"
       },
-      {
-        src: "/Stargazer X Pic 7 V2.png",
-        caption: "Placeholder 2",
-        hashtags: "#BRAND",
-        description: "Description for Placeholder 2",
+      { src: "/stargazerXPic6.png", 
+        caption: "none", 
+        hashtags: "#PRODUCTION", 
+        description: "none" 
       },
-      {
-        src: "/Stargazer X Pic 3 v4.png",
-        caption: "Placeholder 3",
-        hashtags: "#BRAND",
-        description: "Description for Placeholder 3",
-      },
-      {
-        src: "/Stargazer X Pic 6.png",
-        caption: "Procore",
-        hashtags: "#BRAND",
-        description: "Description for Procore",
-      },
-      {
-        src: "/Stargazer X Pic 7 V2.png",
-        caption: "Placeholder 2",
-        hashtags: "#BRAND",
-        description: "Description for Placeholder 2",
-      },
-      {
-        src: "/Stargazer X Pic 3 v4.png",
-        caption: "Placeholder 3",
-        hashtags: "#BRAND",
-        description: "Description for Placeholder 3",
+      { src: "/DSC06741.png", 
+        caption: "none", 
+        hashtags: "#PRODUCTION", 
+        description: "none" 
       },
     ],
-    MARKETING: [
+    CONCEPT: [
       {
-        src: "/images/mercur.png",
-        caption: "Mercury",
-        hashtags: "#MARKETING",
-        description: "Description for Mercury",
+        src: "/dog.png",
+        caption: "CONCEPT Shot",
+        hashtags: "#CONCEPT",
+        description: "none",
+      },
+      { src: "/maxxx-009.png", 
+        caption: "none", 
+        hashtags: "#CONCEPT", 
+        description: "none" 
+      },
+      { src: "/back.png", 
+        caption: "none", 
+        hashtags: "#CONCEPT", 
+        description: "none" 
       },
       {
-        src: "/images/microsof.png",
-        caption: "Microsoft",
-        hashtags: "#MARKETING",
-        description: "Description for Microsoft",
-      },
-      {
-        src: "/images/mercur.png",
-        caption: "Mercury",
-        hashtags: "#MARKETING",
-        description: "Description for Mercury",
-      },
-      {
-        src: "/images/microsof.png",
-        caption: "Microsoft",
-        hashtags: "#MARKETING",
-        description: "Description for Microsoft",
-      },
-    ],
-    PRODUCT: [
-      {
-        src: "/woman.jpg",
-        caption: "Woman",
-        hashtags: "#PRODUCT",
-        description: "Product showcase",
-      },
-      {
-        src: "/tech-stack.jpg",
-        caption: "Tech Stack",
-        hashtags: "#PRODUCT",
-        description: "Tech stack visualization",
-      },
-      {
-        src: "/butterfly.jpg",
-        caption: "Butterfly",
-        hashtags: "#PRODUCT",
-        description: "Product design",
-      },
-      {
-        src: "/smart-king.jpg",
-        caption: "Smart King",
-        hashtags: "#PRODUCT",
-        description: "Smart King product",
+        src: "/back.png",
+        caption: "Placeholder 2",
+        hashtags: "#ALL",
+        description: "Description for Placeholder 2",
       },
     ],
   };
@@ -203,13 +160,13 @@ export default function DetailPortfolioSection() {
   };
 
   const currentImages = imageMap[activeCategory] || [
-    { src: "/placeholder.jpg", caption: "No caption", hashtags: "", description: "No description" },
+    { src: "/placeholder3.jpg", caption: "No caption", hashtags: "", description: "No description" },
   ];
 
   const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
 
   return (
-    <section id="manifesto" className="pt-15 pb-8 bg-white relative overflow-hidden px-12">
+    <section id="manifesto" className="pt-15 pb-8 bg-white relative overflow-hidden px-8">
       {/* Full-width layout with centered content */}
       <div className="mx-auto w-full max-w-screen-xl">
         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
@@ -259,7 +216,7 @@ export default function DetailPortfolioSection() {
 
         <div className="w-full text-left py-16 px-4">
           <h1 className="text-4xl md:text-5xl text-black mb-8 font-normal">
-            We create beautiful, functional, technology-forward work that elevates and unifies experiences across all brand surfaces.
+            We craft visually striking, purpose-driven, and technology-enhanced work that connects and elevates experiences across every creative touchpoint.
           </h1>
         </div>
 
@@ -275,7 +232,7 @@ export default function DetailPortfolioSection() {
             return (
               <div key={uniqueKey} className={`relative bg-white rounded-xl shadow-md ${isStackMode ? "flex flex-col md:flex-row gap-6 p-6" : "p-2"}`}>
                 <div className={`${isStackMode ? "md:w-1/2 aspect-square" : "w-full aspect-square"} relative flex items-center justify-center overflow-hidden rounded-xl`}>
-                  <Image src={image.src} alt={image.caption} fill className="object-cover rounded-xl" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={image.src} alt={image.caption} fill className="object-cover rounded-2xl" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className={`${isStackMode ? "md:w-1/2 md:mt-0 flex flex-col justify-center" : "text-center"}`}>
                   <p className="font-bold text-lg">{image.caption}</p>
