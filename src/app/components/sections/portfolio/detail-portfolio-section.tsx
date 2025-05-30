@@ -44,7 +44,7 @@ export default function DetailPortfolioSection() {
         description: "Description for Placeholder 3",
       },
       {
-        src: "/back.png",
+        src: "/back.jpg",
         caption: "Placeholder 2",
         hashtags: "#ALL",
         description: "Description for Placeholder 2",
@@ -139,13 +139,13 @@ export default function DetailPortfolioSection() {
         hashtags: "#CONCEPT", 
         description: "none" 
       },
-      { src: "/back.png", 
+      { src: "/back.jpg", 
         caption: "none", 
         hashtags: "#CONCEPT", 
         description: "none" 
       },
       {
-        src: "/back.png",
+        src: "/back.jpg",
         caption: "Placeholder 2",
         hashtags: "#ALL",
         description: "Description for Placeholder 2",

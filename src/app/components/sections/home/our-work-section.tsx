@@ -75,7 +75,7 @@ export default function OurWorkSection() {
         description: "none",
       },
       { src: "/maxxx-009.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
-      { src: "/back.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
+      { src: "/back.jpg", caption: "none", hashtags: "#CONCEPT", description: "none" },
     ],
   }
 

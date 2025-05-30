@@ -2,7 +2,6 @@
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
 import MainLayout from "../components/layouts/main-layout";
-
 import Footer from "../components/ui/footer";
 import UnderConstruction from "../components/sections/under-construction";
 
@@ -14,7 +13,7 @@ export default function NewsPage() {
 
   return (
     <MainLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <UnderConstruction />
+      <UnderConstruction/>
       <Footer />
     </MainLayout>
   );
