@@ -22,6 +22,7 @@ export default function UnderConstruction() {
           width={600}
           height={400}
           className="object-cover rounded-2xl"
+          priority
         />
       </div>
     </section>

@@ -138,6 +138,7 @@ const IntroNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
                     width={400}
                     height={400}
                     className="w-[400px] h-[400px] sm:w-[300px] sm:h-[300px] xs:w-full xs:h-auto object-cover rounded-xl mx-auto cursor-pointer hover:opacity-90 transition-opacity"
+                    priority
                   />
                 </Link>
               </div>

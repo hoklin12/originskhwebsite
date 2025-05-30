@@ -37,6 +37,7 @@ const IntroStudiosSection = React.forwardRef<HTMLElement, IntroStudiosSectionPro
         containerClassName="pt-16"
         imageWidth={300}
         imageHeight={300}
+        
       />
 
       <div className="container relative z-10 px-24 mx-auto py-48">

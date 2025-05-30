@@ -213,6 +213,7 @@ export default function OurServicesSection() {
                     height={500}
                     unoptimized
                     className="w-full h-[500px] object-cover rounded-2xl"
+                    priority
                   />
                   <motion.div
                     className="absolute inset-0 border-2 border-white rounded-2xl"
@@ -381,6 +382,7 @@ export default function OurServicesSection() {
               transition={{ duration: 0.3 }}
               className="relative max-w-5xl max-h-[80vh]"
               onClick={(e) => e.stopPropagation()}
+              
             >
               <Image
                 src={currentSpace.images[expandedImage] || "/placeholder.svg?height=800&width=1200"}
@@ -389,6 +391,7 @@ export default function OurServicesSection() {
                 height={800}
                 unoptimized
                 className="max-w-full max-h-[80vh] object-contain rounded-2xl"
+                priority
               />
               <button
                 onClick={() => setExpandedImage(null)}

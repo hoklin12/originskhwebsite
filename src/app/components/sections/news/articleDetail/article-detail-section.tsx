@@ -108,6 +108,7 @@ const ArticleDetail = () => {
           width={800}
           height={450}
           className="w-full h-auto object-cover rounded-xl mb-6"
+          priority
         />
         <div className="flex gap-2 mb-6">
           <span className="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">

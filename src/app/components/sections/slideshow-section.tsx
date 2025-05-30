@@ -117,6 +117,7 @@ const SlideshowSection = ({
             width={imageWidth}
             height={imageHeight}
             unoptimized
+            priority
             className={`inline-block rounded-2xl shadow-lg ${img.className || ""}`}
           />
         ))}

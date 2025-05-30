@@ -115,7 +115,7 @@ const OurOriginsSection = () => {
             }}
             whileTap={{ scale: 0.98 }}
           >
-            <Image src={imgSrc || "/placeholder.svg"} alt="Timeline visual" fill className="object-cover" />
+            <Image src={imgSrc || "/placeholder.svg"} alt="Timeline visual" fill className="object-cover" priority/>
             <motion.div
               className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0"
               whileHover={{ opacity: 1 }}

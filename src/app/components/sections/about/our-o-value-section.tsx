@@ -137,6 +137,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
                 height={800}
                 className="w-full h-full object-cover transition-opacity duration-500"
                 unoptimized
+                priority
               />
             </div>
           </div>

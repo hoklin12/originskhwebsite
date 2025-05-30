@@ -159,6 +159,7 @@ export default function OurWorkSection() {
                       alt={image.caption}
                       fill
                       className="object-cover rounded-2xl shadow-md"
+                      priority
                     />
                   </div>
 
