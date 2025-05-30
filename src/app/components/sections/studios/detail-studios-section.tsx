@@ -1,124 +1,106 @@
+
+
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+
+const studios = [
+  {
+    name: "Creative",
+    image: "/creative.png",
+    description:
+      "ORIGINS Creative brings ideas to life through design, interactivity, and expression. From graphic design and visual branding to social media content and experiential art, this sector focuses on visual storytelling that’s bold, stylish, and unforgettable.",
+    services: [
+      "Branding & Visual Identity",
+      "Graphic Design (Digital & Print)",
+      "Social Media Content & Templates",
+      "Creative Direction & Art Styling",
+      "Web & UI/UX Design",
+    ],
+  },
+  {
+    name: "Production",
+    image: "/production.png",
+    description:
+      "ORIGINS Production is our powerhouse of content creation. We craft high-impact visuals through cinematic storytelling, precise editing, and compelling audio-visual experiences. From branded films to social media content, we transform ideas into stories that move people.",
+    services: [
+      "Video Production & Direction",
+      "Cinematography & Photography",
+      "Editing & Post-production",
+      "Motion Graphics & Animation",
+      "Events & Performance Coverage",
+    ],
+  },
+  {
+    name: "Concept",
+    image: "/concepts.png",
+    description:
+      "ORIGINS Concepts develops and manages original ideas and lifestyle projects, including curated product lines, spatial concepts, and branded environments. It’s where creativity meets entrepreneurship. The forefront of our side ventures and innovative brand experiences.",
+    services: [
+      "ORIGINS Coffee & Gallery",
+      "Product Curation & Merchandise",
+      "Pop-up & Event Concepts",
+      "Spatial & Interior Branding",
+      "Experience-based Retail Concepts",
+    ],
+  },
+];
 
 export default function DetailStudioSection() {
   return (
-    <section id="journey" className="py-12 sm:py-16 bg-white relative overflow-hidden px-4 sm:px-8">
-      {/* Studio Block - Creative */}
-      <div className="mx-auto w-full max-w-screen-xl">
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8">
-          <p className="text-gray-600">OUR STUDIOS</p>
-        </div>
-
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-12 lg:gap-16 pt-8 sm:pt-12">
-          {/* Left Section - Large Brand Text */}
-          <div className="w-full lg:w-1/2">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light text-black leading-none">
-              Creative
-            </h1>
+    <section id="journey" className="bg-white relative overflow-hidden px-4 py-24">
+      {studios.map((studio, index) => (
+        <div
+          key={studio.name}
+          className={`relative mx-auto w-full max-w-screen-xl py-16 sm:py-20 lg:py-28 ${
+            index !== 0 ? "mt-16 sm:mt-20 lg:mt-24" : ""
+          }`}
+        >
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 overflow-hidden rounded-xl">
+            <Image
+              src={studio.image}
+              alt={`${studio.name} Studio`}
+              fill
+              className="object-cover brightness-75"
+              priority={index === 0}
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
           </div>
 
-          {/* Right Section - Content */}
-          <div className="w-full lg:w-1/2 text-left">
-            <p className="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
-              ORIGINS Creative brings ideas to life through design, interactivity, and expression. 
-              From graphic design and visual branding to social media content and experiential art, 
-              this sector focuses on visual storytelling that’s bold, stylish, and unforgettable.
-            </p>
-
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 text-sm">
-              <div className="space-y-2">
-                <p className="text-gray-600">Branding & Visual Identity</p>
-                <p className="text-gray-600">Graphic Design (Digital & Print)</p>
-                <p className="text-gray-600">Social Media Content & Templates</p>
-                <p className="text-gray-600">Creative Direction & Art Styling</p>
-                <p className="text-gray-600">Web & UI/UX Design</p>
-              </div>
+          {/* Content Wrapper with horizontal padding */}
+          <div className="relative z-10 px-4 flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-16">
+            {/* Left Section - Studio Name */}
+            <div className="w-full lg:w-1/2">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light text-white leading-none">
+                {studio.name}
+              </h1>
             </div>
 
-            <button className="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors text-sm md:text-base">
-              See Work <ArrowRight size={18} className="ml-2" />
-            </button>
-          </div>
-        </div>
-      </div>
+            {/* Right Section - Description & Services */}
+            <div className="w-full lg:w-1/2 text-left text-white">
+              <p className="mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed opacity-90">
+                {studio.description}
+              </p>
 
-      {/* Studio Block - Production */}
-      <div className="mx-auto w-full max-w-screen-xl mt-12 sm:mt-16">
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
-
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-12 lg:gap-16">
-          {/* Left Section - Large Brand Text */}
-          <div className="w-full lg:w-1/2">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light text-black leading-none">
-              Production
-            </h1>
-          </div>
-
-          {/* Right Section - Content */}
-          <div className="w-full lg:w-1/2 text-left">
-            <p className="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
-              ORIGINS Production is our powerhouse of content creation. We craft high-impact visuals through cinematic storytelling, 
-              precise editing, and compelling audio-visual experiences. From branded films to social media content, we transform ideas 
-              into stories that move people.
-            </p>
-
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 text-sm">
-              <div className="space-y-2">
-                <p className="text-gray-600">Video Production & Direction</p>
-                <p className="text-gray-600">Cinematography & Photography</p>
-                <p className="text-gray-600">Editing & Post-production</p>
-                <p className="text-gray-600">Motion Graphics & Animations</p>
-                <p className="text-gray-600">Events & Performance Coverage</p>
+              {/* Services Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 text-sm">
+                {studio.services.map((service, idx) => (
+                  <p key={idx} className="text-gray-200">
+                    {service}
+                  </p>
+                ))}
               </div>
-            </div>
 
-            <button className="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors text-sm md:text-base">
-              See Work <ArrowRight size={18} className="ml-2" />
-            </button>
+              <button className="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors text-sm md:text-base">
+                See Work <ArrowRight size={18} className="ml-2" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Studio Block - Concept */}
-      <div className="mx-auto w-full max-w-screen-xl mt-12 sm:mt-16 pb-16">
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
-
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-12 lg:gap-16">
-          {/* Left Section - Large Brand Text */}
-          <div className="w-full lg:w-1/2">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light text-black leading-none">
-              Concept
-            </h1>
-          </div>
-
-          {/* Right Section - Content */}
-          <div className="w-full lg:w-1/2 text-left">
-            <p className="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
-              ORIGINS Concepts develops and manages original ideas and lifestyle projects, 
-              including curated product lines, spatial concepts, and branded environments. 
-              It’s where creativity meets entrepreneurship. The forefront of our side ventures 
-              and innovative brand experiences.
-            </p>
-
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 text-sm">
-              <div className="space-y-2">
-                <p className="text-gray-600">ORIGINS Coffee & Gallery</p>
-                <p className="text-gray-600">Product Curation & Merchandise </p>
-                <p className="text-gray-600">Pop-up & Event Concepts</p>
-                <p className="text-gray-600">Spatial & Interior Branding</p>
-                <p className="text-gray-600">Experience-based Retail Concepts</p>
-              </div>
-            </div>
-
-            <button className="flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors text-sm md:text-base">
-              See Work <ArrowRight size={18} className="ml-2" />
-            </button>
-          </div>
-        </div>
-      </div>
+      ))}
     </section>
   );
 }
