@@ -214,6 +214,7 @@ export default function OurServicesSection() {
                     unoptimized
                     className="w-full h-[500px] object-cover rounded-2xl"
                     priority
+                    rel="preload"
                   />
                   <motion.div
                     className="absolute inset-0 border-2 border-white rounded-2xl"
@@ -245,6 +246,7 @@ export default function OurServicesSection() {
                         unoptimized
                         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110 rounded-2xl"
                         priority
+                        rel="preload"
                       />
                     </motion.div>
                   ))}
@@ -392,6 +394,7 @@ export default function OurServicesSection() {
                 unoptimized
                 className="max-w-full max-h-[80vh] object-contain rounded-2xl"
                 priority
+                rel="preload"
               />
               <button
                 onClick={() => setExpandedImage(null)}

@@ -23,6 +23,7 @@ export default function UnderConstruction() {
           height={400}
           className="object-cover rounded-2xl"
           priority
+          rel="preload"
         />
       </div>
     </section>

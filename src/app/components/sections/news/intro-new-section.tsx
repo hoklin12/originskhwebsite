@@ -92,6 +92,7 @@ const IntroNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
             height={1350}
             className="object-contain hidden md:block"
             priority
+            rel="preload"
           />
         </Link>
       </div>
@@ -139,6 +140,7 @@ const IntroNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
                     height={400}
                     className="w-[400px] h-[400px] sm:w-[300px] sm:h-[300px] xs:w-full xs:h-auto object-cover rounded-xl mx-auto cursor-pointer hover:opacity-90 transition-opacity"
                     priority
+                    rel="preload"
                   />
                 </Link>
               </div>

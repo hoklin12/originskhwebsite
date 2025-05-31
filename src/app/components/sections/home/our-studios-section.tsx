@@ -91,6 +91,7 @@ export default function OurStudiosSection() {
                     fill
                     className="object-cover"
                     priority
+                    rel="preload"
                   />
                   <div className="absolute bottom-4 left-4 right-4 text-black">
                     <div className="text-lg md:text-xl font-bold bg-white/80 backdrop-blur-sm px-3 py-1 rounded-lg inline-block">

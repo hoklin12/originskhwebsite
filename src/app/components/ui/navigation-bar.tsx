@@ -97,6 +97,7 @@ export default function NavigationBar({
                     height={180}
                     className="h-auto max-w-[120px] sm:max-w-[150px]"
                     priority
+                    rel="preload"
                   />
                 </Link>
               ) : (
@@ -147,6 +148,7 @@ export default function NavigationBar({
               height={120}
               className="h-auto max-w-[90px]"
               priority
+              rel="preload"
             />
           </Link>
           <button

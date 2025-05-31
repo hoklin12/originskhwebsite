@@ -152,6 +152,7 @@ export default function OurWorkSection() {
                       fill
                       className="object-cover rounded-2xl shadow-md"
                       priority
+                      rel="preload"
                     />
                   </div>
                   {/* Back Side */}

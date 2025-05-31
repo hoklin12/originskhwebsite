@@ -44,6 +44,7 @@ export default function OurClientsSection() {
                     fill
                     className="object-contain"
                     priority
+                    rel="preload"
                     onError={(e) => {
                       console.error(`Failed to load image: ${client.src}`, e);
                       (e.target as HTMLImageElement).src = "/placeholder.png";

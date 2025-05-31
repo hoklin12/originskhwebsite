@@ -232,7 +232,7 @@ export default function DetailPortfolioSection() {
             return (
               <div key={uniqueKey} className={`relative bg-white rounded-xl shadow-md ${isStackMode ? "flex flex-col md:flex-row gap-6 p-6" : "p-2"}`}>
                 <div className={`${isStackMode ? "md:w-1/2 aspect-square" : "w-full aspect-square"} relative flex items-center justify-center overflow-hidden rounded-xl`}>
-                  <Image src={image.src} alt={image.caption} fill className="object-cover rounded-2xl" sizes="(max-width: 768px) 100vw, 33vw" priority />
+                  <Image src={image.src} alt={image.caption} fill className="object-cover rounded-2xl" sizes="(max-width: 768px) 100vw, 33vw" priority rel="preload"/>
                 </div>
                 <div className={`${isStackMode ? "md:w-1/2 md:mt-0 flex flex-col justify-center" : "text-center"}`}>
                   <p className="font-bold text-lg">{image.caption}</p>

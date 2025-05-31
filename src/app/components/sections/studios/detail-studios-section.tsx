@@ -65,6 +65,7 @@ export default function DetailStudioSection() {
               fill
               className="object-cover brightness-75"
               priority={index === 0}
+              rel="preload"
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>

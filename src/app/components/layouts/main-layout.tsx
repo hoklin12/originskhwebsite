@@ -20,7 +20,7 @@ export default function MainLayout({
   centerType = "cta", // Default to showing logo
 }: MainLayoutProps) {
   return (
-    <div className="relative bg-white text-black">
+    <div className="relative bg-white text-black" >
       <NavigationBar
         activeSection={activeSection}
         navBackground={navBackground.get()}

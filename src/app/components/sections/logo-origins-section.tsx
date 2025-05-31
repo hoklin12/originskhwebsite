@@ -17,6 +17,7 @@ export default function LogoOriginsSection() {
             className="w-full h-auto object-contain"
             priority
             style={{ maxWidth: "100vw", maxHeight: "80vh" }}
+            rel="preload"
           />
         </div>
       </Link>

@@ -65,10 +65,9 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
         </div>
 
         {/* Video Section */}
-        <VideoSection
+        <VideoSection 
           videoSrc="/origins-showreel-2025.mp4"
           thumbnailSrc={"/origins-thumbnail.png"}
-
           id="intro"
           showControls={true}
           autoPlay={false}
