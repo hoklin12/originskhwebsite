@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -20,57 +21,61 @@ export default function Footer() {
   }, []);
 
   const getInTouchLinks = [
-    { name: "Start a Project", href: "/contact" },
-    { name: "Join the Team", href: "/careers" },
-    { name: "Press & Media", href: "/press" },
-    { name: "Drop Us a Note", href: "/contact" },
+    { id: 1, name: "Start a Project", href: "/contact" },
+    { id: 2, name: "Join the Team", href: "/hiring" },
+    { id: 3, name: "Drop Us a Note", href: "/contact" },
   ];
 
   const seeMoreLinks = [
-    { name: "Home", href: "/" },
-    { name: "Work", href: "/work" },
-    { name: "Services", href: "/services" },
-    { name: "Latest", href: "/latest" },
-    { name: "About", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
+    { id: 4, name: "Home", href: "/" },
+    { id: 5, name: "Portfolios", href: "/portfolios" },
+    { id: 6, name: "Studios", href: "/studios" },
+    { id: 7, name: "About", href: "/about" },
+    { id: 8, name: "Hiring", href: "/hiring" },
+    { id: 9, name: "News", href: "/news" },
+    { id: 10, name: "Contact", href: "/contact" },
   ];
 
   const followAlongLinks = [
-    { name: "Instagram", href: "https://instagram.com/originskh" },
-    { name: "Facebook", href: "https://facebook.com/originsstudioskh" },
-    { name: "Telegram", href: "https://t.me/originskh" },
+    { id: 11, name: "Instagram", href: "https://instagram.com/originskh"  },
+    { id: 12, name: "Facebook", href: "https://facebook.com/originsstudioskh"  },
+    { id: 13, name: "Telegram", href: "https://t.me/originskh"  },
   ];
 
   // Responsive font and spacing classes based on viewport size
   const getFontSize = (baseSize: string) => {
-    if (viewportSize <= 25) return `text-${baseSize === "xs" ? "xs" : "sm"}`;
-    if (viewportSize >= 200) return `text-${baseSize === "xs" ? "sm" : "3xl"}`;
+    if (viewportSize <= 25)
+      return `text-${baseSize === "xs" ? "xs" : "sm"}`;
+    if (viewportSize >= 200)
+      return `text-${baseSize === "xs" ? "sm" : "3xl"}`;
     return `text-${baseSize}`;
   };
 
   return (
-    <footer className="bg-white sm:py-12 lg:py-16 text-gray-500 overflow-x-hidden px-8">
-      {/* Removed container/mx-auto and replaced with full-width layout */}
+    <footer className="bg-white sm:py-12 lg:py-16 text-gray-500 overflow-x-hidden px-6 md:px-8">
+      {/* Full-width container */}
       <div className="w-full">
+        {/* Divider line */}
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
 
-        {/* Main content - Responsive grid for all screen sizes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-8 sm:gap-y-12 lg:gap-x-8 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Newsletter subscription - Full width on small screens, 1/3 on larger */}
+        {/* Main content grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-8 sm:gap-y-12 lg:gap-x-8 w-full">
+          {/* Newsletter subscription */}
           <div className="sm:col-span-2 lg:col-span-4 max-w-lg w-full">
-            <h2 className={`${getFontSize("2xl")} font-semibold text-black mb-4 sm:mb-6`}>
+            <h2
+              className={`${getFontSize("2xl")} font-semibold text-black mb-4 sm:mb-6`}
+            >
               Keep up to date with our quarterly newsletter, &ldquo;You&rsquo;ve got mail.&rdquo;
             </h2>
             <div className="mt-4 sm:mt-6">
               <input
                 type="email"
                 placeholder="Enter email address..."
-                className="w-full bg-gray-200 px-3 sm:px-4 py-2 sm:py-3 rounded-lg mb-3 sm:mb-4 mx-2 my-2 sm:mx-0"
+                className="w-full bg-gray-200 px-3 sm:px-4 py-2 sm:py-3 rounded-lg mb-3 sm:mb-4"
                 aria-label="Email address"
               />
               <button
-                className="bg-black text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full inline-flex items-center mx-2 my-2 sm:mx-0"
+                className="bg-black text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full inline-flex items-center"
                 aria-label="Subscribe to newsletter"
               >
                 Subscribe
@@ -92,16 +97,18 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links Sections - Responsive column layout */}
+          {/* Links Sections */}
           <div className="sm:col-span-2 lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
             {/* Get in touch */}
             <div>
-              <h3 className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}>
+              <h3
+                className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}
+              >
                 GET IN TOUCH
               </h3>
               <ul className="space-y-1 sm:space-y-2 text-gray-500">
                 {getInTouchLinks.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.id}>
                     <Link
                       href={link.href}
                       className={`${getFontSize("sm")} hover:text-gray-800 transition-colors block py-1`}
@@ -115,12 +122,14 @@ export default function Footer() {
 
             {/* See more */}
             <div>
-              <h3 className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}>
+              <h3
+                className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}
+              >
                 SEE MORE
               </h3>
               <ul className="space-y-1 sm:space-y-2 text-gray-500">
                 {seeMoreLinks.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.id}>
                     <Link
                       href={link.href}
                       className={`${getFontSize("sm")} hover:text-gray-800 transition-colors block py-1`}
@@ -134,12 +143,14 @@ export default function Footer() {
 
             {/* Follow along */}
             <div>
-              <h3 className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}>
+              <h3
+                className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}
+              >
                 FOLLOW ALONG
               </h3>
               <ul className="space-y-1 sm:space-y-2 text-gray-500">
                 {followAlongLinks.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.id}>
                     <Link
                       href={link.href}
                       className={`${getFontSize("sm")} hover:text-gray-800 transition-colors block py-1`}
@@ -157,7 +168,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-gray-200 mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="border-t border-gray-200 mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8 w-full">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs sm:text-sm space-y-4 sm:space-y-0 w-full">
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <Link href="/" className="hover:text-gray-800 transition-colors">
@@ -167,7 +178,9 @@ export default function Footer() {
                 Privacy Policy
               </Link>
             </div>
-            <span className="text-xs sm:text-sm">© 2025, Origins Studios. All Rights Reserved.</span>
+            <span className="text-xs sm:text-sm">
+              © 2025, Origins Studios. All Rights Reserved.
+            </span>
           </div>
         </div>
       </div>

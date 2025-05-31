@@ -1,27 +1,28 @@
-"use client"
-import { useState, useEffect } from "react"
-import Image from "next/image"
+
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function OurWorkSection() {
-  const [activeCategory, setActiveCategory] = useState("ALL")
-  const [flippedImages, setFlippedImages] = useState<Set<string>>(new Set())
-  const [showAll, setShowAll] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [activeCategory, setActiveCategory] = useState("ALL");
+  const [flippedImages, setFlippedImages] = useState<Set<string>>(new Set());
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Handle mobile resize
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640)
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const navItems = [
     { label: "ALL", href: "" },
     { label: "CREATIVE", href: "" },
     { label: "PRODUCTION", href: "" },
     { label: "CONCEPT", href: "" },
-  ]
+  ];
 
   const imageMap: { [key: string]: { src: string; caption: string; hashtags: string; description: string }[] } = {
     ALL: [
@@ -45,10 +46,7 @@ export default function OurWorkSection() {
       },
     ],
     CREATIVE: [
-      { src: "/mtstick-001.png", 
-        caption: "NONE", 
-        hashtags: "#CREATIVE", 
-        description: "none" },
+      { src: "/mtstick-001.png", caption: "NONE", hashtags: "#CREATIVE", description: "none" },
       {
         src: "/tunsai5.jpg",
         caption: "NONE",
@@ -77,73 +75,67 @@ export default function OurWorkSection() {
       { src: "/maxxx-009.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
       { src: "/back.jpg", caption: "none", hashtags: "#CONCEPT", description: "none" },
     ],
-  }
+  };
 
   const handleCategoryChange = (category: string) => {
-    setActiveCategory(category)
-    setFlippedImages(new Set())
-    setShowAll(false)
-  }
+    setActiveCategory(category);
+    setFlippedImages(new Set());
+    setShowAll(false);
+  };
 
   const handleFlip = (uniqueKey: string) => {
     setFlippedImages((prev) => {
-      const newSet = new Set(prev)
+      const newSet = new Set(prev);
       if (newSet.has(uniqueKey)) {
-        newSet.delete(uniqueKey)
+        newSet.delete(uniqueKey);
       } else {
-        newSet.add(uniqueKey)
+        newSet.add(uniqueKey);
       }
-      return newSet
-    })
-  }
+      return newSet;
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setFlippedImages(new Set())
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setFlippedImages(new Set());
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const currentImages = imageMap[activeCategory] || []
-
-  const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages
+  const currentImages = imageMap[activeCategory] || [];
+  const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
 
   return (
-    <section id="manifesto" className="pt-16 pb-8 bg-white relative overflow-hidden px-8">
-      <div className="container relative z-10 mx-auto">
-        <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0" />
-
-        <div className="flex items-center gap-4 mb-8">
-          <span className="px-4 py-2 rounded-full text-sm font-medium text-black">RECENT WORK:</span>
-
-          {!isMobile &&
-            navItems.map((item) => {
-              const active = activeCategory === item.label
-              return (
-                <button
-                  key={item.label}
-                  onClick={() => handleCategoryChange(item.label)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                    ${active ? "bg-black text-white" : "bg-gray-300 text-black hover:bg-black hover:text-white"}
-                  `}
-                >
-                  {item.label}
-                </button>
-              )
-            })}
+    <section id="manifesto" className="pt-16 pb-8 bg-white relative overflow-hidden px-0">
+      <div className="w-full px-8">
+        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
+        <div className="flex items-center gap-2 pb-24">
+          <span className="px-4 py-2 rounded-full text-sm font-medium text-black">RECENTLY WORK:</span>
+          {navItems.map((item) => {
+            const active = activeCategory === item.label;
+            return (
+              <button
+                key={item.label}
+                onClick={() => handleCategoryChange(item.label)}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                  active
+                    ? "bg-black text-white"
+                    : "bg-gray-200 text-black hover:bg-black hover:text-white"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
-
         {/* Grid of Square Cards */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full mx-auto ${
-            isMobile && currentImages.length > 3 && !showAll ? "mb-4" : ""
-          }`}
+          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full`}
         >
           {imagesToShow.map((image, index) => {
-            const uniqueKey = `${activeCategory}-${index}-${image.src}`
-            const isFlipped = flippedImages.has(uniqueKey)
-
+            const uniqueKey = `${activeCategory}-${index}-${image.src}`;
+            const isFlipped = flippedImages.has(uniqueKey);
             return (
               <div key={uniqueKey} className="relative aspect-square perspective-1000">
                 <div
@@ -162,7 +154,6 @@ export default function OurWorkSection() {
                       priority
                     />
                   </div>
-
                   {/* Back Side */}
                   <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-gray-100 rounded-lg flex flex-col items-center justify-center p-4 text-center text-black">
                     <h3 className="font-bold">{image.caption}</h3>
@@ -171,10 +162,9 @@ export default function OurWorkSection() {
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
-
         {/* Show More Button (Mobile Only) */}
         {isMobile && currentImages.length > 3 && (
           <div className="text-center mt-6">
@@ -200,6 +190,5 @@ export default function OurWorkSection() {
         )}
       </div>
     </section>
-  )
+  );
 }
-

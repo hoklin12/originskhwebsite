@@ -1,13 +1,10 @@
+"use client";
 
-
-
-"use client"
-
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function OurStudiosSection() {
   const slides = [
@@ -27,30 +24,30 @@ export default function OurStudiosSection() {
       description: "Partnering with brands to adapt their businesses throughout the Covid-19 period",
       image: "/concepts.png",
     },
-  ]
+  ];
 
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [direction, setDirection] = useState<"right" | "reset">("right")
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState<"right" | "reset">("right");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(activeIndex === slides.length - 1 ? "reset" : "right")
+      setDirection(activeIndex === slides.length - 1 ? "reset" : "right");
       setTimeout(() => {
-        setActiveIndex((prev) => (activeIndex === slides.length - 1 ? 0 : prev + 1))
-      }, 50) // Small delay to allow exit animation
-    }, 5000)
+        setActiveIndex((prev) => (activeIndex === slides.length - 1 ? 0 : prev + 1));
+      }, 50); // Small delay to allow exit animation
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [activeIndex, slides.length])
+    return () => clearInterval(interval);
+  }, [activeIndex, slides.length]);
 
   return (
     <section id="journey" className="py-16 md:py-24 bg-white relative overflow-hidden px-8">
-      <div className="container relative z-10 mx-auto">
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8">
+      <div className="w-full">
+        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8 px-8">
           <p className="text-gray-600">OUR STUDIOS</p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-8">
           {/* Text Section */}
           <div className="w-full md:w-1/2 text-left">
             <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">We&rsquo;re A Creative Powerhouse.</h3>
@@ -109,8 +106,8 @@ export default function OurStudiosSection() {
                   <button
                     key={index}
                     onClick={() => {
-                      setDirection(index > activeIndex ? "right" : "reset")
-                      setActiveIndex(index)
+                      setDirection(index > activeIndex ? "right" : "reset");
+                      setActiveIndex(index);
                     }}
                     className={`h-1.5 w-4 md:w-5 rounded-full transition-all duration-300 ${
                       index === activeIndex ? "bg-orange-500" : "bg-gray-300 hover:bg-gray-400"
@@ -124,5 +121,5 @@ export default function OurStudiosSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

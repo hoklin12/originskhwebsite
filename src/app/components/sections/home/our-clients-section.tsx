@@ -1,7 +1,7 @@
 
 
-"use client"
-import Image from "next/image"
+"use client";
+import Image from "next/image";
 
 export default function OurClientsSection() {
   const clients = [
@@ -17,20 +17,20 @@ export default function OurClientsSection() {
     { name: "klat", src: "/klat.png" },
     { name: "Tree", src: "/tree.png" },
     { name: "Tuns", src: "/tuns.png" },
-  ]
+  ];
 
   // Duplicate the list to create seamless loop
-  const doubledClients = [...clients, ...clients]
+  const doubledClients = [...clients, ...clients];
 
   return (
     <section id="global" className="py-16 bg-white px-8">
-      <div className="container mx-auto">
-        <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
+      <div className="w-full">
+        <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12 px-8">
           <p className="text-gray-600 font-medium">OUR CLIENTS</p>
         </div>
 
         {/* Scroll Container */}
-        <div className="overflow-hidden whitespace-nowrap relative">
+        <div className="overflow-hidden whitespace-nowrap relative px-8">
           <div className="flex space-x-12 animate-scroll">
             {doubledClients.map((client, idx) => (
               <div
@@ -45,8 +45,8 @@ export default function OurClientsSection() {
                     className="object-contain"
                     priority
                     onError={(e) => {
-                      console.error(`Failed to load image: ${client.src}`, e)
-                      ;(e.target as HTMLImageElement).src = "/placeholder.png"
+                      console.error(`Failed to load image: ${client.src}`, e);
+                      (e.target as HTMLImageElement).src = "/placeholder.png";
                     }}
                   />
                 </div>
@@ -75,5 +75,5 @@ export default function OurClientsSection() {
         `}</style>
       </div>
     </section>
-  )
+  );
 }

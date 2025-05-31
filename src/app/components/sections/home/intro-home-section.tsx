@@ -14,7 +14,7 @@ export default function IntroHomeSection() {
         videoSrc="/origins-showreel-2025.mp4"
         id="intro"
         showControls={true}
-        autoPlay={true}
+        autoPlay={false}
         muted={false}
         loop={true}
       />
@@ -39,3 +39,4 @@ export default function IntroHomeSection() {
     </section>
   )
 }
+
