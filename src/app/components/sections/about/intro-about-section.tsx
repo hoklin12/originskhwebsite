@@ -19,6 +19,8 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
 
       <VideoSection
         videoSrc="/origins-showreel-2025.mp4"
+        thumbnailSrc={"/origins-thumbnail.png"}
+
         id="intro"
         showControls={true}
         autoPlay={false}

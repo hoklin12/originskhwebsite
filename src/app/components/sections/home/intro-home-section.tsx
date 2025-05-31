@@ -12,6 +12,7 @@ export default function IntroHomeSection() {
 
       <VideoSection
         videoSrc="/origins-showreel-2025.mp4"
+        thumbnailSrc={"/origins-thumbnail.png"}
         id="intro"
         showControls={true}
         autoPlay={false}
