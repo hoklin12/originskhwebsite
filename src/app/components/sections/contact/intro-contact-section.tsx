@@ -77,13 +77,13 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
 
         <div className="flex flex-col justify-center px-12">
           <h3 className="text-2xl font-bold mb-4">
-            Cambodia, Phnom Penh
+            Phnom Penh, Cambodia
             {/* <span className="ml-4 text-lg font-normal">12:32 AM</span> */}
           </h3>
 
           <div className="flex flex-col space-y-2 text-base text-gray-800 mb-4">
-            <p>109E0 Street 494, Phnom Penh 12300</p>
-            <p>(+65) 8098 0312</p>
+            <p>No. 109E0 Street 494, Sangkat Phsar Daeum Thkov, Khan Chamkar Mon, Phnom Penh 120112, Cambodia.</p>
+            <p>(+855) 98 880 312</p>
           </div>
 
           <a
@@ -103,3 +103,5 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
 IntroContactSection.displayName = 'IntroContactSection';
 
 export default IntroContactSection;
+
+

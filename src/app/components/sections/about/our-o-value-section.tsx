@@ -66,7 +66,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="min-h-screen bg-gray-50 py-16 px-8">
+    <section ref={ref} className="min-h-screen bg-gray-50 py-48 px-8">
       <div className="relative z-10 mx-auto px-0 w-full">
         {/* Header */}
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-12">

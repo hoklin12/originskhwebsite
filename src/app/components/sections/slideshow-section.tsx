@@ -92,7 +92,7 @@ const SlideshowSection = ({
   }, []);
 
   return (
-    <div className={`pt-16 ${containerClassName}`}>
+    <div className={`${containerClassName}`}>
       {/* Manual-infinite scrollable images */}
       <div
         ref={scrollRef}

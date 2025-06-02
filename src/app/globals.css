@@ -18,6 +18,21 @@
     --foreground: #ededed;
   }
 }
+
+/* Hide scrollbar for all browsers */
+html {
+  overflow-y: scroll; /* Prevent vertical scrollbar */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none; /* Hide scrollbar */
+}
 /*    */
 
 /*  */

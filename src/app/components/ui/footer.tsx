@@ -1,25 +1,9 @@
 
+
+
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 export default function Footer() {
-  const [viewportSize, setViewportSize] = useState(100);
-
-  // Track viewport size for responsive adjustments
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 480) setViewportSize(25);
-      else if (width > 1920) setViewportSize(200);
-      else setViewportSize(100);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Set initial value
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   const getInTouchLinks = [
     { id: 1, name: "Start a Project", href: "/contact" },
     { id: 2, name: "Join the Team", href: "/hiring" },
@@ -37,45 +21,34 @@ export default function Footer() {
   ];
 
   const followAlongLinks = [
-    { id: 11, name: "Instagram", href: "https://instagram.com/originskh"  },
-    { id: 12, name: "Facebook", href: "https://facebook.com/originsstudioskh"  },
-    { id: 13, name: "Telegram", href: "https://t.me/originskh"  },
+    { id: 11, name: "Instagram", href: "https://instagram.com/originskh" },
+    { id: 12, name: "Facebook", href: "https://facebook.com/originsstudioskh" },
+    { id: 13, name: "Telegram", href: "https://t.me/originskh" },
   ];
 
-  // Responsive font and spacing classes based on viewport size
-  const getFontSize = (baseSize: string) => {
-    if (viewportSize <= 25)
-      return `text-${baseSize === "xs" ? "xs" : "sm"}`;
-    if (viewportSize >= 200)
-      return `text-${baseSize === "xs" ? "sm" : "3xl"}`;
-    return `text-${baseSize}`;
-  };
-
   return (
-    <footer className="bg-white sm:py-12 lg:py-16 text-gray-500 overflow-x-hidden px-6 md:px-8">
+    <footer className="bg-white pb-8 text-gray-500 overflow-x-hidden px-6 md:px-8">
       {/* Full-width container */}
       <div className="w-full">
         {/* Divider line */}
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
 
-        {/* Main content grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-8 sm:gap-y-12 lg:gap-x-8 w-full">
+        {/* Main content grid - Always 3 columns layout */}
+        <div className="grid grid-cols-12 gap-4 md:gap-8 w-full">
           {/* Newsletter subscription */}
-          <div className="sm:col-span-2 lg:col-span-4 max-w-lg w-full">
-            <h2
-              className={`${getFontSize("2xl")} font-semibold text-black mb-4 sm:mb-6`}
-            >
+          <div className="col-span-12 md:col-span-5 max-w-lg w-full mb-8 md:mb-0">
+            <h2 className="text-lg md:text-2xl font-semibold text-black mb-4 md:mb-6">
               Keep up to date with our quarterly newsletter, &ldquo;You&rsquo;ve got mail.&rdquo;
             </h2>
-            <div className="mt-4 sm:mt-6">
+            <div className="mt-4 md:mt-6">
               <input
                 type="email"
                 placeholder="Enter email address..."
-                className="w-full bg-gray-200 px-3 sm:px-4 py-2 sm:py-3 rounded-lg mb-3 sm:mb-4"
+                className="w-full bg-gray-200 px-3 md:px-4 py-2 md:py-3 rounded-lg mb-3 md:mb-4 text-sm md:text-base"
                 aria-label="Email address"
               />
               <button
-                className="bg-black text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full inline-flex items-center"
+                className="bg-black text-white px-6 md:px-8 py-2 md:py-3 rounded-full inline-flex items-center text-sm md:text-base"
                 aria-label="Subscribe to newsletter"
               >
                 Subscribe
@@ -97,21 +70,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links Sections */}
-          <div className="sm:col-span-2 lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
+          {/* Links Sections - Always horizontal layout */}
+          <div className="col-span-12 md:col-span-7 grid grid-cols-3 gap-4 md:gap-8 w-full">
             {/* Get in touch */}
             <div>
-              <h3
-                className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}
-              >
+              <h3 className="text-xs md:text-sm font-semibold text-black uppercase tracking-wider mb-3 md:mb-4">
                 GET IN TOUCH
               </h3>
-              <ul className="space-y-1 sm:space-y-2 text-gray-500">
+              <ul className="space-y-1 md:space-y-2 text-gray-500">
                 {getInTouchLinks.map((link) => (
                   <li key={link.id}>
                     <Link
                       href={link.href}
-                      className={`${getFontSize("sm")} hover:text-gray-800 transition-colors block py-1`}
+                      className="text-xs md:text-sm hover:text-gray-800 transition-colors block py-1"
                     >
                       {link.name}
                     </Link>
@@ -122,17 +93,15 @@ export default function Footer() {
 
             {/* See more */}
             <div>
-              <h3
-                className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}
-              >
+              <h3 className="text-xs md:text-sm font-semibold text-black uppercase tracking-wider mb-3 md:mb-4">
                 SEE MORE
               </h3>
-              <ul className="space-y-1 sm:space-y-2 text-gray-500">
+              <ul className="space-y-1 md:space-y-2 text-gray-500">
                 {seeMoreLinks.map((link) => (
                   <li key={link.id}>
                     <Link
                       href={link.href}
-                      className={`${getFontSize("sm")} hover:text-gray-800 transition-colors block py-1`}
+                      className="text-xs md:text-sm hover:text-gray-800 transition-colors block py-1"
                     >
                       {link.name}
                     </Link>
@@ -143,17 +112,15 @@ export default function Footer() {
 
             {/* Follow along */}
             <div>
-              <h3
-                className={`${getFontSize("xs")} font-semibold text-black uppercase tracking-wider mb-3 sm:mb-4`}
-              >
+              <h3 className="text-xs md:text-sm font-semibold text-black uppercase tracking-wider mb-3 md:mb-4">
                 FOLLOW ALONG
               </h3>
-              <ul className="space-y-1 sm:space-y-2 text-gray-500">
+              <ul className="space-y-1 md:space-y-2 text-gray-500">
                 {followAlongLinks.map((link) => (
                   <li key={link.id}>
                     <Link
                       href={link.href}
-                      className={`${getFontSize("sm")} hover:text-gray-800 transition-colors block py-1`}
+                      className="text-xs md:text-sm hover:text-gray-800 transition-colors block py-1"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Visit our ${link.name} page`}
@@ -168,9 +135,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-gray-200 mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8 w-full">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs sm:text-sm space-y-4 sm:space-y-0 w-full">
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+        <div className="border-t border-gray-200 mt-8 md:mt-16 pt-6 md:pt-8 w-full">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-xs md:text-sm space-y-4 md:space-y-0 w-full">
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
               <Link href="/" className="hover:text-gray-800 transition-colors">
                 Sitemap
               </Link>
@@ -178,7 +145,7 @@ export default function Footer() {
                 Privacy Policy
               </Link>
             </div>
-            <span className="text-xs sm:text-sm">
+            <span className="text-xs md:text-sm">
               © 2025, Origins Studios. All Rights Reserved.
             </span>
           </div>

@@ -1,4 +1,6 @@
-'use client';
+
+
+"use client";
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowRight, ChevronRight, ExternalLink, Play } from 'lucide-react';
@@ -44,8 +46,8 @@ export default function OurServicesSection() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-8">
-      {/* Content container */}
-      <div className="relative z-10 w-full max-w-screen-xl mx-auto">
+      {/* Content container - removed max-w-screen-xl and mx-auto */}
+      <div className="relative z-10 w-full">
         {/* OUR STUDIOS header and Space selector */}
         <div>
           <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
@@ -55,7 +57,7 @@ export default function OurServicesSection() {
             <div className="flex gap-4 items-center">
               <motion.button
                 onClick={() => setActiveSpace("event")}
-                className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 h-10 flex items-center justify-center ${
+                className={`px-3 py-1 text-sx font-medium rounded-full transition-all duration-300 h-10 flex items-center justify-center ${
                   activeSpace === "event"
                     ? "text-white bg-orange-500"
                     : "text-black bg-gray-200 hover:bg-gray-300"
