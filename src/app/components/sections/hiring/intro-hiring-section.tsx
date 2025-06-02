@@ -29,7 +29,7 @@ const IntroHiringSection: React.FC = () => {
               className="text-3xl font-light text-black mr-4"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              Ready to get straight to it?
+              Let’s get started.
             </p>
             <Link href="#findUrJob">
               <button className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">

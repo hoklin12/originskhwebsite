@@ -1,6 +1,4 @@
 
-
-
 import Link from "next/link";
 
 export default function Footer() {
@@ -27,7 +25,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white pb-8 text-gray-500 overflow-x-hidden px-6 md:px-8">
+    <footer className="bg-white pb-8 text-gray-500 overflow-x-hidden px-4 md:px-8">
       {/* Full-width container */}
       <div className="w-full">
         {/* Divider line */}
