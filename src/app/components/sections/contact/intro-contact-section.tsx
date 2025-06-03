@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import VideoSection from '../video-section';
+import { motion } from 'framer-motion';
 
 const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
   return (
@@ -40,7 +40,13 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
           >
             Telegram
-            <ArrowRight size={18} className="ml-2" />
+                  <motion.div
+                  className="ml-3"
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.div>
           </a>
 
           <a
@@ -50,7 +56,13 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
           >
             Facebook
-            <ArrowRight size={18} className="ml-2" />
+                  <motion.div
+                  className="ml-3"
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.div>
           </a>
 
           <a
@@ -60,7 +72,13 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
           >
             Instagram
-            <ArrowRight size={18} className="ml-2" />
+                  <motion.div
+                  className="ml-3"
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.div>
           </a>
         </div>
 

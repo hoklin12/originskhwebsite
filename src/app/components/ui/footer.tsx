@@ -1,7 +1,18 @@
 
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState, FormEvent } from "react";
+
+type SubscriptionStatus = {
+  success: boolean;
+  message: string;
+} | null;
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscriptionStatus, setSubscriptionStatus] = useState<SubscriptionStatus>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const getInTouchLinks = [
     { id: 1, name: "Start a Project", href: "/contact" },
     { id: 2, name: "Join the Team", href: "/hiring" },
@@ -24,8 +35,45 @@ export default function Footer() {
     { id: 13, name: "Telegram", href: "https://t.me/originskh" },
   ];
 
+  const handleSubscribe = async (e: FormEvent) => {
+    e.preventDefault();
+    
+    // Simple email validation
+    if (!email || !email.includes("@")) {
+      setSubscriptionStatus({ success: false, message: "Please enter a valid email address" });
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      // Here you would typically call your API endpoint
+      // For demonstration, we'll simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Simulate successful subscription
+      setSubscriptionStatus({ 
+        success: true, 
+        message: "Thank you for subscribing to our newsletter!" 
+      });
+      setEmail("");
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubscriptionStatus(null);
+      }, 5000);
+    } catch {
+      setSubscriptionStatus({ 
+        success: false, 
+        message: "Subscription failed. Please try again later." 
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <footer className="bg-white pb-8 text-gray-500 overflow-x-hidden px-4 md:px-8">
+    <footer className="bg-white pb-8 text-gray-500 overflow-x-hidden px-8 md:px-8">
       {/* Full-width container */}
       <div className="w-full">
         {/* Divider line */}
@@ -38,34 +86,44 @@ export default function Footer() {
             <h2 className="text-lg md:text-2xl font-semibold text-black mb-4 md:mb-6">
               Keep up to date with our quarterly newsletter, &ldquo;You&rsquo;ve got mail.&rdquo;
             </h2>
-            <div className="mt-4 md:mt-6">
-              <input
-                type="email"
-                placeholder="Enter email address..."
-                className="w-full bg-gray-200 px-3 md:px-4 py-2 md:py-3 rounded-lg mb-3 md:mb-4 text-sm md:text-base"
-                aria-label="Email address"
-              />
-              <button
-                className="bg-black text-white px-6 md:px-8 py-2 md:py-3 rounded-full inline-flex items-center text-sm md:text-base"
-                aria-label="Subscribe to newsletter"
-              >
-                Subscribe
-                <svg
-                  className="ml-2 w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+            <form onSubmit={handleSubscribe}>
+              <div className="mt-4 md:mt-6">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter email address..."
+                  className="w-full bg-gray-200 px-3 md:px-4 py-2 md:py-3 rounded-lg mb-3 md:mb-4 text-sm md:text-base"
+                  aria-label="Email address"
+                  required
+                />
+                <button 
+                  type="submit"
+                  className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
+                  disabled={isLoading}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </button>
-            </div>
+                  {isLoading ? (
+                    "Subscribing..."
+                  ) : (
+                    <>
+                      Subscribe
+                      <motion.div
+                        className="ml-3"
+                        animate={{ x: [0, 6, 0] }}
+                        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                      >
+                        →
+                      </motion.div>
+                    </>
+                  )}
+                </button>
+                {subscriptionStatus && (
+                  <p className={`text-sm mt-2 ${subscriptionStatus.success ? "text-green-600" : "text-red-600"}`}>
+                    {subscriptionStatus.message}
+                  </p>
+                )}
+              </div>
+            </form>
           </div>
 
           {/* Links Sections - Always horizontal layout */}

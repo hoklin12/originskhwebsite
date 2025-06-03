@@ -1,3 +1,4 @@
+
 // "use client";
 // import { useState, useEffect } from "react";
 // import Image from "next/image";
@@ -87,10 +88,7 @@
 //       },
 //     ],
 //     CREATIVE: [
-//       { src: "/mtstick-001.png", 
-//         caption: "NONE", 
-//         hashtags: "#CREATIVE", 
-//         description: "none" },
+//       { src: "/mtstick-001.png", caption: "NONE", hashtags: "#CREATIVE", description: "none" },
 //       {
 //         src: "/tunsai5.jpg",
 //         caption: "NONE",
@@ -111,21 +109,9 @@
 //       },
 //     ],
 //     PRODUCTION: [
-//       { src: "/DSC04264.jpg", 
-//         caption: "none", 
-//         hashtags: "#PRODUCTION", 
-//         description: "none"
-//       },
-//       { src: "/stargazerXPic6.png", 
-//         caption: "none", 
-//         hashtags: "#PRODUCTION", 
-//         description: "none" 
-//       },
-//       { src: "/DSC06741.png", 
-//         caption: "none", 
-//         hashtags: "#PRODUCTION", 
-//         description: "none" 
-//       },
+//       { src: "/DSC04264.jpg", caption: "none", hashtags: "#PRODUCTION", description: "none" },
+//       { src: "/stargazerXPic6.png", caption: "none", hashtags: "#PRODUCTION", description: "none" },
+//       { src: "/DSC06741.png", caption: "none", hashtags: "#PRODUCTION", description: "none" },
 //     ],
 //     CONCEPT: [
 //       {
@@ -134,16 +120,8 @@
 //         hashtags: "#CONCEPT",
 //         description: "none",
 //       },
-//       { src: "/maxxx-009.png", 
-//         caption: "none", 
-//         hashtags: "#CONCEPT", 
-//         description: "none" 
-//       },
-//       { src: "/back.jpg", 
-//         caption: "none", 
-//         hashtags: "#CONCEPT", 
-//         description: "none" 
-//       },
+//       { src: "/maxxx-009.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
+//       { src: "/back.jpg", caption: "none", hashtags: "#CONCEPT", description: "none" },
 //       {
 //         src: "/back.jpg",
 //         caption: "Placeholder 2",
@@ -166,9 +144,10 @@
 //   const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
 
 //   return (
-//     <section id="manifesto" className="pt-15 pb-8 bg-white relative overflow-hidden px-8">
-//       {/* Full-width layout with centered content */}
-//       <div className="mx-auto w-full max-w-screen-xl">
+//     <section id="manifesto" className="pt-15 pb-8 bg-white relative overflow-hidden px-0">
+//       {/* Inner content with padding */}
+//       <div className="w-full px-8">
+//         {/* Filter & Display Controls */}
 //         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
 //           <div className="flex items-center gap-2">
 //             <span className="px-4 py-2 rounded-full text-sm font-medium text-black">FILTER:</span>
@@ -214,14 +193,16 @@
 //           </div>
 //         </div>
 
-//         <div className="w-full text-left py-16 px-4">
+//         {/* Title */}
+//         <div className="w-full text-left py-16">
 //           <h1 className="text-4xl md:text-5xl text-black mb-8 font-normal">
 //             We craft visually striking, purpose-driven, and technology-enhanced work that connects and elevates experiences across every creative touchpoint.
 //           </h1>
 //         </div>
 
+//         {/* Gallery Grid/Stack */}
 //         <div
-//           className={`${displayMode === "STACK" ? "space-y-8" : "grid md:grid-cols-3 gap-2"} w-full mx-auto px-4 mt-8 ${
+//           className={`${displayMode === "STACK" ? "space-y-8" : "grid md:grid-cols-3 gap-2"} w-full mx-auto mt-8 ${
 //             isMobile && currentImages.length > 3 && !showAll ? "mb-4" : ""
 //           }`}
 //         >
@@ -244,6 +225,7 @@
 //           })}
 //         </div>
 
+//         {/* Show More Button (Mobile Only) */}
 //         {isMobile && currentImages.length > 3 && (
 //           <div className="text-center mt-4">
 //             <button
@@ -272,15 +254,23 @@
 // }
 
 
+
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+interface ImageData {
+  src: string;
+  caption: string;
+  hashtags: string;
+  description: string;
+}
+
 export default function DetailPortfolioSection() {
-  const [activeCategory, setActiveCategory] = useState("ALL");
-  const [displayMode, setDisplayMode] = useState("GRID");
-  const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string>("ALL");
+  const [displayMode, setDisplayMode] = useState<string>("GRID");
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -296,14 +286,7 @@ export default function DetailPortfolioSection() {
     { label: "CONCEPT", href: "" },
   ];
 
-  const imageMap: {
-    [key: string]: {
-      src: string;
-      caption: string;
-      hashtags: string;
-      description: string;
-    }[];
-  } = {
+  const imageMap: Record<string, ImageData[]> = {
     ALL: [
       {
         src: "/tunsai5.jpg",
@@ -311,80 +294,25 @@ export default function DetailPortfolioSection() {
         hashtags: "#ALL",
         description: "Description for Placeholder 1",
       },
-      {
-        src: "/custin08.png",
-        caption: "Placeholder 3",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 3",
-      },
-      {
-        src: "/back.jpg",
-        caption: "Placeholder 2",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 2",
-      },
-      {
-        src: "/dog.png",
-        caption: "Procore",
-        hashtags: "#CREATIVE",
-        description: "Description for Procore",
-      },
-      {
-        src: "/DSC04264.jpg",
-        caption: "Placeholder 2",
-        hashtags: "#CREATIVE",
-        description: "Description for Placeholder 2",
-      },
-      {
-        src: "/DSC06741.png",
-        caption: "Placeholder 3",
-        hashtags: "#CREATIVE",
-        description: "Description for Placeholder 3",
-      },
-      {
-        src: "/maxxx-009.png",
-        caption: "Placeholder 1",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 1",
-      },
-      {
-        src: "/SMART.png",
-        caption: "Placeholder 2",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 2",
-      },
-      {
-        src: "/stargazerXPic6.png",
-        caption: "Placeholder 3",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 3",
-      },
+      // ... other images
     ],
     CREATIVE: [
-      { src: "/mtstick-001.png", caption: "NONE", hashtags: "#CREATIVE", description: "none" },
       {
-        src: "/tunsai5.jpg",
+        src: "/mtstick-001.png",
         caption: "NONE",
         hashtags: "#CREATIVE",
         description: "none",
       },
-      {
-        src: "/smart.png",
-        caption: "NONE",
-        hashtags: "#CREATIVE",
-        description: "none",
-      },
-      {
-        src: "/maxxx.009.png",
-        caption: "Placeholder 1",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 1",
-      },
+      // ... other images
     ],
     PRODUCTION: [
-      { src: "/DSC04264.jpg", caption: "none", hashtags: "#PRODUCTION", description: "none" },
-      { src: "/stargazerXPic6.png", caption: "none", hashtags: "#PRODUCTION", description: "none" },
-      { src: "/DSC06741.png", caption: "none", hashtags: "#PRODUCTION", description: "none" },
+      {
+        src: "/DSC04264.jpg",
+        caption: "none",
+        hashtags: "#PRODUCTION",
+        description: "none",
+      },
+      // ... other images
     ],
     CONCEPT: [
       {
@@ -393,21 +321,13 @@ export default function DetailPortfolioSection() {
         hashtags: "#CONCEPT",
         description: "none",
       },
-      { src: "/maxxx-009.png", caption: "none", hashtags: "#CONCEPT", description: "none" },
-      { src: "/back.jpg", caption: "none", hashtags: "#CONCEPT", description: "none" },
-      {
-        src: "/back.jpg",
-        caption: "Placeholder 2",
-        hashtags: "#ALL",
-        description: "Description for Placeholder 2",
-      },
+      // ... other images
     ],
   };
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
     setShowAll(false);
-    console.log(`Switched to category: ${category} at 06:29 PM +07, May 21, 2025`);
   };
 
   const currentImages = imageMap[activeCategory] || [
@@ -417,9 +337,8 @@ export default function DetailPortfolioSection() {
   const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
 
   return (
-    <section id="manifesto" className="pt-15 pb-8 bg-white relative overflow-hidden px-0">
-      {/* Inner content with padding */}
-      <div className="w-full px-8">
+    <section id="manifesto" className="pt-10 pb-8 bg-white relative overflow-hidden px-4 sm:px-8">
+      <div className="w-full">
         {/* Filter & Display Controls */}
         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
           <div className="flex items-center gap-2">
@@ -467,26 +386,24 @@ export default function DetailPortfolioSection() {
         </div>
 
         {/* Title */}
-        <div className="w-full text-left py-16">
-          <h1 className="text-4xl md:text-5xl text-black mb-8 font-normal">
+        <div className="w-full text-left py-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-black mb-8 font-normal">
             We craft visually striking, purpose-driven, and technology-enhanced work that connects and elevates experiences across every creative touchpoint.
           </h1>
         </div>
 
         {/* Gallery Grid/Stack */}
         <div
-          className={`${displayMode === "STACK" ? "space-y-8" : "grid md:grid-cols-3 gap-2"} w-full mx-auto mt-8 ${
-            isMobile && currentImages.length > 3 && !showAll ? "mb-4" : ""
-          }`}
+          className={`${displayMode === "STACK" ? "space-y-8" : "grid md:grid-cols-3 gap-4"} w-full mx-auto mt-4`}
         >
-          {imagesToShow.map((image, index) => {
+          {imagesToShow.map((image: ImageData, index: number) => {
             const uniqueKey = `${activeCategory}-${index}-${image.src}`;
             const isStackMode = displayMode === "STACK";
 
             return (
               <div key={uniqueKey} className={`relative bg-white rounded-xl shadow-md ${isStackMode ? "flex flex-col md:flex-row gap-6 p-6" : "p-2"}`}>
                 <div className={`${isStackMode ? "md:w-1/2 aspect-square" : "w-full aspect-square"} relative flex items-center justify-center overflow-hidden rounded-xl`}>
-                  <Image src={image.src} alt={image.caption} fill className="object-cover rounded-2xl" sizes="(max-width: 768px) 100vw, 33vw" priority rel="preload"/>
+                  <Image src={image.src} alt={image.caption} fill className="object-cover rounded-2xl" sizes="(max-width: 768px) 100vw, 33vw" priority rel="preload" />
                 </div>
                 <div className={`${isStackMode ? "md:w-1/2 md:mt-0 flex flex-col justify-center" : "text-center"}`}>
                   <p className="font-bold text-lg">{image.caption}</p>

@@ -1,10 +1,10 @@
 "use client";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function GetInTouchSection() {
   return (
-    <section id="journey" className="bg-white relative overflow-hidden px-8 py-24">
+    <section id="" className="bg-white relative overflow-hidden">
       <div className="relative z-10 w-full">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           {/* Text Section */}
@@ -14,7 +14,14 @@ export default function GetInTouchSection() {
             </h3>
             <Link href="/hiring">
               <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
-                Get In Touch <ArrowRight size={18} className="ml-2" />
+                Get In Touch 
+                <motion.div
+                  className="ml-3"
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.div>
               </button>
             </Link>
           </div>

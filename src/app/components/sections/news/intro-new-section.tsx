@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 // Utility function to slugify titles
 const slugify = (text: string) =>
@@ -168,7 +168,14 @@ const IntroNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
             </div>
           </div>
           <button className="flex items-center py-3 px-6 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base mt-4">
-            View Our Services <ArrowRight size={18} className="ml-2" />
+            View Our Services 
+                    <motion.div
+                  className="ml-3"
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.div>
           </button>
         </div>
       </div>

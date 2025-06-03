@@ -2,9 +2,9 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const FindUrJobSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("ALL");
@@ -38,7 +38,7 @@ const FindUrJobSection: React.FC = () => {
         {/* Title Section */}
         <div className="text-center mb-4">
           <h2
-            className="text-7xl font-serif mb-6 text-black"
+            className="text-4xl md:text-7xl font-serif mb-6 text-black"
             style={{ fontFamily: 'DM Serif Text' }}
           >
             Find Your Next Job
@@ -77,12 +77,12 @@ const FindUrJobSection: React.FC = () => {
         {/* Text section with px-8 */}
       <div className="text-left mb-4 px-8 pt-32 pb-24">
         <h2
-          className="text-5xl font-normal mb-6 text-black"
+          className="text-3xl md:text-5xl font-normal mb-6 text-black"
           style={{ fontFamily: 'DM Serif Text' }}
         >Equity, Inclusion & Opportunity at ORIGINS
         </h2>
-            <div className="p-8 bg-light-green rounded-lg">
-                <h3 className="text-2xl text-black mb-8 font-light leading-relaxed">
+            <div className="p-4 md:p-8 bg-light-green rounded-lg">
+                <h3 className="text-l md:text-2xl text-black mb-8 font-light leading-relaxed">
                   At ORIGINS, we believe creativity thrives in a culture of inclusion, respect, and equity. We&apos;re committed to creating a welcoming environment where every team member feels seen, heard, and empowered to bring their whole self to the work.
                   {" "}We do not discriminate on the basis of race, color, religion, gender identity or expression, age, national origin, disability, marital status, sexual orientation, military status, or any other aspect of identity. Diversity doesn&apos;t just something we support—it&apos;s something we actively seek out and celebrate.
                   To ensure pay transparency and fairness, we follow clearly defined pay bands that align compensation with performance, growth, and impact across our teams. We&apos;re dedicated to fair opportunities at every level—from your first day to your next big promotion.
@@ -141,7 +141,14 @@ const FindUrJobSection: React.FC = () => {
               </h3>
               <Link href="/studios">
                 <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
-                  View Our Services <ArrowRight size={18} className="ml-2" />
+                  View Our Services 
+                  <motion.div
+                  className="ml-3"
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.div>
                 </button>
               </Link>
             </div>

@@ -1,5 +1,4 @@
 "use client";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -186,7 +185,14 @@ export default function DetailStudioSection() {
                         whileHover="hover"
                         whileTap="pressed"
                       >
-                        See Work <ArrowRight size={18} className="ml-2" />
+                        See Work 
+                        <motion.div
+                        className="ml-3"
+                        animate={{ x: [0, 6, 0] }}
+                        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                      >
+                        →
+                      </motion.div>
                       </motion.button>
                     </Link>
                   </div>
