@@ -18,7 +18,8 @@ export default function PortfolioPage() {
       <LogoOriginsSection/>
       <DetailPortfolioSection/>
       <ServiceSection/>
-      <Footer />
+      <Footer  />
     </MainLayout>
   );
 }
+

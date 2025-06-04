@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -8,25 +7,29 @@ const TEAM_MEMBERS = [
   {
     name: "Prof. BK",
     position: "Owner & business Director",
+    image: "/prof-bk.png", // ← custom image
   },
   {
     name: "Sam Wujiale",
     position: "Founder & Studio Director",
+    image: "/sam.png", // ← custom image
   },
   {
     name: "Sreng Sannyaliza",
     position: "Co-founder & Studio Manager",
+    image: "/liza.png", // ← custom image
   },
 ];
 
 const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section id="studios" ref={ref} className="pb-32 bg-white px-8 sm:px-8"> 
+    <section id="studios" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
       <div className="w-full">
         {/* Header */}
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-12 pb-24">
           <p className="text-gray-600 font-medium">OUR TEAM</p>
         </div>
+
         {/* Team Grid */}
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {TEAM_MEMBERS.map((member, index) => (
@@ -45,7 +48,7 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
                 transition={{ duration: 0.3 }}
               >
                 <motion.img
-                  src="/api/placeholder/400/384"
+                  src={member.image} // ← dynamically use each member's image
                   alt={`${member.name} - ${member.position}`}
                   className="w-full h-full object-cover rounded-xl"
                   whileHover={{ scale: 1.05 }}
@@ -85,7 +88,7 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
               </h3>
               <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
                 Hiring 
-                   <motion.div
+                <motion.div
                   className="ml-3"
                   animate={{ x: [0, 6, 0] }}
                   transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}

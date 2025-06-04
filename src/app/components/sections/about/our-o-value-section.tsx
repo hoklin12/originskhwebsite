@@ -24,7 +24,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
       title: "O’riginality.",
       description:
         "We lead with boldness and bring fresh, inventive energy into everything we create.",
-      image: "/exhib01.png",
+      image: "/o2v2.png",
       imageAlt: "O’riginality.",
     },
     {
@@ -32,7 +32,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
       title: "O’thenticity.",
       description:
         "We keep it real with our creation reflecting depth and emotional resonance.",
-      image: "/placeholder3.jpg",
+      image: "/o3v2.png",
       imageAlt: "O’thenticity.",
     },
     {
@@ -40,7 +40,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
       title: "O’wesomeness.",
       description:
         "Our standard is excellence. We aim to “wow” through wonder, quality and impact.",
-      image: "/placeholder3.jpg",
+      image: "/o1v2.png",
       imageAlt: "O’wesomeness.",
     },
   ];

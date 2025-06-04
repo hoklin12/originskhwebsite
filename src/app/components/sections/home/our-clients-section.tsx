@@ -25,7 +25,7 @@ export default function OurClientsSection() {
   return (
     <section id="global" className="py-16 bg-white px-8">
       <div className="w-full">
-        <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12 px-8">
+        <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
           <p className="text-gray-600 font-medium">OUR CLIENTS</p>
         </div>
 

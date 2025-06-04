@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -15,6 +16,8 @@ type SlideshowSectionProps = {
   containerClassName?: string;
   imageWidth?: number;
   imageHeight?: number;
+  autoScrollSpeed?: number; // Auto scroll speed in pixels per frame
+  autoScrollEnabled?: boolean; // Enable/disable auto scroll
 };
 
 const SlideshowSection = ({
@@ -24,11 +27,15 @@ const SlideshowSection = ({
   containerClassName = "",
   imageWidth = 300,
   imageHeight = 300,
+  autoScrollSpeed = 1,
+  autoScrollEnabled = true,
 }: SlideshowSectionProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const tripledImages = [...Array(repeatCount)].flatMap(() => images);
 
@@ -44,6 +51,18 @@ const SlideshowSection = ({
     } else if (container.scrollLeft >= third * 2 - 1) {
       container.scrollLeft = third - 1;
     }
+  };
+
+  // Auto scroll animation
+  const autoScroll = () => {
+    if (!scrollRef.current || isHovered || isDragging || !autoScrollEnabled) {
+      animationRef.current = requestAnimationFrame(autoScroll);
+      return;
+    }
+
+    scrollRef.current.scrollLeft += autoScrollSpeed;
+    checkScrollBoundaries();
+    animationRef.current = requestAnimationFrame(autoScroll);
   };
 
   // Drag-to-scroll logic
@@ -76,6 +95,22 @@ const SlideshowSection = ({
     scrollRef.current.scrollLeft += e.deltaY;
   };
 
+  // Mouse enter/leave handlers for auto-scroll pause
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setIsDragging(false);
+    if (autoScrollEnabled) {
+      animationRef.current = requestAnimationFrame(autoScroll);
+    }
+  };
+
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -91,6 +126,19 @@ const SlideshowSection = ({
     };
   }, []);
 
+  // Start auto scroll animation
+  useEffect(() => {
+    if (autoScrollEnabled) {
+      animationRef.current = requestAnimationFrame(autoScroll);
+    }
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [autoScrollEnabled, isHovered, isDragging]);
+
   return (
     <div className={`${containerClassName}`}>
       {/* Manual-infinite scrollable images */}
@@ -105,7 +153,8 @@ const SlideshowSection = ({
         onScroll={checkScrollBoundaries}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
         onWheel={handleWheel}
       >

@@ -4,7 +4,6 @@ import { useNavigation } from "../components/hooks/use-navigation";
 import IntroStudiosSection from "../components/sections/studios/intro-studio-section";
 import DetailStudiosSection from "../components/sections/studios/detail-studios-section";
 import OurServicesSection from "../components/sections/studios/our-services-section";
-import GetInTouchSection from "../components/sections/get-in-touch-section";
 import Footer from "../components/ui/footer";
 import SecondaryLayout from "../components/layouts/secondary-layout";
 
@@ -19,8 +18,8 @@ export default function StudiosPage() {
       <IntroStudiosSection />
       <DetailStudiosSection/>
       <OurServicesSection/>
-      <GetInTouchSection/>
       <Footer />
     </SecondaryLayout>
   );
 }
+

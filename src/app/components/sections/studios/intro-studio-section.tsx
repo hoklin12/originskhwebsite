@@ -1,19 +1,20 @@
 "use client";
 import React from "react";
 import SlideshowSection from "../slideshow-section";
+
 type IntroStudiosSectionProps = Record<string, never>;
 const IntroStudiosSection = React.forwardRef<HTMLElement, IntroStudiosSectionProps>((props, ref) => {
   const images = [
-    { src: "/custin03.png", className: "h-60 w-80" },
+    { src: "/custin03.png", className: "h-65 w-85" },
     { src: "/dog.png", className: "h-70 w-90" },
-    { src: "/custin03.png", className: "h-60 w-80" },
-    { src: "/DSC06709.png", className: "h-60 w-80" },
-    { src: "/custin08.png", className: "h-60 w-80" },
-    { src: "/exhib01.png", className: "h-60 w-80" },
-    { src: "/custin16.png", className: "h-80 w-90" },
-    { src: "/DSC06744.png", className: "h-60 w-80" },
-    { src: "/custin07.png", className: "h-60 w-80" },
-    { src: "/custin16.png", className: "h-80 w-90" },
+    { src: "/DSC06992.png", className: "h-65 w-95" },
+    { src: "/DSC04366.jpg", className: "h-70 w-100" },
+    { src: "/custin08.png", className: "h-65 w-85" },
+    { src: "/exhib01.png", className: "h-69 w-89" },
+    { src: "/custin16.png", className: "h-70 w-90" },
+    { src: "/DSC06744.png", className: "h-65 w-85" },
+    { src: "/custin07.png", className: "h-75 w-105" },
+    { src: "/custin16.png", className: "h-70 w-90" },
   ];
   return (
     <section
@@ -54,3 +55,5 @@ const IntroStudiosSection = React.forwardRef<HTMLElement, IntroStudiosSectionPro
 });
 IntroStudiosSection.displayName = "IntroStudiosSection";
 export default IntroStudiosSection;
+
+

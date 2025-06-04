@@ -1,10 +1,10 @@
 
-
 "use client";
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { ArrowRight, ChevronRight, ExternalLink, Play } from 'lucide-react';
+import { ChevronRight, ExternalLink, Play } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function OurServicesSection() {
   const [activeSpace, setActiveSpace] = useState<"event" | "studio">("event");
@@ -45,7 +45,7 @@ export default function OurServicesSection() {
   const currentSpace = spaces[activeSpace];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-8">
+    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-6 pb-12 md:px-8 md:pb-18">
       {/* Content container - removed max-w-screen-xl and mx-auto */}
       <div className="relative z-10 w-full">
         {/* OUR STUDIOS header and Space selector */}
@@ -172,19 +172,26 @@ export default function OurServicesSection() {
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="mt-10 flex flex-wrap gap-4"
               >
+                <Link href="/contact">
                 <motion.button
-                  className={`group relative overflow-hidden px-8 py-4 text-white font-medium inline-flex items-center gap-2 rounded-2xl ${
+                  className={`group relative overflow-hidden px-4 py-2 md:px-8 md:py-4 text-white font-medium inline-flex items-center gap-2 rounded-2xl ${
                     activeSpace === "event" ? "bg-orange-500" : "bg-black"
                   }`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  Book This Space{" "}
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                  Book This Space               
+                  <motion.div
+                      className="ml-3"
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                    >
+                      → </motion.div>
+                  </motion.button>
+                </Link>
                 <motion.button
                   onClick={() => setIsVideoPlaying(true)}
-                  className="group px-8 py-4 bg-white border border-gray-300 text-gray-700 font-medium inline-flex items-center gap-2 hover:bg-gray-50 rounded-2xl"
+                  className="group px-4 py-2 md:px-8 md:py-4 bg-white border border-gray-300 text-gray-700 font-medium inline-flex items-center gap-2 hover:bg-gray-50 rounded-2xl"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -291,12 +298,18 @@ export default function OurServicesSection() {
                 </li>
               </ul>
               <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500/10 transition-all duration-500 group-hover:h-full -z-10 rounded-2xl" />
-              <button
-                onClick={() => setActiveSpace("event")}
-                className="px-6 py-3 bg-orange-500 text-white font-medium inline-flex items-center gap-2 rounded-2xl"
-              >
-                View Details <ArrowRight className="h-4 w-4" />
-              </button>
+                <Link href="/contact">
+                  <button className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
+                    Get In Touch 
+                    <motion.div
+                      className="ml-3"
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                    >
+                      →
+                    </motion.div>
+                  </button>
+                </Link>
             </motion.div>
             {/* Studio Space Card */}
             <motion.div
@@ -324,12 +337,18 @@ export default function OurServicesSection() {
                 </li>
               </ul>
               <div className="absolute bottom-0 left-0 w-full h-0 bg-black/10 transition-all duration-500 group-hover:h-full -z-10 rounded-2xl" />
-              <button
-                onClick={() => setActiveSpace("studio")}
-                className="px-6 py-3 bg-black text-white font-medium inline-flex items-center gap-2 rounded-2xl"
-              >
-                View Details <ArrowRight className="h-4 w-4" />
-              </button>
+                <Link href="/contact">
+                  <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+                    Get In Touch 
+                    <motion.div
+                      className="ml-3"
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                    >
+                      →
+                    </motion.div>
+                  </button>
+                </Link>
             </motion.div>
           </div>
         </motion.div>
@@ -411,3 +430,7 @@ export default function OurServicesSection() {
     </section>
   );
 }
+
+
+
+

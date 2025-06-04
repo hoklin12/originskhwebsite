@@ -11,8 +11,7 @@ export default function ServiceSection() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-[75%] text-left">
             <h3 className="text-l md:text-3xl text-black mb-6">
-              To craft exceptional brand experiences, we embrace a multidisciplinary approach—blending strategy, creativity, and technology—while working hand-in-hand with our clients every step of the way.
-            </h3>
+                We craft brand experiences that resonate; where imagination meets intention, authenticity drives impact, and awesomeness is non-negotiable. With a multidisciplinary mindset and a spirit of true collaboration, we turn bold dreams into meaningful realities, side by side with our clients every step of the way.            </h3>
             <Link href="/studios">
               <button className="flex items-center px-4 py-2 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
                 View Our Services 
