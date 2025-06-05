@@ -4,6 +4,7 @@
 import React, { useState, forwardRef } from "react";
 import { Plus, Minus } from "lucide-react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 type ValueId = "1" | "2" | "3";
 
@@ -45,25 +46,18 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
     },
   ];
 
-  const toggleExpanded = (valueId: ValueId) => {
+  const defaultImage = {
+    image: "/o0.png", // Replace this with your default image path
+    imageAlt: "Default O value image",
+  };
+
+  const toggleExpanded = (valueId: ValueId) =>
     setExpandedValue(expandedValue === valueId ? null : valueId);
-  };
 
-  const getCurrentImage = () => {
-    if (expandedValue) {
-      const expandedItem = valuesData.find((item) => item.id === expandedValue);
-      return expandedItem ? expandedItem.image : valuesData[0].image;
-    }
-    return valuesData[0].image;
-  };
-
-  const getCurrentImageAlt = () => {
-    if (expandedValue) {
-      const expandedItem = valuesData.find((item) => item.id === expandedValue);
-      return expandedItem ? expandedItem.imageAlt : valuesData[0].imageAlt;
-    }
-    return valuesData[0].imageAlt;
-  };
+  const currentItem =
+    expandedValue !== null
+      ? valuesData.find((v) => v.id === expandedValue)!
+      : defaultImage;
 
   return (
     <section ref={ref} className="min-h-screen bg-gray-50 py-24 px-8 sm:px-8">
@@ -127,19 +121,28 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
             </div>
           </div>
 
-          {/* Right side - Dynamic image */}
+          {/* Right side - Dynamic image with smooth transition */}
           <div className="lg:sticky lg:top-8">
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-400 via-purple-500 to-purple-800 aspect-square">
-              <Image
-                src={getCurrentImage()}
-                alt={getCurrentImageAlt()}
-                width={800}
-                height={800}
-                className="w-full h-full object-cover transition-opacity duration-500"
-                unoptimized
-                priority
-                rel="preload"
-              />
+            <div className="relative rounded-2xl overflow-hidden aspect-square">
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={currentItem.image}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.85, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    src={currentItem.image}
+                    alt={currentItem.imageAlt}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -149,5 +152,4 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
 });
 
 OurOValuesSection.displayName = "OurOValuesSection";
-
 export default OurOValuesSection;

@@ -1,8 +1,13 @@
 
 "use client";
 import { useState, useEffect } from "react";
+import FloatingShape from "../../ui/floating-shape";
+import Image from 'next/image';
+
 
 interface ImageData {
+  height: number | `${number}` | undefined;
+  width: number | `${number}` | undefined;
   src: string;
   caption: string;
   hashtags: string;
@@ -32,22 +37,28 @@ export default function OurWorkSection() {
   const imageMap: Record<string, ImageData[]> = {
     ALL: [
       {
-        src: "/tunsai5.jpg",
+        src: "/tunsai5.jpeg",
         caption: "Social Media Contents for Tunsai Water",
         hashtags: "#ALL",
         description: "Graphics | Ranging from Year 2020 - 2021",
+        width: 800,
+        height: 800,
       },
       {
         src: "/custin08.png",
         caption: "Photography for Hyundai Cambodia",
         hashtags: "#ALL",
         description: "Gallery | Hyundai Custin",
+        width: 800,
+        height: 600,
       },
       {
         src: "/back.jpg",
         caption: "Apparel Design for Hyundai Cambodia",
         hashtags: "#ALL",
         description: "T-shirt | Hyundai Staria",
+        width: 800,
+        height: 800,
       },
     ],
     CREATIVE: [
@@ -56,6 +67,8 @@ export default function OurWorkSection() {
         caption: "Social Media Contents for Tunsai Water",
         hashtags: "#ALL",
         description: "Graphics | Ranging from Year 2020 - 2021",
+        width: 800,
+        height: 800,
       },
     ],
     PRODUCTION: [
@@ -64,6 +77,8 @@ export default function OurWorkSection() {
         caption: "Photography for Hyundai Cambodia",
         hashtags: "#ALL",
         description: "Gallery | Hyundai Custin",
+        width: 800,
+        height: 600,
       },
     ],
     CONCEPT: [
@@ -72,6 +87,8 @@ export default function OurWorkSection() {
         caption: "Apparel Design for Hyundai Cambodia",
         hashtags: "#ALL",
         description: "T-shirt | Hyundai Staria",
+        width: 800,
+        height: 800,
       },
     ],
   };
@@ -87,7 +104,28 @@ export default function OurWorkSection() {
 
   return (
     <section id="manifesto" className="pt-10 bg-white relative overflow-hidden px-4 sm:px-8">
+
       <div className="w-full">
+              {/* Background shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          />
+        </div>
+      </div>
         {/* Filter Controls */}
         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
           <div className="flex items-center gap-2">
@@ -139,9 +177,11 @@ export default function OurWorkSection() {
                       <div className={`relative w-full h-full transform transition-all duration-700 ease-out ${
                         isHovered ? 'scale-110 -translate-x-1 -translate-y-1' : 'scale-100'
                       }`}>
-                        <img
+                        <Image
                           src={image.src}
                           alt={image.caption}
+                          width={image.width}
+                          height={image.height}
                           className="w-full h-full object-cover rounded-2xl shadow-lg"
                         />
                         <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl transition-opacity duration-500 ${
@@ -170,7 +210,7 @@ export default function OurWorkSection() {
           <div className="text-center mt-4">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-700 font-semibold"
+              className="inline-flex items-center gap-1 text-orange-400 hover:text-orange-400 font-semibold"
               aria-expanded={showAll}
               aria-controls="image-list"
             >

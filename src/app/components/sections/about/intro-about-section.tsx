@@ -3,20 +3,39 @@
 'use client';
 import React from 'react';
 import VideoSection from '../video-section';
+import FloatingShape from '../../ui/floating-shape';
 
 const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} id="" className="min-h-screen bg-white">
       <div className="w-full flex justify-center items-center mb-8"></div>
+      
+      {/* Background shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          />
+        </div>
+      </div>
 
       {/* Text section with responsive padding */}
       <div className="text-center mb-4 px-8 sm:px-8 py-20 sm:py-48">
         <h2
-          className="text-2xl sm:text-6xl font-normal mb-6 text-black"
-          style={{ fontFamily: 'DM Serif Text' }}
+          className="text-3xl md:text-7xl font-normal mb-6 text-black"
+          style={{ fontFamily: "DM Serif Text" }}
         >
-          We believe that every idea has a story, and every story deserves to be
-          told with: O&apos;originality, O&apos;authenticity, and O&apos;someness.
+         Every dream deserves to be told with O&apos;originality, O&apos;authenticity, and O&apos;someness.
         </h2>
       </div>
 

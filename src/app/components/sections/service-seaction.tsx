@@ -13,7 +13,7 @@ export default function ServiceSection() {
             <h3 className="text-l md:text-3xl text-black mb-6">
                 We craft brand experiences that resonate; where imagination meets intention, authenticity drives impact, and awesomeness is non-negotiable. With a multidisciplinary mindset and a spirit of true collaboration, we turn bold dreams into meaningful realities, side by side with our clients every step of the way.            </h3>
             <Link href="/studios">
-              <button className="flex items-center px-4 py-2 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+              <button className="flex items-center px-4 py-2 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                 View Our Services 
                 <motion.div
                   className="ml-3"

@@ -86,7 +86,7 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
               <h3 className="text-xl sm:text-2xl md:text-3xl text-black mb-6">
                 Think you&apos;d be a good addition to our team?
               </h3>
-              <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+              <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                 Hiring 
                 <motion.div
                   className="ml-3"

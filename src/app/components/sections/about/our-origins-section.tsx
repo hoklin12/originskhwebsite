@@ -1,11 +1,12 @@
 
-
 "use client"
+
 import { useRef, forwardRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion"
 import { Flame, Sparkles } from "lucide-react"
 import { cn } from "../../ui/utils"
-import GetInTouchSection from "../get-in-touch-section"
+import FloatingShape from "../../ui/floating-shape"
+import ButtonSection from "../button-section"
 
 type TimelineItem = {
   years: string
@@ -56,26 +57,6 @@ const timelineData: TimelineItem[] = [
   },
 ]
 
-const FloatingShape = ({ delay = 0, duration = 8, className = "" }: { delay?: number; duration?: number; className?: string }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: [0, 0.3, 0],
-        scale: [0.8, 1.2, 0.8],
-        rotate: [0, 180, 360],
-      }}
-      transition={{
-        repeat: Number.POSITIVE_INFINITY,
-        duration,
-        delay,
-        ease: "easeInOut",
-      }}
-      className={cn("absolute pointer-events-none", className)}
-    />
-  )
-}
-
 interface TimelineItemProps {
   item: TimelineItem
   index: number
@@ -108,7 +89,7 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-black text-white font-mono font-bold text-lg"
             >
-              <Flame className="w-5 h-5 text-orange-500" />
+              <Flame className="w-5 h-5 text-orange-400" />
               {item.years}
             </motion.div>
             <motion.h3
@@ -128,21 +109,10 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
               {item.description}
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
-            {/* <Link href="/contact">
-              <Button className="bg-black hover:bg-gray-800 text-white font-bold px-8 py-3 rounded-full transition-all duration-300 group text-lg">
-                Learn More
-                <motion.div
-                  className="ml-3"
-                  animate={{ x: [0, 6, 0] }}
-                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-                >
-                  →
-                </motion.div>
-              </Button>
-            </Link> */}
-            <GetInTouchSection></GetInTouchSection>
+              <ButtonSection 
+                buttonHref="/portfolio"
+                />
             </motion.div>
-            
           </motion.div>
 
           <motion.div
@@ -152,10 +122,11 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-transparent z-10" />
               <motion.img
                 src={item.image}
                 alt={item.title}
+                loading="lazy"
                 className="w-full h-80 md:h-[500px] object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
@@ -164,9 +135,9 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ repeat: Number.POSITIVE_INFINITY, duration: 10, ease: "linear" }}
-                  className="w-10 h-10 border-2 border-orange-500 rounded-full flex items-center justify-center bg-white/90"
+                  className="w-10 h-10 border-2 border-orange-400 rounded-full flex items-center justify-center bg-white/90"
                 >
-                  <Sparkles className="w-5 h-5 text-orange-500" />
+                  <Sparkles className="w-5 h-5 text-orange-400" />
                 </motion.div>
               </div>
             </div>
@@ -215,9 +186,9 @@ const OurOriginsSection = forwardRef<HTMLElement>((props, ref) => {
 
       {/* Background shapes */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-100" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-100" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-200" />
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
         <div className="absolute inset-0 opacity-5">
           <div
             className="w-full h-full"
@@ -237,17 +208,11 @@ const OurOriginsSection = forwardRef<HTMLElement>((props, ref) => {
         <motion.div initial={{ opacity: 0, y: -40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <h2 className="text-4xl md:text-7xl font-bold mb-6">
             <span className="text-black">Our</span>
-            <span className="ml-4 text-orange-500">Origins</span>
+            <span className="ml-4 text-orange-400">Origins</span>
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-l md:text-2xl mb-8">
             Scroll to explore the journey that shaped who we are today
           </p>
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
-            className="inline-flex items-center gap-3 text-orange-500"
-          >
-          </motion.div>
         </motion.div>
       </div>
 
@@ -271,7 +236,4 @@ const OurOriginsSection = forwardRef<HTMLElement>((props, ref) => {
 
 OurOriginsSection.displayName = "OurOriginsSection"
 export default OurOriginsSection
-
-
-
 

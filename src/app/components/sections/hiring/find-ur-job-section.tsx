@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import FloatingShape from "../../ui/floating-shape";
 
 const FindUrJobSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("ALL");
@@ -35,6 +36,26 @@ const FindUrJobSection: React.FC = () => {
     <section id="findUrJob" className="bg-white relative overflow-hidden w-full m-0 px-8 py-32">
       {/* Full-width container with no left/right padding */}
       <div className="w-full mx-auto">
+                      {/* Background shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          />
+        </div>
+      </div>
         {/* Title Section */}
         <div className="text-center mb-4">
           <h2
@@ -140,7 +161,7 @@ const FindUrJobSection: React.FC = () => {
                 To craft exceptional brand experiences, we embrace a multidisciplinary approach—blending strategy, creativity, and technology—while working hand-in-hand with our clients every step of the way.
               </h3>
               <Link href="/studios">
-                <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+                <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                   View Our Services 
                   <motion.div
                   className="ml-3"

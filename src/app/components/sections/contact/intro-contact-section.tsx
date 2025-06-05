@@ -3,17 +3,38 @@ import React from 'react';
 import Link from 'next/link';
 import VideoSection from '../video-section';
 import { motion } from 'framer-motion';
+import FloatingShape from '../../ui/floating-shape';
 
 const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} className="min-h-screen bg-white py-16 text-black">
       <div className="text-center mb-4 pt-32 pb-24">
         <h2
-          className="text-9xl font-serif mb-6 text-black"
+          className="text-6xl md:text-9xl font-serif mb-6 text-black"
           style={{ fontFamily: 'DM Serif Text' }}
         >
           Contact Us
         </h2>
+      </div>
+                    {/* Background shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          />
+        </div>
       </div>
 
       {/* Content Wrapper */}
@@ -37,7 +58,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             href="https://t.me/originskh"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
+            className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base"
           >
             Telegram
                   <motion.div
@@ -53,7 +74,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             href="https://facebook.com/originsstudioskh"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
+            className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base"
           >
             Facebook
                   <motion.div
@@ -69,7 +90,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
             href="https://instagram.com/originskh"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base"
+            className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base"
           >
             Instagram
                   <motion.div
@@ -107,7 +128,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
           <a
             href="https://maps.app.goo.gl/y4c7bSJRXQinG9Cd8 "
             target="_blank"
-            className="text-sm font-bold text-black hover:text-orange-600 transition-colors"
+            className="text-sm font-bold text-black hover:text-orange-400 transition-colors"
           >
             Get Directions →
           </a>

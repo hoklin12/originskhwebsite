@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ChevronRight, ExternalLink, Play } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import FloatingShape from '../../ui/floating-shape';
 
 export default function OurServicesSection() {
   const [activeSpace, setActiveSpace] = useState<"event" | "studio">("event");
@@ -46,6 +47,27 @@ export default function OurServicesSection() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-6 pb-12 md:px-8 md:pb-18">
+
+                    {/* Background shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          />
+        </div>
+      </div>
       {/* Content container - removed max-w-screen-xl and mx-auto */}
       <div className="relative z-10 w-full">
         {/* OUR STUDIOS header and Space selector */}
@@ -59,7 +81,7 @@ export default function OurServicesSection() {
                 onClick={() => setActiveSpace("event")}
                 className={`px-3 py-1 text-sx font-medium rounded-full transition-all duration-300 h-10 flex items-center justify-center ${
                   activeSpace === "event"
-                    ? "text-white bg-orange-500"
+                    ? "text-white bg-orange-400"
                     : "text-black bg-gray-200 hover:bg-gray-300"
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -103,7 +125,7 @@ export default function OurServicesSection() {
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className={`h-1 ${activeSpace === "event" ? "bg-orange-500" : "bg-black"} mb-8`}
+                className={`h-1 ${activeSpace === "event" ? "bg-orange-400" : "bg-black"} mb-8`}
               />
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -126,7 +148,7 @@ export default function OurServicesSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className={`text-xl md:text-2xl mb-8 font-medium ${
-                  activeSpace === "event" ? "text-orange-500" : "text-gray-800"
+                  activeSpace === "event" ? "text-orange-400" : "text-gray-800"
                 }`}
               >
                 {currentSpace.subtitle}
@@ -175,7 +197,7 @@ export default function OurServicesSection() {
                 <Link href="/contact">
                 <motion.button
                   className={`group relative overflow-hidden px-4 py-2 md:px-8 md:py-4 text-white font-medium inline-flex items-center gap-2 rounded-2xl ${
-                    activeSpace === "event" ? "bg-orange-500" : "bg-black"
+                    activeSpace === "event" ? "bg-orange-400" : "bg-black"
                   }`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -280,26 +302,26 @@ export default function OurServicesSection() {
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 rounded-t-2xl" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-orange-400 rounded-t-2xl" />
               <h3 className="text-2xl font-bold mb-4">Event Space</h3>
               <p className="text-gray-600 mb-6">Perfect for seminars, workshops, and meetings up to 30 people.</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <span>50m² main space + 20m² networking area</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <span>Full A/V equipment included</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <span>Catering options available</span>
                 </li>
               </ul>
-              <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500/10 transition-all duration-500 group-hover:h-full -z-10 rounded-2xl" />
+              <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-400/10 transition-all duration-500 group-hover:h-full -z-10 rounded-2xl" />
                 <Link href="/contact">
-                  <button className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
+                  <button className="flex items-center px-6 py-3 bg-orange-400 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
                     Get In Touch 
                     <motion.div
                       className="ml-3"
@@ -338,7 +360,7 @@ export default function OurServicesSection() {
               </ul>
               <div className="absolute bottom-0 left-0 w-full h-0 bg-black/10 transition-all duration-500 group-hover:h-full -z-10 rounded-2xl" />
                 <Link href="/contact">
-                  <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+                  <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                     Get In Touch 
                     <motion.div
                       className="ml-3"
@@ -374,7 +396,7 @@ export default function OurServicesSection() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="w-full h-full flex items-center justify-center text-white">
-                <p>Video tour would play here</p>
+                <p>We are still cooking. Stay tuned!</p>
               </div>
               <button
                 onClick={() => setIsVideoPlaying(false)}

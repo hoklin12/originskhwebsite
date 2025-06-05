@@ -14,8 +14,8 @@ type SlideshowSectionProps = {
   repeatCount?: number; // How many times to repeat for infinite scroll effect
   scrollSpeed?: number; // Scroll speed multiplier
   containerClassName?: string;
-  imageWidth?: number;
-  imageHeight?: number;
+  defaultImageWidth?: number; // Default width if individual image doesn't specify
+  defaultImageHeight?: number; // Default height if individual image doesn't specify
   autoScrollSpeed?: number; // Auto scroll speed in pixels per frame
   autoScrollEnabled?: boolean; // Enable/disable auto scroll
 };
@@ -25,8 +25,8 @@ const SlideshowSection = ({
   repeatCount = 3,
   scrollSpeed = 1.5,
   containerClassName = "",
-  imageWidth = 300,
-  imageHeight = 300,
+  defaultImageWidth = 300,
+  defaultImageHeight = 300,
   autoScrollSpeed = 1,
   autoScrollEnabled = true,
 }: SlideshowSectionProps) => {
@@ -140,7 +140,7 @@ const SlideshowSection = ({
   }, [autoScrollEnabled, isHovered, isDragging]);
 
   return (
-    <div className={`${containerClassName}`}>
+    <div className={`w-full ${containerClassName}`}>
       {/* Manual-infinite scrollable images */}
       <div
         ref={scrollRef}
@@ -158,22 +158,37 @@ const SlideshowSection = ({
         onMouseMove={handleMouseMove}
         onWheel={handleWheel}
       >
-        {tripledImages.map((img, idx) => (
-          <Image
-            key={idx}
-            src={img.src}
-            alt={img.alt || `Slide ${idx}`}
-            width={imageWidth}
-            height={imageHeight}
-            unoptimized
-            priority
-            rel="preload"
-            className={`inline-block rounded-2xl shadow-lg ${img.className || ""}`}
-          />
-        ))}
+        {tripledImages.map((img, idx) => {
+          const width = img.width ?? defaultImageWidth;
+          const height = img.height ?? defaultImageHeight;
+          
+          return (
+            <div
+              key={idx}
+              className="inline-block"
+              style={{
+                width,
+                height,
+                minWidth: `min(100vw - 2.5rem, ${width}px)`,
+              }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt || `Slide ${idx}`}
+                width={width}
+                height={height}
+                unoptimized
+                priority
+                rel="preload"
+                className={`rounded-2xl shadow-lg w-full h-full object-cover ${img.className || ""}`}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
 export default SlideshowSection;
+

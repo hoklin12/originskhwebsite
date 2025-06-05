@@ -56,7 +56,7 @@ export default function OurStudiosSection() {
               projects to life through bold ideas and innovative execution.
             </p>
             <Link href="/portfolio">
-              <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+              <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                 See more 
                   <motion.div
                   className="ml-3"
@@ -117,7 +117,7 @@ export default function OurStudiosSection() {
                       setActiveIndex(index);
                     }}
                     className={`h-1.5 w-4 md:w-5 rounded-full transition-all duration-300 ${
-                      index === activeIndex ? "bg-orange-500" : "bg-gray-300 hover:bg-gray-400"
+                      index === activeIndex ? "bg-orange-400" : "bg-gray-300 hover:bg-gray-400"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

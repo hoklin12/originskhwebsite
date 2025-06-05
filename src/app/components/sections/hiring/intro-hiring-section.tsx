@@ -6,22 +6,42 @@ import VideoSection from "../video-section";
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import FloatingShape from "../../ui/floating-shape";
 
 const IntroHiringSection: React.FC = () => {
   return (
-    <section id="intro" className="min-h-screen bg-white m-0 p-0 pt-32 w-full">
+    <section id="intro" className="min-h-screen bg-white ">
       {/* Section with px-8 */}
       <div className="px-8 w-full">
-        <div className="w-full flex justify-center items-center mb-8"></div>
+                      {/* Background shapes */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
 
-        <div className="text-center mb-4 w-full">
-          <h2
-            className="text-4xl md:text-7xl font-serif mb-6 text-black"
-            style={{ fontFamily: 'DM Serif Text' }}
-          >
-            Be the dream. Work on your terms.
-          </h2>
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+            }}
+          />
         </div>
+      </div>
+              {/* Text section with responsive padding */}
+          <div className="text-center mb-4 px-6 md:px-12 md:pt-48 pt-24">
+            <h2
+              className="text-3xl md:text-7xl font-normal mb-6 text-black"
+              style={{ fontFamily: "DM Serif Text" }}
+            >
+            Ready to turn dreams into reality? Join us and be part of the team!       
+             </h2>
+          </div>
 
         <div className="text-center mb-4 pb-24 w-full">
           <div className="flex items-center justify-center">
@@ -32,7 +52,7 @@ const IntroHiringSection: React.FC = () => {
               Let’s get started.
             </p>
             <Link href="#findUrJob">
-              <button className="flex items-center md:px-6 md:py-3 px-3 py-2 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
+              <button className="flex items-center md:px-6 md:py-3 px-3 py-2 bg-orange-400 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
                 View open roles 
                  <motion.div
                   className="ml-3"
@@ -73,7 +93,7 @@ const IntroHiringSection: React.FC = () => {
             </p>
             <div className="flex justify-start space-x-4 mt-8 w-full">
               <Link href="/about">
-                <button className="flex items-center md:px-6 md:py-3 px-3 py-2 bg-black text-white rounded-full font-bold hover:bg-orange-600 transition-colors text-sm md:text-base">
+                <button className="flex items-center md:px-6 md:py-3 px-3 py-2 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                   About Us 
                   <motion.div
                   className="ml-3"
@@ -85,7 +105,7 @@ const IntroHiringSection: React.FC = () => {
                 </button>
               </Link>
               <Link href="/portfolio">
-                <button className="flex items-center md:px-6 md:py-3 px-3 py-2 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
+                <button className="flex items-center md:px-6 md:py-3 px-3 py-2 bg-orange-400 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base">
                   Our Work 
                    <motion.div
                   className="ml-3"
