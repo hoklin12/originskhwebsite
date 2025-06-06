@@ -26,7 +26,7 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
     <section id="studios" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
       <div className="w-full">
         {/* Header */}
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-12 pb-24">
+        <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
           <p className="text-gray-600 font-medium">OUR TEAM</p>
         </div>
 

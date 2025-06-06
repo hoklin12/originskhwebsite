@@ -53,7 +53,7 @@ const IntroContactSection = React.forwardRef<HTMLElement>((props, ref) => {
         </div>
 
         {/* Social Links */}
-        <div className="flex justify-center space-x-4 mt-8 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center space-x-4 mt-8 max-w-7xl mx-auto">
           <a
             href="https://t.me/originskh"
             target="_blank"

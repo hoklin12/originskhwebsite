@@ -39,7 +39,9 @@ const IntroHiringSection: React.FC = () => {
               className="text-3xl md:text-7xl font-normal mb-6 text-black"
               style={{ fontFamily: "DM Serif Text" }}
             >
-            Ready to turn dreams into reality? Join us and be part of the team!       
+            Ready to turn dreams into reality? 
+            <br />
+            Join us and be part of the team!       
              </h2>
           </div>
 

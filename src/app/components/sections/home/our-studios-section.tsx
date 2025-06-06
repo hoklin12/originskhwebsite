@@ -42,7 +42,7 @@ export default function OurStudiosSection() {
   return (
     <section id="journey" className="py-16 md:py-24 bg-white relative overflow-hidden px-8">
       <div className="w-full">
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8">
+        <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
           <p className="text-gray-600">OUR STUDIOS</p>
         </div>
 
