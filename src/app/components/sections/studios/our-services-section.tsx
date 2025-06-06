@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ChevronRight, ExternalLink, Play } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import FloatingShape from '../../ui/floating-shape';
 
 export default function OurServicesSection() {
   const [activeSpace, setActiveSpace] = useState<"event" | "studio">("event");
@@ -46,28 +45,7 @@ export default function OurServicesSection() {
   const currentSpace = spaces[activeSpace];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden px-6 pb-12 md:px-8 md:pb-18">
-
-                    {/* Background shapes */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
+    <section ref={containerRef} className="relative min-h-screen bg-transparent overflow-hidden px-6 pb-12 md:px-8 md:pb-18">
       {/* Content container - removed max-w-screen-xl and mx-auto */}
       <div className="relative z-10 w-full">
         {/* OUR STUDIOS header and Space selector */}
@@ -213,7 +191,7 @@ export default function OurServicesSection() {
                 </Link>
                 <motion.button
                   onClick={() => setIsVideoPlaying(true)}
-                  className="group px-4 py-2 md:px-8 md:py-4 bg-white border border-gray-300 text-gray-700 font-medium inline-flex items-center gap-2 hover:bg-gray-50 rounded-2xl"
+                  className="group px-4 py-2 md:px-8 md:py-4 bg-transparent border border-gray-300 text-gray-700 font-medium inline-flex items-center gap-2 hover:bg-gray-50 rounded-2xl"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -298,7 +276,7 @@ export default function OurServicesSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Event Space Card */}
             <motion.div
-              className="bg-white border border-gray-200 p-8 relative overflow-hidden group rounded-2xl"
+              className="bg-transparent border border-gray-200 p-8 relative overflow-hidden group rounded-2xl"
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
             >
@@ -335,7 +313,7 @@ export default function OurServicesSection() {
             </motion.div>
             {/* Studio Space Card */}
             <motion.div
-              className="bg-white border border-gray-200 p-8 relative overflow-hidden group rounded-2xl"
+              className="bg-transparent border border-gray-200 p-8 relative overflow-hidden group rounded-2xl"
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
             >
@@ -400,7 +378,7 @@ export default function OurServicesSection() {
               </div>
               <button
                 onClick={() => setIsVideoPlaying(false)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-transparent/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
               >
                 ✕
               </button>
@@ -441,7 +419,7 @@ export default function OurServicesSection() {
               />
               <button
                 onClick={() => setExpandedImage(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-transparent/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
               >
                 ✕
               </button>

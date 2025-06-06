@@ -63,7 +63,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
     <section ref={ref} className="min-h-screen bg-gray-50 py-24 px-8 sm:px-8">
       <div className="relative z-10 mx-auto w-full">
         {/* Header */}
-        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-12">
+        <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-start text-sm space-y-4 md:space-y-0 mb-12">
           <p className="text-gray-600 font-medium">OUR &quot;O&quot; VALUES</p>
         </div>
 
@@ -77,10 +77,11 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
 
             <div className="space-y-0">
               {valuesData.map((value) => (
-                <div key={value.id} className="border-b border-gray-200">
+                <div key={value.id} >
                   <button
                     onClick={() => toggleExpanded(value.id)}
-                    className="w-full py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200 group"
+                      className="w-full py-4 flex items-center justify-between text-left transition-colors duration-200 group bg-transparent focus:outline-none"
+
                   >
                     <span
                       className={`text-lg sm:text-xl lg:text-2xl transition-colors duration-200 ${

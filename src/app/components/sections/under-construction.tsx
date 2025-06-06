@@ -32,7 +32,7 @@ export default function UnderConstruction() {
                 />
               </div>
             </div>
-      <div className="bg-white p-10 rounded-lg text-center">
+      <div className="bg-transparent p-10 rounded-lg text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Under Construction</h1>
         <p className="text-lg text-gray-600 mb-6">
           We&#39;re working hard to bring you something great. Stay tuned!

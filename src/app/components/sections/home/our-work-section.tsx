@@ -1,7 +1,6 @@
 
 "use client";
 import { useState, useEffect } from "react";
-import FloatingShape from "../../ui/floating-shape";
 import Image from 'next/image';
 
 
@@ -103,33 +102,15 @@ export default function OurWorkSection() {
   const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
 
   return (
-    <section id="manifesto" className="pt-10 bg-white relative overflow-hidden px-4 sm:px-8">
+    <section id="manifesto" className="pt-10 bg-transparent relative overflow-hidden px-4 sm:px-8">
 
       <div className="w-full">
-              {/* Background shapes */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
         {/* Filter Controls */}
         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
-          <div className="flex items-center gap-2">
-            <span className="px-4 py-2 rounded-full text-sm font-medium text-black">FILTER:</span>
+          <div className="flex flex-wrap items-center gap-2 pb-32">
+            <span className="px-4 py-2 rounded-full text-sm font-medium text-black">RECENT WORK:</span>
+            
+            {/* Show nav items based on screen size */}
             {navItems.map((item) => {
               const active = activeCategory === item.label;
               return (
@@ -139,14 +120,15 @@ export default function OurWorkSection() {
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                     active
                       ? "bg-black text-white"
-                      : "bg-gray-200 text-black hover:bg-black hover:text-white"
+                      : "bg-gray-200 text-black hover:bg-gray-300"
                   }`}
                 >
                   {item.label}
                 </button>
               );
             })}
-          </div>
+
+        </div>
         </div>
 
         {/* Grid Layout */}
@@ -158,7 +140,7 @@ export default function OurWorkSection() {
             return (
               <div
                 key={uniqueKey}
-                className="relative bg-white rounded-xl p-2 group cursor-pointer"
+                className="relative bg-transparent rounded-xl p-2 group cursor-pointer"
                 onMouseEnter={() => setHoveredImage(uniqueKey)}
                 onMouseLeave={() => setHoveredImage(null)}
               >

@@ -3,10 +3,11 @@
 
 import { useRef, forwardRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion"
-import { Flame, Sparkles } from "lucide-react"
 import { cn } from "../../ui/utils"
-import FloatingShape from "../../ui/floating-shape"
 import ButtonSection from "../button-section"
+import Image from 'next/image';
+
+
 
 type TimelineItem = {
   years: string
@@ -19,7 +20,7 @@ type TimelineItem = {
 const timelineData: TimelineItem[] = [
   {
     years: "2017-2018",
-    title: "Creative Exploration Begins",
+    title: "Exploration Begins",
     description:
       "Our creative journey began in Singapore's vibrant ecosystem. Expanded collaborations across Southeast Asia and Australia",
     image: "/pic-2017-2018.jpeg",
@@ -27,21 +28,21 @@ const timelineData: TimelineItem[] = [
   },
   {
     years: "2019",
-    title: "Creative Consultation Launch",
+    title: "Creative Consultation Starts",
     description: "Launched creative consultation services in Cambodia. Developed innovative solutions for emerging markets",
     image: "/pic2019.png",
     highlight: true,
   },
   {
     years: "2020-2021",
-    title: "Pandemic Adaptation",
+    title: "Adapting Through Change",
     description: "Helped brands adapt during the pandemic with digital transformation. Pioneered remote creative collaboration frameworks",
     image: "/pic2019.png",
     highlight: false,
   },
   {
     years: "2022-2024",
-    title: "Service Expansion",
+    title: "Expanding Horizons",
     description:
       "Expanded to full-service production and concept development. Global projects across 5 continents with diverse clients",
     image: "/pic2025.jpg",
@@ -49,7 +50,7 @@ const timelineData: TimelineItem[] = [
   },
   {
     years: "2025",
-    title: "New Beginnings",
+    title: "A Bold New Chapter",
     description:
       "Officially launched ORIGINS STUDIOS as a creative powerhouse. Dedicated to turning bold visions into extraordinary realities",
     image: "/pic2025.jpg",
@@ -89,8 +90,16 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-black text-white font-mono font-bold text-lg"
             >
-              <Flame className="w-5 h-5 text-orange-400" />
-              {item.years}
+            <div className="flex items-center gap-1 text-white text-sm">
+              <Image 
+            src="/originsStar2.svg" 
+            alt="origin icon" 
+            className="w-6 h-6" 
+            width={24} // Adjust the width according to your needs
+            height={24} // Adjust the height according to your needs
+          />
+            {item.years}
+          </div>
             </motion.div>
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
@@ -121,7 +130,7 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
             animate={{ opacity: isActive ? 1 : 0.5, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white">
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-transparent z-10" />
               <motion.img
                 src={item.image}
@@ -137,9 +146,19 @@ const TimelineItem = ({ item, index, isActive, progress }: TimelineItemProps) =>
                   transition={{ repeat: Number.POSITIVE_INFINITY, duration: 10, ease: "linear" }}
                   className="w-10 h-10 border-2 border-orange-400 rounded-full flex items-center justify-center bg-white/90"
                 >
-                  <Sparkles className="w-5 h-5 text-orange-400" />
+                  <div className="flex items-center gap-1 text-white text-sm">
+                <Image 
+                  src="/originsStar.svg" 
+                  alt="origin icon" 
+                  className="w-10 h-8" 
+                  width={40} // Adjust the width according to your needs
+                  height={32} // Adjust the height according to your needs
+                />
+                </div>
                 </motion.div>
               </div>
+
+
             </div>
           </motion.div>
         </div>
@@ -184,25 +203,6 @@ const OurOriginsSection = forwardRef<HTMLElement>((props, ref) => {
         }
       `}</style>
 
-      {/* Background shapes */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
-
       {/* Header */}
       <div className="relative z-10 pt-20 pb-10 text-center">
         <motion.div initial={{ opacity: 0, y: -40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -210,7 +210,7 @@ const OurOriginsSection = forwardRef<HTMLElement>((props, ref) => {
             <span className="text-black">Our</span>
             <span className="ml-4 text-orange-400">Origins</span>
           </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto text-l md:text-2xl mb-8">
+          <p className="text-gray-600 max-w-3xl mx-auto text-l md:text-2xl mb-8 px-6">
             Scroll to explore the journey that shaped who we are today
           </p>
         </motion.div>

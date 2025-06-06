@@ -8,14 +8,14 @@ import FloatingShape from "../../ui/floating-shape";
 
 export default function IntroHomeSection() {
   return (
-    <section id="intro" className="min-h-screen bg-white m-0 py-0">
+    <section id="intro" className="min-h-screen bg-transparent m-0 py-0">
 
               {/* Background shapes */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={13} duration={15} className="top-1/4 left-1/4 md:w-40 md:h-5 w-20 h-10 rounded-full bg-orange-400" />
+        <FloatingShape delay={4} duration={18} className="top-3/4 right-1/4 md:w-32 md:h-32 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={8} duration={20} className="top-1/2 right-1/3 md:w-20 md:h-20 w-20 h-20 rounded-2xl bg-orange-400" />
 
         <div className="absolute inset-0 opacity-5">
           <div
@@ -36,7 +36,7 @@ export default function IntroHomeSection() {
       <VideoSection
         videoSrc="/origins-showreel-2025.mp4"
         thumbnailSrc={"/origins-thumbnail.png"}
-        id="intro"
+        id=""
         showControls={true}
         autoPlay={false}
         muted={false}

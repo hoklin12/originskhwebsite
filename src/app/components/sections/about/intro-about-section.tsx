@@ -12,9 +12,9 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
       
       {/* Background shapes */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
+        <FloatingShape delay={0} duration={15} className="top-1/4 left-1/4 md:w-40 md:h-5 w-20 h-10 rounded-full bg-orange-400" />
+        <FloatingShape delay={4} duration={18} className="top-3/4 right-1/4 md:w-32 md:h-32 w-32 h-32 rounded-full bg-gray-400" />
+        <FloatingShape delay={8} duration={20} className="top-1/2 right-1/3 md:w-20 md:h-20 w-20 h-20 rounded-2xl bg-orange-400" />
         <div className="absolute inset-0 opacity-5">
           <div
             className="w-full h-full"
@@ -32,7 +32,7 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
       {/* Text section with responsive padding */}
       <div className="text-center mb-4 px-8 sm:px-8 py-20 sm:py-48">
         <h2
-          className="text-3xl md:text-7xl font-normal mb-6 text-black"
+          className="text-3xl md:text-7xl font-serif mb-6 text-black"
           style={{ fontFamily: "DM Serif Text" }}
         >
          Every dream deserves to be told with O&apos;originality, O&apos;authenticity, and O&apos;someness.
@@ -53,12 +53,11 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
       {/* Text section with responsive padding */}
       <div className="bg-white px-8 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <h3 className="text-2xl sm:text-4xl font-bold text-black leading-tight">
-            Meet our talented team of creators and technologists.
+          <h3 className="text-xl sm:text-4xl font-semi-bold text-black leading-tight text-justify">
+          Meet our dream team—turning bold ideas into inspiring reality.
           </h3>
-          <p className="text-base sm:text-lg text-black leading-relaxed">
-            At our company, we bring together a talented team of designers, strategists, and innovators dedicated to crafting exceptional creative concepts. For over 18 years, we&apos;ve partnered with forward-thinking brands to tackle challenges, harness opportunities, and drive sustainable growth. Together, we&apos;re building a more inspiring future.
-          </p>
+          <p className="text-base sm:text-lg text-black leading-relaxed text-justify">
+          A creative house fueled by bold vision and the power of dreams. We believe every idea starts as a spark of imagination—a dream waiting to be shaped. Through collaboration, we bring these dreams to life, crafting stories and ideas that connect deeply and inspire transformation across borders and beyond expectations.          </p>
         </div>
       </div>
     </section>

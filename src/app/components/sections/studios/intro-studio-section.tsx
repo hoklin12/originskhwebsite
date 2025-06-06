@@ -74,33 +74,12 @@ const images = [
     <section
       ref={ref}
       id="intro"
-      className="min-h-screen bg-white flex flex-col justify-center items-center"
+      className="min-h-screen bg-transparent flex flex-col justify-center items-center"
     >
-      {/* Background shapes */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
-
       <div className="text-center mb-4 px-8 py-48">
 
         <h2
-          className="text-3xl md:text-7xl font-normal mb-6 text-black"
+          className="text-3xl md:text-7xl font-serif mb-6 text-black"
           style={{ fontFamily: "DM Serif Text" }}
         >
           We revive visions and bring 
@@ -108,13 +87,32 @@ const images = [
           brands’ aspirations to life.
         </h2>
       </div>
+                                      {/* Background shapes */}
+            <div className="fixed inset-0 pointer-events-none overflow-hidden">
+              <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
+              <FloatingShape delay={13} duration={15} className="top-1/4 left-1/4 md:w-40 md:h-5 w-20 h-10 rounded-full bg-orange-400" />
+              <FloatingShape delay={4} duration={18} className="top-3/4 right-1/4 md:w-32 md:h-32 w-32 h-32 rounded-full bg-gray-400" />
+              <FloatingShape delay={8} duration={20} className="top-1/2 right-1/3 md:w-20 md:h-20 w-20 h-20 rounded-2xl bg-orange-400" />
+              <div className="absolute inset-0 opacity-5">
+                <div
+                  className="w-full h-full"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "50px 50px",
+                  }}
+                />
+              </div>
+            </div>
       <SlideshowSection
         images={images}
         repeatCount={3}
         scrollSpeed={2}
         containerClassName="py-4"
-        defaultImageWidth={300} // used for image3
-        defaultImageHeight={200} // used for image3
+        defaultImageWidth={300} 
+        defaultImageHeight={200} 
         autoScrollSpeed={1.5}
         autoScrollEnabled={true}
       />

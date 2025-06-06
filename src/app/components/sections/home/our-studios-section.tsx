@@ -40,7 +40,7 @@ export default function OurStudiosSection() {
   }, [activeIndex, slides.length]);
 
   return (
-    <section id="journey" className="py-16 md:py-24 bg-white relative overflow-hidden px-8">
+    <section id="journey" className="py-16 md:py-24 bg-transparent relative overflow-hidden px-8">
       <div className="w-full">
         <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
           <p className="text-gray-600">OUR STUDIOS</p>
@@ -100,7 +100,7 @@ export default function OurStudiosSection() {
                     rel="preload"
                   />
                   <div className="absolute bottom-4 left-4 right-4 text-black">
-                    <div className="text-lg md:text-xl font-bold bg-white/80 backdrop-blur-sm px-3 py-1 rounded-lg inline-block">
+                    <div className="text-lg md:text-xl font-bold bg-transparent/80 backdrop-blur-sm px-3 py-1 rounded-lg inline-block">
                       {slides[activeIndex].title}
                     </div>
                   </div>

@@ -93,7 +93,7 @@ const buttonVariants = {
 
 export default function DetailStudioSection() {
   return (
-    <section id="journey" className="bg-white relative overflow-hidden py-48 px-8">
+    <section id="journey" className="bg-transparent relative overflow-hidden py-48 px-8">
       <motion.div
         initial="hidden"
         whileInView="visible"

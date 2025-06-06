@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import FloatingShape from "../../ui/floating-shape";
 
 const FindUrJobSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("ALL");
@@ -33,60 +32,20 @@ const FindUrJobSection: React.FC = () => {
   };
 
   return (
-    <section id="findUrJob" className="bg-white relative overflow-hidden w-full m-0 px-8 py-32">
+    <section id="findUrJob" className="bg-transparent relative overflow-hidden w-full m-0 px-8 py-32">
       {/* Full-width container with no left/right padding */}
       <div className="w-full mx-auto">
-                      {/* Background shapes */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={4} duration={10} className="top-1/2 right-1/3 w-20 h-20 rounded-full bg-orange-400" />
-        <FloatingShape delay={2} duration={15} className="top-3/4 right-1/4 w-32 h-32 rounded-full bg-gray-400" />
-
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
         {/* Title Section */}
         <div className="text-center mb-4">
           <h2
             className="text-4xl md:text-7xl font-serif mb-6 text-black"
             style={{ fontFamily: 'DM Serif Text' }}
           >
-            Find Your Next Job
+            Find Your Dream Job
           </h2>
         </div>
 
         <div className="border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 mb-8"></div>
-          {/* <div className="flex items-center gap-2 pb-32">
-            <span className="px-4 py-2 rounded-full text-sm font-medium text-black">RECENTLY WORK:</span>
-            {!isMobile &&
-              navItems.map((item) => {
-                const active = activeCategory === item.label;
-                return (
-                  <button
-                    key={item.label}
-                    onClick={() => handleCategoryChange(item.label)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      active
-                        ? "bg-black text-white"
-                        : "bg-gray-200 text-black hover:bg-gray-300"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
-          </div> */}
 
           <div className="flex flex-wrap items-center gap-2 pb-32">
             <span className="px-4 py-2 rounded-full text-sm font-medium text-black">POSITION:</span>
@@ -119,7 +78,7 @@ const FindUrJobSection: React.FC = () => {
         </div>
 
         {/* Text section with px-8 */}
-      <div className="text-left mb-4 px-8 pt-32 pb-24">
+      {/* <div className="text-left mb-4 px-8 pt-32 pb-24">
         <h2
           className="text-3xl md:text-5xl font-normal mb-6 text-black"
           style={{ fontFamily: 'DM Serif Text' }}
@@ -134,12 +93,12 @@ const FindUrJobSection: React.FC = () => {
                   As an equal opportunity employer, ORIGINS values the unique experiences and perspectives that each individual brings to our studio.
                 </h3>
             </div>
-      </div>
+      </div> */}
 
 
 
         {/* Hiring Journey Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start pt-32 ">
           <div className="lg:sticky lg:top-8">
             <div className="relative rounded-2xl overflow-hidden aspect-square">
               <Image
@@ -161,16 +120,16 @@ const FindUrJobSection: React.FC = () => {
 
             <div className="space-y-6">
               <p className="text-lg">
-                <span className="font-bold">01</span> Once we&apos;ve reviewed your application, a recruiter will reach out to guide you through the next steps.
+                <span className="font-bold">01</span> Once we&apos;ve checked out your application, a recruiter will reach out to guide you through the next steps.
               </p>
               <p className="text-lg">
-                <span className="font-bold">02</span> You&apos;ll have an initial conversation with a recruiter to learn more about the role and share your story.
+                <span className="font-bold">02</span> You&apos;ll have a friendly chat with a recruiter to learn more about the role—and to tell us all about your superpowers.
               </p>
               <p className="text-lg">
-                <span className="font-bold">03</span> Participate in two virtual interviews with key team members to explore your fit for the position.
+                <span className="font-bold">03</span> Next, two virtual interviews with key team members—think of it as a friendly showdown where we find out if you&apos;re the perfect fit.
               </p>
               <p className="text-lg">
-                <span className="font-bold">04</span> If selected, you&apos;ll receive a formal offer letter outlining your start date and next steps.
+                <span className="font-bold">04</span> If you&apos;re the chosen one, you&apos;ll get a formal offer letter with your start date and all the exciting details. Spoiler: we&apos;ll be thrilled to have you!
               </p>
             </div>
           </div>

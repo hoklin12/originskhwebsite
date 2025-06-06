@@ -17,7 +17,7 @@ export default function ButtonSection({
   buttonText = "Portfolio",
   buttonHref,
   showArrowAnimation = true,
-  bgColor = "bg-white",
+  bgColor = "bg-transparent",
   buttonBgColor = "bg-black",
   buttonHoverColor = "hover:bg-orange-400",
 }: ButtonSectionProps) {
