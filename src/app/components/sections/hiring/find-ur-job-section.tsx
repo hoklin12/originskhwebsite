@@ -9,7 +9,7 @@ import FloatingShape from "../../ui/floating-shape";
 
 const FindUrJobSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("ALL");
-  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
