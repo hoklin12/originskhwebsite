@@ -61,7 +61,9 @@ export default function FunnyPopup({ isOpen, onClose }: FunnyPopupProps) {
                   <Image
                     src="/bingo.png"
                     alt="Bingo the Customer Service Dog"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-200/20 to-transparent" />
                 </div>

@@ -1,10 +1,10 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import { useNavigation } from "../components/hooks/use-navigation";
-import DetailPortfolioSection from "../components/sections/portfolio/detail-portfolio-section";
 import Footer from "../components/ui/footer";
 import ServiceSection from "../components/sections/service-seaction";
 import SecondaryLayout from "../components/layouts/secondary-layout";
+import DetailPortfolioSection from "../components/sections/portfolio/detail-portfolio-section";
 
 
 export default function PortfolioPage() {

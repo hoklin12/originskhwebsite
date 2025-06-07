@@ -67,7 +67,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black pb-8 text-gray-500 overflow-x-hidden px-8 pt-6">
+    <footer className="relative z-10 bg-black pb-8 text-gray-500 overflow-x-hidden px-8 pt-6 ">
       <div className="w-full">
         <div className="grid grid-cols-12 gap-4 md:gap-8 w-full">
           {/* Newsletter */}

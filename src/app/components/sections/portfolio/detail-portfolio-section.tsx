@@ -1,20 +1,16 @@
 
-"use client";
-import { useState, useEffect } from "react";
-import FloatingShape from "../../ui/floating-shape";
-import Image from 'next/image';
 
-interface ImageData {
-  src: string;
-  caption: string;
-  hashtags: string;
-  description: string;
-  width: number; // Added required width
-  height: number; // Added required height
-}
+
+'use client';
+import { useState, useEffect } from 'react';
+import FloatingShape from '../../ui/floating-shape';
+import Image from 'next/image';
+import Link from 'next/link';
+import { slugify } from '../../utils/slugify';
+import { imageMap } from '@/data/portfolioData';
 
 export default function DetailPortfolioSection() {
-  const [activeCategory, setActiveCategory] = useState<string>("ALL");
+  const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [showAll, setShowAll] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
@@ -22,171 +18,16 @@ export default function DetailPortfolioSection() {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const navItems = [
-    { label: "ALL", href: "" },
-    { label: "CREATIVE", href: "" },
-    { label: "PRODUCTION", href: "" },
-    { label: "CONCEPT", href: "" },
+    { label: 'ALL', href: '' },
+    { label: 'CREATIVE', href: '' },
+    { label: 'PRODUCTION', href: '' },
+    { label: 'CONCEPT', href: '' },
   ];
-
-  const imageMap: Record<string, ImageData[]> = {
-    ALL: [
-      {
-        src: "/tunsai5.jpeg",
-        caption: "Social Media Contents for Tunsai Water",
-        hashtags: "#ALL",
-        description: "Graphics | Ranging from Year 2020 - 2021",
-        width: 800,
-        height: 800
-      },
-      {
-        src: "/custin08.png",
-        caption: "Photography for Hyundai Cambodia",
-        hashtags: "#ALL",
-        description: "Gallery | Hyundai Custin",
-        width: 800,
-        height: 600
-      },
-      {
-        src: "/back.jpg",
-        caption: "Apparel Design for Hyundai Cambodia",
-        hashtags: "#ALL",
-        description: "T-shirt | Hyundai Staria",
-        width: 800,
-        height: 1000
-      },
-      {
-        src: "/dog.png",
-        caption: "Photography for Hyundai Cambodia",
-        hashtags: "#CREATIVE",
-        description: "Gallery | Hyundai Stargazer",
-        width: 800,
-        height: 600
-      },
-      {
-        src: "/DSC04264.jpg",
-        caption: "Stage Design for Cloud Photo Studio",
-        hashtags: "#CREATIVE",
-        description: "Launch Event | Into The Cloud CPS Opening",
-        width: 800,
-        height: 600
-      },
-      {
-        src: "/DSC06741.png",
-        caption: "Apparel Design for Hyundai Cambodia",
-        hashtags: "#CREATIVE",
-        description: "T-shirt | Hyundai Stargazer X",
-        width: 800,
-        height: 800
-      },
-      {
-        src: "/maxxx-009.png",
-        caption: "Social Media Contents for Tunsai Water",
-        hashtags: "#ALL",
-        description: "Graphics | Ranging from Year 2020 - 2021",
-        width: 800,
-        height: 800
-      },
-      {
-        src: "/SMART.png",
-        caption: "Social Media Contents for Tunsai Water",
-        hashtags: "#ALL",
-        description: "Graphics | Ranging from Year 2020 - 2021",
-        width: 800,
-        height: 800
-      },
-      {
-        src: "/stargazerXPic6.png",
-        caption: "Photography for Hyundai Cambodia",
-        hashtags: "#ALL",
-        description: "Gallery | Hyundai Stargazer X",
-        width: 800,
-        height: 600
-      },
-    ],
-    CREATIVE: [
-      { 
-        src: "/mtstick-001.png", 
-        caption: "NONE", 
-        hashtags: "#CREATIVE", 
-        description: "none",
-        width: 800,
-        height: 800
-      },
-      {
-        src: "/tunsai5.jpg",
-        caption: "Graphic Design (Print) for MATTER Phnom Penh",
-        hashtags: "#CREATIVE",
-        description: "Sticker pack | Matter's One",
-        width: 800,
-        height: 800
-      },
-      {
-        src: "/maxxx-009.png",
-        caption: "Social Media Contents for Tunsai Water",
-        hashtags: "#ALL",
-        description: "Graphics | Ranging from Year 2020 - 2021",
-        width: 800,
-        height: 800
-      },
-    ],
-    PRODUCTION: [
-      { 
-        src: "/DSC04264.jpg",
-        caption: "Stage Design for Cloud Photo Studio",
-        hashtags: "#CREATIVE",
-        description: "Launch Event | Into The Cloud CPS Opening",
-        width: 800,
-        height: 600
-      },
-      { 
-        src: "/stargazerXPic6.png",
-        caption: "Photography for Hyundai Cambodia",
-        hashtags: "#ALL",
-        description: "Gallery | Hyundai Stargazer X",
-        width: 800,
-        height: 600
-      },
-      { 
-        src: "/DSC06741.png",
-        caption: "Apparel Design for Hyundai Cambodia",
-        hashtags: "#CREATIVE",
-        description: "T-shirt | Hyundai Stargazer X",
-        width: 800,
-        height: 800
-      },
-    ],
-    CONCEPT: [
-      {
-        src: "/dog.png",
-        caption: "Photography for Hyundai Cambodia",
-        hashtags: "#CREATIVE",
-        description: "Gallery | Hyundai Stargazer",
-        width: 800,
-        height: 600
-      },
-      { 
-        src: "/maxxx-009.png",
-        caption: "Social Media Contents for Tunsai Water",
-        hashtags: "#ALL",
-        description: "Graphics | Ranging from Year 2020 - 2021",
-        width: 800,
-        height: 800
-      },
-      { 
-        src: "/back.jpg",
-        caption: "Apparel Design for Hyundai Cambodia",
-        hashtags: "#ALL",
-        description: "T-shirt | Hyundai Staria",
-        width: 800,
-        height: 1000
-      },
-    ],
-  };
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -202,11 +43,9 @@ export default function DetailPortfolioSection() {
       <div className="w-full">
         {/* Background shapes */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 w-40 h-40 rounded-full bg-orange-400" />
-        <FloatingShape delay={0} duration={15} className="top-1/4 left-1/4 md:w-40 md:h-5 w-20 h-10 rounded-full bg-orange-400" />
-        <FloatingShape delay={4} duration={18} className="top-3/4 right-1/4 md:w-32 md:h-32 w-32 h-32 rounded-full bg-gray-400" />
-        <FloatingShape delay={8} duration={20} className="top-1/2 right-1/3 md:w-20 md:h-20 w-20 h-20 rounded-2xl bg-orange-400" />
-
+          <FloatingShape delay={0} duration={12} className="top-1/4 left-1/4 md:w-30 md:h-30 w-15 h-15 rounded-full bg-orange-400" />
+          <FloatingShape delay={4} duration={18} className="top-3/4 right-1/4 md:w-32 md:h-32 w-12 h-12 rounded-full bg-gray-400" />
+          <FloatingShape delay={8} duration={20} className="top-1/2 right-1/3 md:w-20 md:h-20 w-10 h-10 rounded-2xl bg-orange-400" />
           <div className="absolute inset-0 opacity-5">
             <div
               className="w-full h-full"
@@ -215,7 +54,7 @@ export default function DetailPortfolioSection() {
                   linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
                   linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
                 `,
-                backgroundSize: "50px 50px",
+                backgroundSize: '50px 50px',
               }}
             />
           </div>
@@ -223,8 +62,8 @@ export default function DetailPortfolioSection() {
 
         <div className="text-center mb-4 px-8 py-48">
           <h2
-          className="text-3xl md:text-7xl font-serif mb-6 text-black"
-          style={{ fontFamily: "DM Serif Text" }}
+            className="text-3xl md:text-7xl font-serif mb-6 text-black"
+            style={{ fontFamily: 'DM Serif Text' }}
           >
             We turn bold dreams into impactful brands; 
             imaginative, authentic, and full 
@@ -234,11 +73,8 @@ export default function DetailPortfolioSection() {
         
         {/* Filter Controls */}
         <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
-
           <div className="flex flex-wrap items-center gap-2 pb-32">
             <span className="px-4 py-2 rounded-full text-sm font-medium text-black">FILTER:</span>
-            
-            {/* Show nav items based on screen size */}
             {navItems.map((item) => {
               const active = activeCategory === item.label;
               return (
@@ -247,27 +83,27 @@ export default function DetailPortfolioSection() {
                   onClick={() => handleCategoryChange(item.label)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                     active
-                      ? "bg-black text-white"
-                      : "bg-gray-200 text-black hover:bg-gray-300"
+                      ? 'bg-black text-white'
+                      : 'bg-gray-200 text-black hover:bg-gray-300'
                   }`}
                 >
                   {item.label}
                 </button>
               );
             })}
-
+          </div>
         </div>
-       </div>
 
         {/* Grid Layout */}
         <div className="grid md:grid-cols-3 gap-4 w-full mx-auto mt-4">
-          {imagesToShow.map((image: ImageData, index: number) => {
+          {imagesToShow.map((image, index: number) => {
             const uniqueKey = `${activeCategory}-${index}-${image.src}`;
             const isHovered = hoveredImage === uniqueKey;
 
             return (
-              <div
+              <Link
                 key={uniqueKey}
+                href={`/portfolio/${slugify(image.caption)}`}
                 className="relative bg-transparent rounded-xl p-2 group cursor-pointer"
                 onMouseEnter={() => setHoveredImage(uniqueKey)}
                 onMouseLeave={() => setHoveredImage(null)}
@@ -282,7 +118,6 @@ export default function DetailPortfolioSection() {
                       <div className={`absolute inset-0 bg-gray-300 rounded-2xl transform transition-all duration-300 ease-out ${
                         isHovered ? 'translate-x-2 translate-y-2 scale-102' : 'translate-x-1 translate-y-1'
                       }`} />
-
                       {/* Main Image */}
                       <div className={`relative w-full h-full transform transition-all duration-700 ease-out ${
                         isHovered ? 'scale-110 -translate-x-1 -translate-y-1' : 'scale-100'
@@ -293,7 +128,7 @@ export default function DetailPortfolioSection() {
                           width={image.width}
                           height={image.height}
                           className="w-full h-full object-cover rounded-2xl shadow-lg"
-                          priority={index < 3} // Only prioritize first few images
+                          priority={index < 3}
                         />
                         <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl transition-opacity duration-500 ${
                           isHovered ? 'opacity-100' : 'opacity-0'
@@ -311,7 +146,7 @@ export default function DetailPortfolioSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -325,9 +160,9 @@ export default function DetailPortfolioSection() {
               aria-expanded={showAll}
               aria-controls="image-list"
             >
-              {showAll ? "Show Less" : "Show More"}
+              {showAll ? 'Show Less' : 'Show More'}
               <svg
-                className={`w-4 h-4 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
+                className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"

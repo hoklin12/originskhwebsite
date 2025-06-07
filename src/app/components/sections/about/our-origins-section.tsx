@@ -3,7 +3,7 @@
 
 import { useRef, forwardRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion"
-import { cn } from "../../ui/utils"
+import { cn } from "../../utils/utils"
 import ButtonSection from "../button-section"
 import Image from 'next/image';
 
