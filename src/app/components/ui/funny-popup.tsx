@@ -87,7 +87,7 @@ export default function FunnyPopup({ isOpen, onClose }: FunnyPopupProps) {
 
               </h1>
               <div className="text-lg sm:text-2xl text-orange-600 font-semibold mb-4">
-               ORIGINS&apos;Customer Service 🐕
+               ORIGINS&apos; Customer Service 🐕
               </div>
             </div>
 
