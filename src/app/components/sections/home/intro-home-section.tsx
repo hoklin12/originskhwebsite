@@ -42,6 +42,7 @@ export default function IntroHomeSection() {
         loop={true}
       />
 
+
       <div className="text-center mb-4 px-4 sm:px-8">
         <h2 className="text-2xl md:text-4xl  font-normal mb-6 text-black" style={{ fontFamily: "DM Serif Text" }}>
           We are a creative agency

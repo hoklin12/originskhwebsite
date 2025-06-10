@@ -125,15 +125,15 @@ const InstagramNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
 
         <div className="pt-16 px-4 sm:px-6 lg:px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-            <div className="w-full text-left">
+            {/* <div className="w-full text-left">
               <h3 className="text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-600 mb-8 font-normal">
                 See more how we connect through visual storytelling on Instagram.
               </h3>
-            </div>
+            </div> */}
           </div>
           <Link href={'https://instagram.com/originskh'} target="_blank">
-            <button className="flex items-center py-3 px-6 bg-orange-600 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base mt-4">
-              Follow on Instagram
+            <button className="flex items-center py-3 px-6 bg-orange-400 text-white rounded-full font-bold hover:bg-black transition-colors text-sm md:text-base mt-4">
+              See more
               <motion.div
                 className="ml-3"
                 animate={{ x: [0, 6, 0] }}
