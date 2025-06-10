@@ -18,18 +18,9 @@ export const slugify = (text: string) =>
 
 export const allImages: ImageData[] = [
   {
-    src: '/tunsai5.jpeg',
-    caption: 'Social Media Contents for Tunsai Water',
-    hashtags: '#ALL #CREATIVE',
-    description: 'Graphics | Ranging from Year 2020 - 2021',
-    longDescription: 'We crafted a series of engaging social media graphics for Tunsai Water between 2020 and 2021. Our team focused on vibrant, eye-catching designs to boost brand visibility, incorporating bold colors and dynamic layouts to align with Tunsai’s refreshing identity. This campaign included posts for product launches, seasonal promotions, and community engagement, driving significant interaction across platforms like Instagram and Facebook.',
-    width: 800,
-    height: 800,
-  },
-  {
     src: '/custin08.png',
     caption: 'Photography for Hyundai Cambodia',
-    hashtags: '#ALL #PRODUCTION',
+    hashtags: '#PRODUCTION',
     description: 'Gallery | Hyundai Custin',
     longDescription: 'Our photography project for Hyundai Cambodia showcased the sleek and modern Hyundai Custin. We conducted multiple shoots in diverse locations around Cambodia, capturing the vehicle’s design and functionality in urban and scenic settings. The gallery highlights the car’s premium features, with high-resolution images used for marketing materials, dealership displays, and online campaigns.',
     width: 800,
@@ -38,29 +29,11 @@ export const allImages: ImageData[] = [
   {
     src: '/back.jpg',
     caption: 'Apparel Design for Hyundai Cambodia',
-    hashtags: '#ALL #CONCEPT',
+    hashtags: '#CONCEPT',
     description: 'T-shirt | Hyundai Staria',
     longDescription: 'For Hyundai Cambodia, we designed a custom T-shirt line for the Hyundai Staria launch. The apparel featured minimalist yet bold graphics inspired by the vehicle’s futuristic design, using high-quality fabrics for comfort and durability. These T-shirts were distributed at launch events and promotional campaigns, enhancing brand loyalty and team unity.',
     width: 800,
     height: 800,
-  },
-  {
-    src: '/tunsai5.jpg',
-    caption: 'Social Media Contents for Tunsai Water',
-    hashtags: '#ALL #CREATIVE',
-    description: 'Graphics | Ranging from Year 2020 - 2021',
-    longDescription: 'We created a dynamic series of social media graphics for Tunsai Water, running from 2020 to 2021. We focused on clean, modern designs that emphasized the brand’s commitment to hydration and sustainability, using a cohesive color palette and typography. These assets drove follower growth and interaction across multiple digital channels.',
-    width: 800,
-    height: 800,
-  },
-  {
-    src: '/dog.png',
-    caption: 'Photography for Hyundai Cambodia',
-    hashtags: '#CREATIVE #CONCEPT',
-    description: 'Gallery | Hyundai Stargazer',
-    longDescription: 'This photography project for Hyundai Cambodia focused on the Hyundai Stargazer, capturing its versatile design in dynamic settings. Our team worked to highlight the vehicle’s spacious interior and modern aesthetics through carefully staged shots in urban and rural environments, delivering a stunning gallery for brochures, websites, and social media promotion.',
-    width: 800,
-    height: 600,
   },
   {
     src: '/DSC04264.jpg',
@@ -83,7 +56,7 @@ export const allImages: ImageData[] = [
   {
     src: '/maxxx-009.png',
     caption: 'Social Media Contents for Tunsai Water',
-    hashtags: '#ALL #CONCEPT',
+    hashtags: '#CONCEPT',
     description: 'Graphics | Ranging from Year 2020 - 2021',
     longDescription: 'For Tunsai Water, we developed a robust social media content strategy from 2020 to 2021. Our graphics featured bold visuals and concise messaging to promote the brand’s purity and quality, tailored for platforms like Instagram, Twitter, and Facebook. This campaign increased engagement by 35%, with designs supporting product reveals and seasonal campaigns.',
     width: 800,
@@ -92,7 +65,7 @@ export const allImages: ImageData[] = [
   {
     src: '/SMART.png',
     caption: 'Social Media Contents for Tunsai Water',
-    hashtags: '#ALL',
+    hashtags: '#CONCEPT',
     description: 'Graphics | Ranging from Year 2020 - 2021',
     longDescription: 'Our team created a dynamic series of social media graphics for Tunsai Water, running from 2020 to 2021. We focused on clean, modern designs that emphasized the brand’s commitment to hydration and sustainability, using a cohesive color palette and typography. These assets drove follower growth and interaction across multiple digital channels.',
     width: 800,
@@ -101,7 +74,7 @@ export const allImages: ImageData[] = [
   {
     src: '/stargazerXPic6.png',
     caption: 'Photography for Hyundai Cambodia',
-    hashtags: '#ALL #PRODUCTION',
+    hashtags: '#PRODUCTION',
     description: 'Gallery | Hyundai Stargazer X',
     longDescription: 'We executed a comprehensive photography project for the Hyundai Stargazer X, capturing its bold design and off-road capability. Shoots took place across Cambodia, blending urban backdrops with rugged terrains to showcase versatility. The resulting gallery was used in marketing collateral, online platforms, and dealership promotions, elevating the model’s appeal.',
     width: 800,
