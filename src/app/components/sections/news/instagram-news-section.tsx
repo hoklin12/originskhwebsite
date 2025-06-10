@@ -86,10 +86,10 @@ const InstagramNewsSection = React.forwardRef<HTMLElement>((props, ref) => {
             >
               <div className="mb-3">
                 <div className="flex gap-2 mb-3 pt-4">
-                  <span className="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+                  <span className="bg-gray-100 hover:bg-orange-400 hover:text-white text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
                     INSTAGRAM
                   </span>
-                  <span className="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+                  <span className="bg-gray-100 hover:bg-black-400 hover:text-white text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
                     {new Date(post.timestamp).toLocaleDateString()}
                   </span>
                 </div>
