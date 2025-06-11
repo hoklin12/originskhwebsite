@@ -1,6 +1,4 @@
 
-
-
 'use client';
 import { useState, useEffect } from 'react';
 import FloatingShape from '../../ui/floating-shape';
@@ -9,7 +7,7 @@ import Link from 'next/link';
 import { slugify } from '../../utils/slugify';
 import { imageMap } from '@/data/portfolioData';
 
-export default function DetailPortfolioSection() {
+export default function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [showAll, setShowAll] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -123,10 +121,10 @@ export default function DetailPortfolioSection() {
                         isHovered ? 'scale-110 -translate-x-1 -translate-y-1' : 'scale-100'
                       }`}>
                         <Image
-                          src={image.src}
+                          src={image.images[0].src }
                           alt={image.caption}
-                          width={image.width}
-                          height={image.height}
+                          width={image.images[0].width}
+                          height={image.images[0].height}
                           className="w-full h-full object-cover rounded-2xl shadow-lg"
                           priority={index < 3}
                         />
@@ -177,3 +175,5 @@ export default function DetailPortfolioSection() {
     </section>
   );
 }
+
+

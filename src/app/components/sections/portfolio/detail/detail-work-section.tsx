@@ -1,11 +1,14 @@
 
+
 'use client';
+import { useState } from 'react';
 import FloatingShape from '@/app/components/ui/floating-shape';
 import { slugify } from '@/app/components/utils/slugify';
 import { allImages } from '@/data/portfolioData';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function WorkDetail() {
   const params = useParams();
@@ -14,6 +17,8 @@ export default function WorkDetail() {
   const from = searchParams.get('from');
 
   const work = allImages.find((item) => slugify(item.caption) === captionSlug);
+
+  const [index, setIndex] = useState(0);
 
   if (!work) {
     return (
@@ -31,8 +36,20 @@ export default function WorkDetail() {
     );
   }
 
+  const currentImage = work.images[index];
+
+  const nextImage = () => {
+    setIndex((prev) => (prev + 1) % work.images.length);
+  };
+
+  const prevImage = () => {
+    setIndex((prev) => (prev - 1 + work.images.length) % work.images.length);
+  };
+
+  const hasMultipleImages = work.images.length > 1;
+
   return (
-    <section className="min-h-screen bg-transparent py-16 text-black">
+    <section className="min-h-screen bg-transparent py-16 text-black relative">
       <div className="max-w-4xl mx-auto px-4">
         {/* Background shapes */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -60,16 +77,54 @@ export default function WorkDetail() {
             {work.description}
           </span>
         </div>
-        <div className='relative z-10'>
-          <Image
-            src={work.src}
-            alt={work.caption}
-            width={work.width}
-            height={work.height}
-            className="w-full h-auto object-cover rounded-2xl shadow-lg mb-6"
-            priority
-          />
+
+        {/* Slideshow */}
+        <div className="relative z-10 mb-6 flex justify-center">
+          <div className="relative" style={{ width: 800, height: 600 }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImage.src}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={currentImage.src}
+                  alt={work.caption}
+                  fill
+                  className="rounded-2xl shadow-lg object-cover"
+                  priority
+                  sizes="(max-width: 800px) 100vw, 800px"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation Arrows */}
+            {hasMultipleImages && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow hover:bg-white"
+                  aria-label="Previous Image"
+                  style={{ zIndex: 10 }}
+                >
+                  ◀
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow hover:bg-white"
+                  aria-label="Next Image"
+                  style={{ zIndex: 10 }}
+                >
+                  ▶
+                </button>
+              </>
+            )}
+          </div>
         </div>
+
         <p className="text-justify text-gray-600 text-lg leading-relaxed mb-8">
           {work.longDescription}
         </p>
@@ -83,3 +138,4 @@ export default function WorkDetail() {
     </section>
   );
 }
+

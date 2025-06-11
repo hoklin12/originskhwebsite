@@ -4,7 +4,7 @@ import { useNavigation } from "../components/hooks/use-navigation";
 import Footer from "../components/ui/footer";
 import ServiceSection from "../components/sections/service-seaction";
 import SecondaryLayout from "../components/layouts/secondary-layout";
-import DetailPortfolioSection from "../components/sections/portfolio/detail-portfolio-section";
+import PortfolioSection from "../components/sections/portfolio/portfolio-section";
 
 
 export default function PortfolioPage() {
@@ -14,7 +14,7 @@ export default function PortfolioPage() {
 
   return (
     <SecondaryLayout navBackground={navBackground} activeSection={activeSection} scrollToSection={scrollToSection}>
-      <DetailPortfolioSection/>
+      <PortfolioSection/>
       <ServiceSection/>
       <Footer  />
     </SecondaryLayout>

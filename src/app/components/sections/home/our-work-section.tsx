@@ -88,10 +88,10 @@ export default function OurWorkSection() {
                         isHovered ? 'scale-110 -translate-x-1 -translate-y-1' : 'scale-100'
                       }`}>
                         <Image
-                          src={image.src}
+                          src={image.images[0].src }
                           alt={image.caption}
-                          width={image.width}
-                          height={image.height}
+                          width={image.images[0].width}
+                          height={image.images[0].height}
                           className="w-full h-full object-cover rounded-2xl shadow-lg"
                         />
                         <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl transition-opacity duration-500 ${
