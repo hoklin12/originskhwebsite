@@ -1,27 +1,15 @@
+
+
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-
-const TEAM_MEMBERS = [
-  {
-    name: "Prof. BK",
-    position: "Owner & business Director",
-    image: "/prof-bk.png", // ← custom image
-  },
-  {
-    name: "Sam Wujiale",
-    position: "Founder & Studio Director",
-    image: "/sam.png", // ← custom image
-  },
-  {
-    name: "Sreng Sannyaliza",
-    position: "Co-founder & Studio Manager",
-    image: "/liza.png", // ← custom image
-  },
-];
+import { TEAM_MEMBERS, TeamMember } from "@/data/teamMembers";
+import TeamMemberModal from "../team-popup";
 
 const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
   return (
     <section id="studios" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
       <div className="w-full">
@@ -34,12 +22,13 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {TEAM_MEMBERS.map((member, index) => (
             <motion.div
-              key={index}
+              key={member.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group"
+              className="group cursor-pointer"
+              onClick={() => setSelectedMember(member)}
             >
               {/* Image container with rounded corners */}
               <motion.div
@@ -48,7 +37,7 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
                 transition={{ duration: 0.3 }}
               >
                 <motion.img
-                  src={member.image} // ← dynamically use each member's image
+                  src={member.image}
                   alt={`${member.name} - ${member.position}`}
                   className="w-full h-full object-cover rounded-xl"
                   whileHover={{ scale: 1.05 }}
@@ -100,6 +89,12 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
           </div>
         </div>
       </div>
+
+      {/* Team Member Modal */}
+      <TeamMemberModal 
+        member={selectedMember} 
+        onClose={() => setSelectedMember(null)} 
+      />
     </section>
   );
 });
