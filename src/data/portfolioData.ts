@@ -92,7 +92,7 @@ export const allImages: ImageData[] = [
     images: [
       { src: '/maxxx-009.png', width: 800, height: 800 },
     ],
-    caption: 'Social Media Contents for Tunsai Water',
+    caption: 'Social Media Contents for Tunsai Water 3',
     hashtags: '#CONCEPT',
     description: 'Graphics | Ranging from Year 2020 - 2021',
     longDescription: 'For Tunsai Water, we developed a robust social media content strategy from 2020 to 2021. Our graphics featured bold visuals and concise messaging to promote the brand’s purity and quality, tailored for platforms like Instagram, Twitter, and Facebook. This campaign increased engagement by 35%, with designs supporting product reveals and seasonal campaigns.',
@@ -140,10 +140,10 @@ export const allImages: ImageData[] = [
     images: [
       { src: '/tunsai5.jpg', width: 800, height: 800 },
     ],
-    caption: 'Graphic Design (Print) for MATTER Phnom Penh',
-    hashtags: '#CREATIVE',
-    description: 'Sticker pack | Matter\'s One',
-    longDescription: 'We designed a custom sticker pack, “Matter’s One,” for MATTER Phnom Penh, blending bold graphics and intricate details for print. Our process involved concept sketches, color selection, and print-ready files, creating a collectible set that amplified brand visibility at events and through retail channels.',
+    caption: 'Social Media Contents for Tunsai Water 2',
+    hashtags: '#CONCEPT',
+    description: 'Graphics | Ranging from Year 2020 - 2021',
+    longDescription: 'Our team created a dynamic series of social media graphics for Tunsai Water, running from 2020 to 2021. We focused on clean, modern designs that emphasized the brand’s commitment to hydration and sustainability, using a cohesive color palette and typography. These assets drove follower growth and interaction across multiple digital channels.',
     width: undefined,
     height: undefined,
     src: ""

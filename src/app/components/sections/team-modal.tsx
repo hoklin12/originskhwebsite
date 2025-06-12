@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import { useEffect } from "react";
@@ -29,6 +30,11 @@ export default function TeamMemberModal({ member, onClose }: TeamMemberModalProp
   useEffect(() => {
     if (member) {
       document.body.style.overflow = 'hidden';
+      // Preload the image when member is set
+      if (member?.image) {
+        const img = new window.Image();
+        img.src = member.image;
+      }
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -45,21 +51,22 @@ export default function TeamMemberModal({ member, onClose }: TeamMemberModalProp
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.15 }}
         className="fixed inset-0 z-50"
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
           onClick={onClose}
         />
 
         {/* Modal Container */}
         <div className="fixed inset-0 flex items-center justify-center p-2 sm:p-4">
           <motion.div
-            className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 w-full max-w-3xl max-h-[90vh] transform transition-all duration-700 ease-out scale-100 flex flex-col overflow-hidden"
-            style={{
-              boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5)',
-            }}
+            initial={{ scale: 0.98 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -148,4 +155,3 @@ export default function TeamMemberModal({ member, onClose }: TeamMemberModalProp
     </AnimatePresence>
   );
 }
-

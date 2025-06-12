@@ -1,12 +1,32 @@
+
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { TEAM_MEMBERS, TeamMember } from "@/data/teamMembers";
 import TeamMemberModal from "../team-modal";
 
 const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [preloadedImages, setPreloadedImages] = useState<Set<string>>(new Set());
+
+  // Preload all images when component mounts
+  useEffect(() => {
+    TEAM_MEMBERS.forEach(member => {
+      const img = new window.Image();
+      img.src = member.image;
+    });
+  }, []);
+
+  // Preload specific image on hover
+  const handleHover = (imageUrl: string) => {
+    if (!preloadedImages.has(imageUrl)) {
+      const img = new window.Image();
+      img.src = imageUrl;
+      setPreloadedImages(prev => new Set(prev).add(imageUrl));
+    }
+  };
 
   return (
     <section id="studios" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
@@ -22,45 +42,33 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
             <motion.div
               key={member.id}
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={selectedMember ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group cursor-pointer"
+              onHoverStart={() => handleHover(member.image)}
               onClick={() => setSelectedMember(member)}
             >
-              {/* Image container with rounded corners */}
-              <motion.div
-                className="h-80 sm:h-96 bg-gray-300 relative overflow-hidden mb-4 rounded-xl"
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.img
+              {/* Image container */}
+              <div className="h-80 sm:h-96 bg-gray-300 relative overflow-hidden mb-4 rounded-xl">
+                <Image
                   src={member.image}
                   alt={`${member.name} - ${member.position}`}
-                  className="w-full h-full object-cover rounded-xl"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
+                  fill
+                  className="object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                  priority={index < 3}
+                  loading={index > 2 ? "lazy" : "eager"}
                 />
-              </motion.div>
+              </div>
 
-              {/* Text content outside image */}
+              {/* Text content */}
               <div className="text-left">
-                <motion.h3
-                  className="font-bold text-xl sm:text-2xl text-black mb-1"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <h3 className="font-bold text-xl sm:text-2xl text-black mb-1 group-hover:translate-x-1 transition-transform duration-200">
                   {member.name}
-                </motion.h3>
-                <motion.p
-                  className="text-gray-600 font-medium text-sm sm:text-base"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
-                  viewport={{ once: true }}
-                >
+                </h3>
+                <p className="text-gray-600 font-medium text-sm sm:text-base">
                   {member.position}
-                </motion.p>
+                </p>
               </div>
             </motion.div>
           ))}
@@ -77,8 +85,8 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
                 Hiring 
                 <motion.div
                   className="ml-3"
-                  animate={{ x: [0, 6, 0] }}
-                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                  animate={selectedMember ? {} : { x: [0, 6, 0] }}
+                  transition={selectedMember ? {} : { repeat: Infinity, duration: 1.5 }}
                 >
                   →
                 </motion.div>
@@ -88,7 +96,6 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
         </div>
       </div>
 
-      {/* Team Member Modal */}
       <TeamMemberModal 
         member={selectedMember} 
         onClose={() => setSelectedMember(null)} 
@@ -99,4 +106,3 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
 
 TeamSection.displayName = "TeamSection";
 export default TeamSection;
-
