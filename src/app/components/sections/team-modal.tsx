@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { X, Linkedin, Twitter, Instagram } from "lucide-react";
+import { X, Linkedin, Instagram, Facebook } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,6 +16,7 @@ interface TeamMember {
     linkedin?: string;
     twitter?: string;
     instagram?: string;
+    facebook?: string;
   };
 }
 
@@ -116,14 +117,14 @@ export default function TeamMemberModal({ member, onClose }: TeamMemberModalProp
                           <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                         </a>
                       )}
-                      {member.socialLinks.twitter && (
+                      {member.socialLinks.facebook && (
                         <a
-                          href={member.socialLinks.twitter}
+                          href={member.socialLinks.facebook}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:text-blue-700 transition"
                         >
-                          <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
+                          <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
                         </a>
                       )}
                       {member.socialLinks.instagram && (

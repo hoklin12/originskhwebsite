@@ -99,3 +99,4 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
 
 TeamSection.displayName = "TeamSection";
 export default TeamSection;
+
