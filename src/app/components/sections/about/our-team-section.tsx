@@ -1,11 +1,9 @@
-
-
 "use client";
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { TEAM_MEMBERS, TeamMember } from "@/data/teamMembers";
-import TeamMemberModal from "../team-popup";
+import TeamMemberModal from "../team-modal";
 
 const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
