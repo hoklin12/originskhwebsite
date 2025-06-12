@@ -11,7 +11,6 @@ interface TeamMember {
   position: string;
   image: string;
   description?: string;
-  education?: string;
   expertise?: string[];
   socialLinks?: {
     linkedin?: string;
@@ -92,13 +91,6 @@ export default function TeamMemberModal({ member, onClose }: TeamMemberModalProp
 
                   {member.description && (
                     <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">{member.description}</p>
-                  )}
-
-                  {member.education && (
-                    <div className="mb-4">
-                      <h3 className="font-semibold text-gray-800 text-sm sm:text-base">Education:</h3>
-                      <p className="text-gray-700 text-sm sm:text-base">{member.education}</p>
-                    </div>
                   )}
 
                   {member.expertise && member.expertise.length > 0 && (
