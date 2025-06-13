@@ -36,7 +36,7 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
           className="text-3xl md:text-7xl font-serif mb-6 text-black"
           style={{ fontFamily: "DM Serif Text" }}
         >
-         Every dream deserves to be told with O&apos;riginality, O&apos;authenticity, and O&apos;someness.
+         Every dream deserves to be told with O&apos;riginality, O&apos;thenticity, and O&apos;wesomeness.
         </h2>
       </div>
 
