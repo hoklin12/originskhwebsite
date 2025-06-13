@@ -101,7 +101,7 @@ export default function PortfolioSection() {
             return (
               <Link
                 key={uniqueKey}
-                href={`/portfolio/${slugify(image.caption)}`}
+                href={`/portfolio/${slugify(image.description)}`}
                 className="relative bg-transparent rounded-xl p-2 group cursor-pointer"
                 onMouseEnter={() => setHoveredImage(uniqueKey)}
                 onMouseLeave={() => setHoveredImage(null)}
@@ -122,7 +122,7 @@ export default function PortfolioSection() {
                       }`}>
                         <Image
                           src={image.images[0].src }
-                          alt={image.caption}
+                          alt={image.description}
                           width={image.images[0].width}
                           height={image.images[0].height}
                           className="w-full h-full object-cover rounded-2xl shadow-lg"

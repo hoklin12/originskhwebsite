@@ -1,8 +1,10 @@
+
+
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { slugify, imageMap } from '@/data/workData';;
+import { slugify, imageMap } from '@/data/portfolioData';
 
 export default function OurWorkSection() {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
@@ -31,7 +33,8 @@ export default function OurWorkSection() {
   };
 
   const currentImages = imageMap[activeCategory] || [];
-  const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages;
+  const maxImages = activeCategory === 'ALL' ? 6 : 3;
+  const imagesToShow = isMobile && !showAll ? currentImages.slice(0, 3) : currentImages.slice(0, maxImages);
 
   return (
     <section id="work" className="pt-10 bg-transparent relative overflow-hidden px-4 sm:px-8">
@@ -68,7 +71,7 @@ export default function OurWorkSection() {
             return (
               <Link
                 key={uniqueKey}
-                href={`/portfolio/${slugify(image.caption)}?from=work`}
+                href={`/portfolio/${slugify(image.description)}?from=work`}
                 className="relative bg-transparent rounded-xl p-2 group cursor-pointer"
                 onMouseEnter={() => setHoveredImage(uniqueKey)}
                 onMouseLeave={() => setHoveredImage(null)}
@@ -88,11 +91,12 @@ export default function OurWorkSection() {
                         isHovered ? 'scale-110 -translate-x-1 -translate-y-1' : 'scale-100'
                       }`}>
                         <Image
-                          src={image.images[0].src }
-                          alt={image.caption}
+                          src={image.images[0].src}
+                          alt={image.description}
                           width={image.images[0].width}
                           height={image.images[0].height}
                           className="w-full h-full object-cover rounded-2xl shadow-lg"
+                          priority={index < 3}
                         />
                         <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl transition-opacity duration-500 ${
                           isHovered ? 'opacity-100' : 'opacity-0'
