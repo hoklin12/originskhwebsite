@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { TEAM_MEMBERS, TeamMember } from "@/data/teamMembers";
+import { TEAM_MEMBERS, TeamMember } from "@/data/management-team";
 import TeamMemberModal from "../team-modal";
 
 const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
@@ -29,11 +29,11 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section id="studios" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
+    <section id="" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
       <div className="w-full">
         {/* Header */}
         <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
-          <p className="text-gray-600 font-medium">OUR TEAM</p>
+          <p className="text-gray-600 font-medium">MANAGEMENT TEAM</p>
         </div>
 
         {/* Team Grid */}
@@ -72,27 +72,6 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Bottom CTA Section */}
-        <div className="pt-16 sm:pt-32">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-            <div className="w-full md:w-1/2 text-left">
-              <h3 className="text-xl sm:text-2xl md:text-3xl text-black mb-6">
-                Think you&apos;d be a good addition to our team?
-              </h3>
-              <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
-                Hiring 
-                <motion.div
-                  className="ml-3"
-                  animate={selectedMember ? {} : { x: [0, 6, 0] }}
-                  transition={selectedMember ? {} : { repeat: Infinity, duration: 1.5 }}
-                >
-                  →
-                </motion.div>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 

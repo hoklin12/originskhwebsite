@@ -5,9 +5,10 @@ import { useNavigation } from "../components/hooks/use-navigation";
 import IntroAboutSection from "../components/sections/about/intro-about-section";
 import OurOValuesSection from "../components/sections/about/our-o-value-section";
 import OurOriginsSection from "../components/sections/about/our-origins-section";
-import TeamSection from "../components/sections/about/our-team-section";
+import TeamSection from "../components/sections/about/our-management-team";
 import ServiceSection from "../components/sections/service-seaction";
 import SecondaryLayout from "../components/layouts/secondary-layout";
+import OurManagementTeam from "../components/sections/about/our-team";
 
 
 
@@ -23,6 +24,7 @@ export default function ContactPage() {
       <ServiceSection/>
       <OurOriginsSection/>
       <TeamSection/>
+      <OurManagementTeam />
       <Footer />
     </SecondaryLayout>
   );

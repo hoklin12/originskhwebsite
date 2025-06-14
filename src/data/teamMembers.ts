@@ -22,11 +22,21 @@ export interface TeamMember {
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: "prof-bk",
-    name: "Prof. BK",
-    position: "Owner & Business Director",
-    image: "/prof-bk.png",
-    description: "With over 20 years of experience in business management, Prof. BK has led numerous successful ventures and brings strategic vision to our team.",
+    id: "Cheng Dalipine",
+    name: "Cheng Dalipine",
+    position: "Marketing Executive", 
+    image: "/ORS_Dalipine_v60.jpg",
+    description: "",
+    expertise: [
+    ],
+    joinDate: "",
+  },
+    {
+    id: "Horn Davin",
+    name: "Horn Davin",
+    position: "Creative Lead",
+    image: "/ORS_Davin_v60.jpg",
+    description: "",
     expertise: [
       "Business Strategy",
       "Financial Management",
@@ -35,42 +45,36 @@ export const TEAM_MEMBERS: TeamMember[] = [
     joinDate: "",
   },
   {
-  id: "sam-wujiale",
-  name: "Sam Wujiale",
-  position: "Founder & Studio Director",
-  image: "/sam.png",
-  description: "Creative leader and founder with extensive experience in directing studios and creative projects across multiple sectors including corporate, social enterprise, and community.",
-  expertise: [
-    "Creative Direction",
-    "Video Production",
-    "Studio Leadership",
-    "Photography",
-    "Media Consultant"
-  ],
-  socialLinks: {
-    instagram: "https://www.instagram.com/samwujiale/",
-    facebook: "https://web.facebook.com/samwujiale",
+    id: "Ly Bovy",
+    name: "Ly Bovy",
+    position: "Creative Executive (Motion)",
+    image: "/ORS_Bovy_v60.jpg",
+    description: "",
+    expertise: [
+    ],
+    joinDate: "",
   },
-  joinDate: "",
+  {
+    id: "Sarin Sophavatey",
+    name: "Sarin Sophavatey",
+    position: "Creative Executive (Graphics & Concept)",
+    image: "/ORS_Vatey_v60.jpg",
+    description: "",
+    expertise: [
+    ],
+    joinDate: "",
+  },
+    {
+    id: "Van Hoklin",
+    name: "Van Hoklin",
+    position: "Web Developer",
+    image: "/ORS_Hoklin_v60.jpg",
+    description: "",
+    expertise: [
+    ],
+    joinDate: "",
   },
 
-  {
-    id: "sreng-sannyaliza",
-    name: "Sreng Sannyaliza",
-    position: "Co-founder & Studio Manager",
-    image: "/liza.png",
-    description: "Operations expert who ensures our projects run smoothly from conception to delivery. Liza brings structure and efficiency to our creative process.",
-    expertise: [
-      "Project Management",
-      "Team Leadership",
-      "Process Optimization"
-    ],
-    socialLinks: {
-      instagram: "https://www.instagram.com/aliza_sanny/",
-      facebook: "https://web.facebook.com/sanny.aliza",
-    },
-    joinDate: "",
-  }
 ];
 
 // Helper function to get team member by ID
