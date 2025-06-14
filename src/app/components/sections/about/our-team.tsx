@@ -8,8 +8,7 @@ import Image from "next/image";
 import { TEAM_MEMBERS, TeamMember } from "@/data/teamMembers";
 
 const OurManagementTeam = React.forwardRef<HTMLElement>((props, ref) => {
-  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  const [preloadedImages, setPreloadedImages] = useState<Set<string>>(new Set());
+  const [selectedMember] = useState<TeamMember | null>(null);
 
   // Preload all images when component mounts
   useEffect(() => {
@@ -19,14 +18,7 @@ const OurManagementTeam = React.forwardRef<HTMLElement>((props, ref) => {
     });
   }, []);
 
-  // Preload specific image on hover
-  const handleHover = (imageUrl: string) => {
-    if (!preloadedImages.has(imageUrl)) {
-      const img = new window.Image();
-      img.src = imageUrl;
-      setPreloadedImages(prev => new Set(prev).add(imageUrl));
-    }
-  };
+
 
   return (
     <section id="" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
@@ -73,7 +65,7 @@ const OurManagementTeam = React.forwardRef<HTMLElement>((props, ref) => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
             <div className="w-full md:w-1/2 text-left">
               <h3 className="text-xl sm:text-2xl md:text-3xl text-black mb-6">
-                Think you'd be a good addition to our team?
+                Think you&lsquo;d be a good addition to our team?
               </h3>
               <button className="flex items-center px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-orange-400 transition-colors text-sm md:text-base">
                 Hiring 
