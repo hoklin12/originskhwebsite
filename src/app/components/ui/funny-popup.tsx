@@ -86,8 +86,9 @@ export default function FunnyPopup({ isOpen, onClose }: FunnyPopupProps) {
                 <span className="text-2xl">🐾</span> <strong>Woof! Woof!</strong> <span className="text-2xl">🐾</span>
 
               </h1>
-              <div className="text-lg sm:text-2xl text-orange-600 font-semibold mb-4">
-               ORIGINS&apos; Customer Service 🐕
+              <div className="text-lg sm:text-2xl text-orange-400 font-semibold mb-4">
+               {/* ORIGINS&apos; Customer Service 🐕 */}
+               ORIGINS&apos; CHIEF HAPPINESS OFFICER 🐕
               </div>
             </div>
 
@@ -96,10 +97,12 @@ export default function FunnyPopup({ isOpen, onClose }: FunnyPopupProps) {
               <div className="absolute -top-3 left-6 sm:left-8 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-50 to-amber-50 rotate-45 border-l-2 border-t-2 border-orange-200" />
               <div className="text-center">
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-3">
-                  I&apos;m your friendly customer service dog! What can I help you with today?
+                  {/* I&apos;m your friendly customer service dog! What can I help you with today? */}
+                  ORIGINS' chief happiness officer is at your service. What can Bingo help you with today?
+
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  If you want to know more about us, please check out our contact page!
+                  If you want to know more about us, please check out our contact page! Woof! Woof!
                 </p>
               </div>
             </div>
