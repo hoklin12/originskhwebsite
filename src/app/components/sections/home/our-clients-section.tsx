@@ -7,7 +7,6 @@ export default function OurClientsSection() {
   const clients = [
     { name: "Asset1@hyu2", src: "/asset1_hyu2.png" },
     { name: "Asset1@muc", src: "/asset1_muc.png" },
-    { name: "Asset1@osn", src: "/asset1_osn.png" },
     { name: "Cps", src: "/cps.png" },
     { name: "Global_color_copy", src: "/global_color_copy.png" },
     { name: "Grav", src: "/grav.png" },
