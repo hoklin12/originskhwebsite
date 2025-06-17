@@ -19,7 +19,6 @@ const OurManagementTeam = React.forwardRef<HTMLElement>((props, ref) => {
   }, []);
 
 
-
   return (
     <section id="" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
       <div className="w-full">

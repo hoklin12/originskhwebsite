@@ -96,7 +96,7 @@ export default function FunnyPopup({ isOpen, onClose }: FunnyPopupProps) {
               <div className="absolute -top-3 left-6 sm:left-8 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-50 to-amber-50 rotate-45 border-l-2 border-t-2 border-orange-200" />
               <div className="text-center">
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-3">
-                  ORIGINS&apos; chief happiness officer is at your service. What can Bingo help you with today? 📞 🐶
+                  ORIGINS&apos; chief happiness officer is here at your service. What can Bingo help you with today? 📞 🐶
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   If you want to know more about us, please check out our contact page! Woof! Woof!
