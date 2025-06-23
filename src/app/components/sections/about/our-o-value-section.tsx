@@ -47,7 +47,7 @@ const OurOValuesSection = forwardRef<HTMLElement>((props, ref) => {
   ];
 
   const defaultImage = {
-    image: "/o0.png", // Replace this with your default image path
+    image: "/o2v2.png", // Replace this with your default image path
     imageAlt: "Default O value image",
   };
 

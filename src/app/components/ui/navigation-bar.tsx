@@ -107,7 +107,7 @@ export default function NavigationBar({
                   LOOKING TO REVIVE YOUR DREAMS?{" "}
                   <button
                       onClick={() => setShowFunnyPopup(true)}
-                      className="inline-flex items-center ml-2 text-black hover:text-white transition-colors"
+                      className="inline-flex items-center ml-2 text-black hover:text-orange-600 transition-colors"
                     >
                       CALL US
                       <ArrowRight className="ml-1 h-3 w-3" />
