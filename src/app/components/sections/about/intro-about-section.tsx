@@ -42,9 +42,9 @@ const IntroAboutSection = React.forwardRef<HTMLElement>((props, ref) => {
 
       {/* Video section - full width (no padding) */}
       <VideoSection
-        videoSrc="/origins-showreel-2025.mp4"
-        thumbnailSrc={"/origins-thumbnail.png"}
-        id="intro"
+        videoSrc="/ORS_UNCERTAINTYv1080p.mp4"
+        thumbnailSrc={"/ORS_UNCERTAINTYv1080p_thumbnail.jpg"}
+        id=""
         showControls={true}
         autoPlay={false}
         muted={false}
