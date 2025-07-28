@@ -30,7 +30,7 @@ const timelineData: TimelineItem[] = [
     years: "2019",
     title: "Creative Consultation Starts",
     description: "Launched creative consultation services in Cambodia. Developed innovative solutions for emerging markets",
-    image: "/pic2019.png",
+    image: "/pic2020.png",
     highlight: true,
   },
   {
