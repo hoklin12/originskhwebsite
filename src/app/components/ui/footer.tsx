@@ -176,10 +176,10 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-8 md:mt-16 pt-6 md:pt-8 w-full">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-xs md:text-sm space-y-4 md:space-y-0 w-full">
             <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
-              <Link href="/" className="hover:text-gray-800 transition-colors">
+              <Link href="/sitemap" className="hover:text-gray-800 transition-colors">
                 Sitemap
               </Link>
-              <Link href="/privacy" className="hover:text-gray-800 transition-colors">
+              <Link href="/privacypolicy" className="hover:text-gray-800 transition-colors">
                 Privacy Policy
               </Link>
             </div>

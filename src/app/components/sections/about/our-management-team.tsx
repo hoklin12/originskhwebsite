@@ -29,7 +29,7 @@ const TeamSection = React.forwardRef<HTMLElement>((props, ref) => {
   };
 
   return (
-    <section id="" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
+    <section id="team" ref={ref} className="pb-32 bg-white px-8 sm:px-8">
       <div className="w-full">
         {/* Header */}
         <div className="border-t border-gray-300 flex justify-between items-center text-sm mb-12">
